@@ -1,0 +1,14 @@
+
+* {
+    --color-primary: #3F83E9;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding-left: 0px;
+    list-style-type: none;
+}

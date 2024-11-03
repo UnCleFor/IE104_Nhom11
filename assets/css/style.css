@@ -1,0 +1,119 @@
+/* Header */
+    /* Top-header */
+header {
+    background-color: var(--color-primary);
+}
+
+header .top-header {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+header .top-header .left p {
+    color: white;
+}
+
+header .top-header .left p a {
+    color: white;
+    text-decoration: underline;
+}
+
+header .top-header .right {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .top-header .right p {
+    color: white;
+}
+
+header .top-header .right p a {
+    color: white;
+}
+    /* End Top-header */
+    /* Main-header */
+header .main-header .logo {
+    display: flex;
+    justify-content: center;
+}
+
+header .main-header .logo img {
+    width: 100%;
+}
+
+header .main-header .search {
+    padding-left: 20px;
+}
+
+header .main-header .search .search-bar {
+    width: 100%;
+    padding: 15px 15px;
+    border: none;
+    border-radius: 50px;
+}
+
+header .main-header .search .quick-search ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .main-header .search .quick-search ul li a {
+    color: white;
+}
+
+header .main-header .customer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+header .main-header .customer button {
+    margin-left: 10px;
+}
+
+header .main-header .customer .cart{
+    background-color: #1250DC;
+}
+    /* End Main-header */
+/* End Header */
+/* Navigator */
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+nav ul li a {
+    color: black;
+}
+/* End Navigator */
+/* Footer */
+footer li{
+    padding: 5px;
+}
+
+footer .payment ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer .payment ul li{
+    flex: 1 auto;
+}
+
+footer .social-media ul{
+    display: flex;
+}
+
+footer .social-media ul li a img{
+    width: 28px;
+}
+/* End Footer */
+/* Button */
+button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: #377CE6;
+    color: white;
+}
+/* End Button */
