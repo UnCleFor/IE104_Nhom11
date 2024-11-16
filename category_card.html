@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nha thuoc demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="top-header">
+                <div class="row">
+                    <div class="col-xl-9">
+                        <!-- <div class="left">
+                            <p><i class="fa-solid fa-bell"></i> Trung tâm tiêm chủng Long Châu <a href="#">Xem chi
+                                    tiết</a></p>
+                        </div> -->
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="right">
+                            <div class="app">
+                                <p><a href="#"><i class="fa-solid fa-mobile-screen"></i> Tải ứng dụng</a></p>
+                            </div>
+                            <div class="hot-line">
+                                <p><i class="fa-solid fa-phone"></i> Tư vấn ngay: 1800 6928</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="row">
+                    <div class="col-xl-2">
+                        <div class="logo">
+                            <img src="./assets/img/logo.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-7">
+                        <div class="search">
+                            <input class="search-bar" type="text"
+                                placeholder="Tìm tên thuốc, bệnh lý, thực phẩm chức năng...">
+                            <div class="quick-search">
+                                <ul>
+                                    <li><a href="#">Men vi sinh</a></li>
+                                    <li><a href="#">Sữa rửa mặt</a></li>
+                                    <li><a href="#">Thuốc nhỏ mắt</a></li>
+                                    <li><a href="#">Kem chống nắng</a></li>
+                                    <li><a href="#">Dung dịch vệ sinh</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="customer">
+                            <button><i class="fa-solid fa-user"></i> Đăng nhập</button>
+                            <button class="cart"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#">Thực phẩm chức năng</a></li>
+                <li><a href="#">Dược mỹ phẩm</a></li>
+                <li><a href="#">Chăm sóc cá nhân</a></li>
+                <li><a href="#">Thuốc</a></li>
+                <li><a href="#">Tiêm chủng</a></li>
+                <li><a href="#">Bệnh</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--breadcrumb-->
+    <section class="bread-crumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Thực phẩm chức năng</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!--Categories-->
+    <section class="categories">
+        <!--Name of lv1 cata-->
+        <div class="container-sm">
+            <h4>Thực phẩm chức năng</h4>
+            <div class="category-row">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-xl-4">
+                                
+                                    <div class="card-name">
+                                        <img src="./assets/img/categories/vitamin_khoang_chat_level_2.webp" alt="">
+                                        <div class="card-body">
+                                            <h5>Vitamin & Khoáng chất</h5>
+                                            <p>201 sản phẩm</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8">
+                                    
+                                    <div class="card-info">
+                                        <div id="carouselExampleIndicators" class="carousel slide">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <ul>
+                                                        <li>Bổ sung Canxi & Vitamin D</li>
+                                                        <li>Vitamin tổng hợp</li>
+                                                        <li>Dầu cá, Omega 3, DHA</li>
+                                                        <li>Vitamin C các loại</li>
+                                                        <li>Bổ sung sắt</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <ul>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <ul>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-xl-4">
+                                 
+                                    <div class="card-name">
+                                        <img src="./assets/img/categories/vitamin_khoang_chat_level_2.webp" alt="">
+                                        <div class="card-body">
+                                            <h5>Vitamin & Khoáng chất</h5>
+                                            <p>201 sản phẩm</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8">
+                                   
+                                    <div class="card-info">
+                                        <div id="carouselExampleIndicators" class="carousel slide">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <ul>
+                                                        <li>Bổ sung Canxi & Vitamin D</li>
+                                                        <li>Vitamin tổng hợp</li>
+                                                        <li>Dầu cá, Omega 3, DHA</li>
+                                                        <li>Vitamin C các loại</li>
+                                                        <li>Bổ sung sắt</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <ul>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <ul>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-xl-4">
+                               
+                                    <div class="card-name">
+                                        <img src="./assets/img/categories/vitamin_khoang_chat_level_2.webp" alt="">
+                                        <div class="card-body">
+                                            <h5>Vitamin & Khoáng chất</h5>
+                                            <p>201 sản phẩm</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8">
+                                    
+                                    <div class="card-info">
+                                        <div id="carouselExampleIndicators" class="carousel slide">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <ul>
+                                                        <li>Bổ sung Canxi & Vitamin D</li>
+                                                        <li>Vitamin tổng hợp</li>
+                                                        <li>Dầu cá, Omega 3, DHA</li>
+                                                        <li>Vitamin C các loại</li>
+                                                        <li>Bổ sung sắt</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <ul>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <ul>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                        <li>...</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!--Product cards-->
+    <!-- <section class="product-cards">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8">
+                </div>
+                <div class="col-xl-4">
+                    <div class="sort">
+                        <p>Sắp xếp theo</p>
+                        <button>Tăng dần</button>
+                        <button>Giảm dần</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-2">
+                    <div class="card">
+                        <img src=".\assets\img\product\paracetalmol.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title line-clamp">Paracetamol thuốc bổ giảm giá săn sele sập sàn siêu deal
+                                siêu hot sieu sang sieu giau
+                            </h5>
+                            <p class="price"><del>120.000 đ</del></p>
+                            <div class="product-info">
+                                <p class="price">100.000 đ/Hộp</p>
+                                <div class="rate-and-sold">
+                                    <p class="rate"><i class="fa-solid fa-heart"></i>35.1k</p>
+                                    <p class="vertical-line">|</p>
+                                    <p class="sold">Đã bán 6.5k</p>
+                                </div>
+                            </div>
+                            <button>CHỌN MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="card">
+                        <img src=".\assets\img\product\paracetalmol.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title line-clamp">Paracetamol thuốc bổ giảm giá săn sele sập sàn siêu deal
+                                siêu hot sieu sang sieu giau
+                            </h5>
+                            <p class="price"><del style="color:white;">đ</del></p>
+                            <div class="product-info">
+                                <p class="price">100.000 đ/Hộp</p>
+                                <div class="rate-and-sold">
+                                    <p class="rate"><i class="fa-solid fa-heart"></i>35.1k</p>
+                                    <p class="vertical-line">|</p>
+                                    <p class="sold">Đã bán 6.5k</p>
+                                </div>
+                            </div>
+                            <button>CHỌN MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="card">
+                        <img src=".\assets\img\product\paracetalmol.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title line-clamp">Paracetamol thuốc bổ giảm giá săn sele sập sàn siêu deal
+                                siêu hot sieu sang sieu giau
+                            </h5>
+                            <p class="price"><del style="color:white;">đ</del></p>
+                            <div class="product-info">
+                                <p class="price">100.000 đ/Hộp</p>
+                                <div class="rate-and-sold">
+                                    <p class="rate"><i class="fa-solid fa-heart"></i>35.1k</p>
+                                    <p class="vertical-line">|</p>
+                                    <p class="sold">Đã bán 6.5k</p>
+                                </div>
+                            </div>
+                            <button>CHỌN MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="card">
+                        <img src=".\assets\img\product\paracetalmol.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title line-clamp">Paracetamol thuốc bổ giảm giá săn sele sập sàn siêu deal
+                                siêu hot sieu sang sieu giau
+                            </h5>
+                            <p class="price"><del style="color:white;">đ</del></p>
+                            <div class="product-info">
+                                <p class="price">100.000 đ/Hộp</p>
+                                <div class="rate-and-sold">
+                                    <p class="rate"><i class="fa-solid fa-heart"></i>35.1k</p>
+                                    <p class="vertical-line">|</p>
+                                    <p class="sold">Đã bán 6.5k</p>
+                                </div>
+                            </div>
+                            <button>CHỌN MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="card">
+                        <img src=".\assets\img\product\paracetalmol.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title line-clamp">Paracetamol thuốc bổ giảm giá săn sele sập sàn siêu deal
+                                siêu hot sieu sang sieu giau
+                            </h5>
+                            <p class="price"><del style="color:white;">đ</del></p>
+                            <div class="product-info">
+                                <p class="price">100.000 đ/Hộp</p>
+                                <div class="rate-and-sold">
+                                    <p class="rate"><i class="fa-solid fa-heart"></i>35.1k</p>
+                                    <p class="vertical-line">|</p>
+                                    <p class="sold">Đã bán 6.5k</p>
+                                </div>
+                            </div>
+                            <button>CHỌN MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="card">
+                        <img src=".\assets\img\product\paracetalmol.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title line-clamp">Paracetamol thuốc bổ giảm giá săn sele sập sàn siêu deal
+                                siêu hot sieu sang sieu giau
+                            </h5>
+                            <p class="price"><del style="color:white;">đ</del></p>
+                            <div class="product-info">
+                                <p class="price">100.000 đ/Hộp</p>
+                                <div class="rate-and-sold">
+                                    <p class="rate"><i class="fa-solid fa-heart"></i>35.1k</p>
+                                    <p class="vertical-line">|</p>
+                                    <p class="sold">Đã bán 6.5k</p>
+                                </div>
+                            </div>
+                            <button>CHỌN MUA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section> -->
+
+    <!-- <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2">
+                    <h4>VỀ CHÚNG TÔI</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hệ thống cửa hàng</a></li>
+                        <li><a href="#">Giấy phép kinh doanh</a></li>
+                        <li><a href="#">Quy chế hoạt động</a></li>
+                        <li><a href="#">Chính sách đặt cọc</a></li>
+                        <li><a href="#">Chính sách nội dung</a></li>
+                        <li><a href="#">Chính sách đổi trả thuốc</a></li>
+                        <li><a href="#">Chính sách giao hàng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Chính sách thanh toán</a></li>
+                        <li><a href="#">Kiểm tra hóa đơn điện tử</a></li>
+                        <li><a href="#">Chính sách thu thập và xử lý dữ liệu cá nhân</a></li>
+                        <li><a href="#">Chính sách hoàn hủy đổi trả Vắc xin</a></li>
+                        <li><a href="#">Thông tin trung tâm bảo hành máy thiết bị y yế từng hãng</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-2">
+                    <h4>DANH MỤC</h4>
+                    <ul>
+                        <li><a href="#">Thực phẩm chức năng</a></li>
+                        <li><a href="#">Dược mỹ phẩm</a></li>
+                        <li><a href="#">Chăm sóc cá nhân</a></li>
+                        <li><a href="#">Thuốc</a></li>
+                        <li><a href="#">Trang thiết bị y tế</a></li>
+                        <li><a href="#">Đặt thuốc online</a></li>
+                        <li><a href="#">Trung tâm Tiêm chủng</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-2">
+                    <h4>TÌM HIỂU THÊM</h4>
+                    <ul>
+                        <li><a href="#">Góc sức khỏe</a></li>
+                        <li><a href="#">Tra cứu thuốc</a></li>
+                        <li><a href="#">Tra cứu dược chất</a></li>
+                        <li><a href="#">Tra cứu dược liệu</a></li>
+                        <li><a href="#">Bệnh thường gặp</a></li>
+                        <li><a href="#">Bệnh viện</a></li>
+                        <li><a href="#">Đội ngữ chuyên môn</a></li>
+                        <li><a href="#">Hoạt động xã hội</a></li>
+                        <li><a href="#">Tin tức tuyển dụng</a></li>
+                        <li><a href="#">Tin tức sự kiện</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-3">
+                    <h4>TỔNG ĐÀI</h4>
+                    <ul>
+                        <li>Tư vấn mua hàng</li>
+                        <li><a href="#">18006928 (Nhánh 1)</a></li>
+                        <li>Trung tâm Vắc xin</li>
+                        <li><a href="#">18006928 (Nhánh 2)</a></li>
+                        <li>Góp ý, khiếu nại</li>
+                        <li><a href="#">18006928 (Nhánh 3)</a></li>
+                    </ul>
+                    <div class="certification">
+                        <h4>CHỨNG NHẬN BỞI</h4>
+                        <img src="./assets/img/bo_cong_thuong_a8e5750f57.svg" alt="bo_cong_thuong">
+                        <img src="./assets/img/DMCA_1_1f84305343.svg" alt="DMCA">
+                    </div>
+                    <div class="payment">
+                        <h4>HỖ TRỢ THANH TOÁN</h4>
+                        <ul>
+                            <li><a href="#"><img src="./assets/img/momo_ebbd8eb9b0.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/mtc_1ed684ff7c.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/visa_fdc3324c35.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/vnpay_1f73f546c4.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/zalopay_884e503cf9.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/jcb_7655e615ce.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/amex_2610a984a5.svg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3">
+                    <div class="social-media">
+                        <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+                        <ul>
+                            <li><a href="#"><img src="./assets/img/facebook_logo_3152b9bb16.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/Logo_Zalo_979d41d52b.svg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+    <script src="https://kit.fontawesome.com/9ce350b724.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+/* Header */
+/* Top-header */
+header {
+    background-color: var(--color-primary);
+}
+
+header .top-header {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+header .top-header .left p {
+    color: white;
+}
+
+header .top-header .left p a {
+    color: white;
+    text-decoration: underline;
+}
+
+header .top-header .right {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .top-header .right p {
+    color: white;
+}
+
+header .top-header .right p a {
+    color: white;
+}
+
+/* End Top-header */
+/* Main-header */
+header .main-header .logo {
+    display: flex;
+    justify-content: center;
+}
+
+header .main-header .logo img {
+    width: 100%;
+}
+
+header .main-header .search {
+    padding-left: 20px;
+}
+
+header .main-header .search .search-bar {
+    width: 100%;
+    padding: 15px 15px;
+    border: none;
+    border-radius: 50px;
+  
+}
+
+
+header .main-header .search .quick-search ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+header .main-header .search .quick-search ul li a {
+    color: white;
+}
+
+header .main-header .customer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+header .main-header .customer button {
+    margin-left: 10px;
+}
+
+header .main-header .customer .cart {
+    background-color: #004C76;;
+}
+header .main-header .customer button {
+    background-color: transparent ;
+}
+
+/* End Main-header */
+/* End Header */
+/* Navigator */
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: black;
+}
+
+/* End Navigator */
+/* Footer */
+footer li {
+    padding: 5px;
+}
+
+footer .payment ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer .payment ul li {
+    flex: 1 auto;
+}
+
+footer .social-media ul {
+    display: flex;
+}
+
+footer .social-media ul li a img {
+    width: 28px;
+}
+
+/* End Footer */
+/* Button */
+button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: #377CE6;
+    color: white;
+}
+
+/* End Button */
+ /* Category Card */
+
+.grid {
+    display:grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    gap: 10px;
+    place-items: center;
+}
+
+.categories .card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0;
+    display: flex;
+    width: 170px;
+    height: 170px; 
+    
+}
+
+.categories .card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.categories .card-body {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categories .card .card-body h5 {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.categories .card .card-body p {
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 0px;
+    color: grey;
+}
+
+@media (max-width: 576px) {
+    .grid {
+        grid-template-columns: 1fr; /* Chỉ có một cột khi màn hình nhỏ */
+    }
+
+    .categories .card {
+        background-color: white;
+        border-radius: 15px;
+        padding: 10px;
+        width: 100%; /* Thẻ card chiếm hết chiều rộng */
+        height: 70px; /* Chiều cao cố định của card */
+    }
+
+    .categories .card-body {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start; /* Đẩy các item sang trái */
+        align-items: center; /* Căn giữa theo chiều dọc */
+    }
+
+    .categories .card .card-body img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0;
+        margin-right: 10px; /* Khoảng cách giữa ảnh và text */
+    }
+
+    .categories .card .card-body h5 {
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 0px;
+    }
+    
+    .categories .card .card-body p {
+        font-size: 14px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: grey;
+        margin-left: auto; /* Đẩy p sang bên phải */
+    }
+}

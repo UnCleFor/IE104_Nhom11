@@ -1,5 +1,5 @@
 /* Header */
-    /* Top-header */
+/* Top-header */
 header {
     background-color: var(--color-primary);
 }
@@ -31,8 +31,9 @@ header .top-header .right p {
 header .top-header .right p a {
     color: white;
 }
-    /* End Top-header */
-    /* Main-header */
+
+/* End Top-header */
+/* Main-header */
 header .main-header .logo {
     display: flex;
     justify-content: center;
@@ -51,11 +52,15 @@ header .main-header .search .search-bar {
     padding: 15px 15px;
     border: none;
     border-radius: 50px;
+  
 }
+
 
 header .main-header .search .quick-search ul {
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 header .main-header .search .quick-search ul li a {
@@ -72,22 +77,28 @@ header .main-header .customer button {
     margin-left: 10px;
 }
 
-header .main-header .customer .cart{
-    background-color: #1250DC;
+header .main-header .customer .cart {
+    background-color: #004C76;;
 }
-    /* End Main-header */
+header .main-header .customer button {
+    background-color: transparent ;
+}
+
+/* End Main-header */
 /* End Header */
 /* Navigator */
 nav ul {
     display: flex;
     justify-content: space-between;
 }
+
 nav ul li a {
     color: black;
 }
+
 /* End Navigator */
 /* Footer */
-footer li{
+footer li {
     padding: 5px;
 }
 
@@ -96,17 +107,18 @@ footer .payment ul {
     flex-wrap: wrap;
 }
 
-footer .payment ul li{
+footer .payment ul li {
     flex: 1 auto;
 }
 
-footer .social-media ul{
+footer .social-media ul {
     display: flex;
 }
 
-footer .social-media ul li a img{
+footer .social-media ul li a img {
     width: 28px;
 }
+
 /* End Footer */
 /* Button */
 button {
@@ -116,4 +128,196 @@ button {
     background-color: #377CE6;
     color: white;
 }
+
 /* End Button */
+
+/*Product Card*/
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.product-cards .card .card-body .product-info .rate-and-sold {
+    display: flex;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-cards .card .card-body button {
+    display: block;
+    /* Đặt nút thành khối để có thể căn giữa */
+    margin: 8px auto 0;
+    /* Tạo khoảng cách 8px phía trên và căn giữa theo chiều ngang */
+    width: 100%;
+    /* Đặt chiều rộng của nút là 100% của thẻ chứa */
+    padding: 8px 16px;
+}
+
+.price {
+    font-size: 16px;
+    /* Kích thước chữ lớn hơn cho giá */
+    font-weight: bold;
+    /* Đậm chữ để làm nổi bật */
+    color: #377CE6;
+    /* Màu sắc cho giá (có thể thay đổi) */
+    margin: 2px 0;
+    /* Khoảng cách phía trên và dưới */
+}
+
+.rate,
+.sold {
+    margin-bottom: auto;
+
+    font-size: 14px;
+    color: rgb(91, 91, 91);
+    margin: 0 4px;
+}
+
+.fa-heart {
+    color: rgb(91, 91, 91);
+    margin-right: 4px;
+}
+
+.vertical-line {
+    margin-bottom: auto;
+    margin-top: -1px;
+    font-size: 14px;
+    color: rgb(91, 91, 91);
+    margin: none;
+}
+
+del {
+    color: rgb(91, 91, 91);
+}
+
+/*bread-crumb*/
+.breadcrumb {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+
+/* Sort Product */
+.sort {
+    display:flex;
+    gap: 20px;
+    padding: 24px;
+    align-items: center;
+}
+.sort p {
+    margin-bottom: 0;
+}
+/*End Sort Product */
+
+/* Category card */
+
+/* card-name */
+.categories .card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0px;
+ 
+}
+.categories .card .col-xl-4 {
+    /* padding: 0px; */
+    padding-right: 0px;
+}
+.categories .card .card-name {
+    display: grid;
+    justify-items: center;
+    padding: 12px;
+    
+}
+
+.categories .card .card-body {
+    padding: 0px;
+}
+
+.categories .card .card-name img {
+    width: 40px;
+    height: 40px;
+}
+
+.categories .card .card-name .card-body h5 {
+    font-size: 14px;
+    margin-top: 16px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.categories .card .card-name .card-body p {
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: grey;
+}
+/* card-info with carousel*/
+.categories .card .col-xl-8 {
+    padding: 0px;
+}
+.categories .card .card-info {
+    padding: 12px;
+    border-left: 1px solid gainsboro;
+}
+
+/* Thu nhỏ kích thước của các nút điều khiển */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: gainsboro; /* Giữ màu xanh dương */
+  width: 20px; /* Chiều rộng mới */
+  height: 20px; /* Chiều cao mới */
+  background-size: 100% 100%; /* Đảm bảo icon co theo kích thước */
+  border-radius: 50%; /* Tạo hình tròn */
+}
+
+/* Đặt nút điều khiển xuống phía dưới */
+.carousel-control-prev, .carousel-control-next {
+  bottom: 2px; /* Đặt chúng cách mép dưới */
+  top: auto; /* Bỏ canh phía trên */
+  transform: translateY(50%); /* Điều chỉnh vị trí */
+}
+
+/* Thay đổi màu các nút chỉ số (dấu gạch dưới) */ /*không thấy tác dụng*/
+.carousel-indicators button {
+    background-color: black; 
+   
+  }
+  
+  /* Chỉnh màu cho các nút chỉ số khi được chọn */
+  .carousel-indicators .active {
+    background-color: gainsboro; /* Đổi màu cho nút hiện tại */
+  }
+  
+  /* Đặt nút chỉ số xuống dưới */
+  .carousel-indicators {
+    
+    bottom: -25px; /* Đặt các nút xuống phía dưới */
+  }
+  
+  .category-row {
+    padding-bottom: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .categories .row {
+        flex-direction: column; /* Chuyển thành 1 cột */
+    }
+    .categories .card {
+        width: 100%; /* Mỗi card chiếm 100% chiều rộng */
+    }
+}
