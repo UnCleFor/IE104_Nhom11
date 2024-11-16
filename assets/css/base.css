@@ -19,3 +19,7 @@ section {
 header {
     background: linear-gradient(0deg, #008DDC 0%, #0075B6 25%, #005C90 57.5%);
 }
+
+body {
+    background-color: rgb(237, 240, 243);
+}
