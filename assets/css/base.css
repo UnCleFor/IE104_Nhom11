@@ -1,3 +1,8 @@
+:root {
+    --background-color1: #EDF0F3;
+    --background-color2: #FCF3E8;
+}
+
 * {
     font-weight: 500;
 }
@@ -11,14 +16,14 @@ ul {
     list-style-type: none;
 }
 
+i {
+    margin-right: 5px;
+}
+
 section {
-    background-color: rgb(237, 240, 243);
+    padding: 20px;
 }
 
 header {
     background: linear-gradient(0deg, #008DDC 0%, #0075B6 25%, #005C90 57.5%);
-}
-
-body {
-    background-color: rgb(237, 240, 243);
 }
