@@ -154,12 +154,16 @@ nav ul li a {
 /* End Best-sellers */
 
 /* Popular-brands */
-.popular-brands h1 i{
+.popular-brands .items .card:hover {
+    border: 2px solid black;
+}
+
+.popular-brands .items h1 i{
     color: #377CE6;
     margin-right: 10px;
 }
 
-.popular-brands h1 {
+.popular-brands .items h1 {
     margin-bottom: 30px;
 }
 /* End Popular-brand */
