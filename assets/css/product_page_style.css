@@ -190,6 +190,7 @@ button {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 4px;
+    text-align: center;
 }
 
 .categories .card .card-body p {
@@ -302,25 +303,33 @@ button {
     overflow: hidden;
 }
 
+.product-cards .card {
+    display: none;
+}
+.product-cards .activated{
+    display: flex;
+}
 .card-img-top {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.card-title {
-    font-size: 16px;
-}
 
 .product-cards .card .card-body .product-info .rate-and-sold {
     display: flex;
 }
 
-.line-clamp {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+
+.card-title {
+    font-size: 16px;
+    display: -webkit-box;              /* Bật chế độ flex cho line clamp */
+    -webkit-line-clamp: 2;            /* Hiển thị tối đa 2 dòng */
+    -webkit-box-orient: vertical;     /* Đặt hướng cho box */
+    overflow: hidden;                 /* Ẩn phần thừa nếu vượt quá */
+    text-overflow: ellipsis;          /* Thêm dấu "..." nếu nội dung bị cắt */
+    line-height: 1.5;                 /* Khoảng cách giữa các dòng */
+    min-height: calc(1.5em * 2);      /* Đảm bảo chiều cao 2 dòng (1.5em mỗi dòng) */
 }
 
 .product-cards .card .card-body button {
@@ -362,9 +371,12 @@ button {
     margin: none;
 }
 
-del {
+.price del {
     color: rgb(91, 91, 91);
+    min-height: 1em; /* Điều chỉnh chiều cao tối thiểu để giữ dòng trống */
+    display: inline-block; /* Đảm bảo `del` có thể áp dụng chiều cao */
 }
+
 /* Filter and Product Cards */
 .filter-and-product-cards {
     display: grid;
