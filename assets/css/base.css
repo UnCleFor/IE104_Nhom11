@@ -7,6 +7,10 @@
     font-weight: 500;
 }
 
+body {
+    background-color: var(--background-color1);
+}
+
 a {
     text-decoration: none;
 }
@@ -16,8 +20,14 @@ ul {
     list-style-type: none;
 }
 
-
-
+<<<<<<< HEAD
+=======
 header {
     background: linear-gradient(0deg, #008DDC 0%, #0075B6 25%, #005C90 57.5%);
+}
+>>>>>>> 25aa031102d61f35314f71b959edd0aebbabaff3
+
+
+footer {
+    background-color: white;
 }
