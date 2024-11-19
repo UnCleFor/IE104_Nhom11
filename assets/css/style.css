@@ -22,7 +22,7 @@ nav ul li a {
 
 /* Notification */
 .notification {
-
+    padding: 20px;
     background-color: var(background_color);
     justify-content: space-between;
 }
