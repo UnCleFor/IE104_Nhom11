@@ -69,21 +69,25 @@ nav ul li a {
 /* End Best-sellers */
 
 /* Popular-brands */
-.popular-brands {
+.category {
     padding: 20px;
 }
 
-.popular-brands i {
+.category i {
     color: #377CE6;
     margin-right: 10px;
 }
 
-.popular-brands .items .card:hover {
+.category .items .card:hover {
     border: 2px solid black;
 }
 
-.popular-brands .items h1 {
+.category .items h1 {
     margin-bottom: 30px;
+}
+
+.category .bottom-category img {
+    width: 100%;
 }
 /* End Popular-brand */
 
