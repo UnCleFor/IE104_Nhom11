@@ -73,13 +73,33 @@ nav ul li a {
     padding: 20px;
 }
 
+.category h1{
+    margin-bottom: 30px;
+}
+
 .category i {
     color: #377CE6;
     margin-right: 10px;
 }
 
+.category .items .card {
+    font-size: 14px;
+    padding: 20px;
+}
+
 .category .items .card:hover {
     border: 2px solid black;
+}
+
+.category .items .card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category .items .card .card-body p {
+
+    margin-bottom: 0px;
 }
 
 .category .items h1 {
