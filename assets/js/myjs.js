@@ -58,6 +58,110 @@ document.addEventListener("click", function (event) {
     }
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.querySelector('#carouselExampleIndicators');
+    const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
+    const thumbnailsWrapper = document.querySelector('.carousel-thumbnails');
+    const thumbPrev = document.querySelector('#thumbPrev');
+    const thumbNext = document.querySelector('#thumbNext');
+    
+    const maxVisibleThumbnails = 4; // Số lượng thumbnails tối đa hiển thị mỗi lần
+    const totalThumbnails = thumbnails.length; // Tổng số ảnh thumbnail
+    let startIndex = 0; // Vị trí bắt đầu của thumbnails đang hiển thị
+    let activeIndex = 0; // Vị trí của ảnh đang active trên carousel
+    
+    const updateThumbnailVisibility = () => {
+        // Kiểm tra nút Prev
+        if (startIndex === 0) {
+            thumbPrev.classList.add('d-none'); // Ẩn nếu đang ở vị trí đầu tiên
+        } else {
+            thumbPrev.classList.remove('d-none'); // Hiện nếu không ở vị trí đầu tiên
+        }
+    
+        // Kiểm tra nút Next
+        if (startIndex + maxVisibleThumbnails >= totalThumbnails) {
+            thumbNext.classList.add('d-none'); // Ẩn nếu ở vị trí cuối cùng
+        } else {
+            thumbNext.classList.remove('d-none'); // Hiện nếu còn ảnh phía sau
+        }
+    
+        // Dịch chuyển thumbnails (Hiện 4 ảnh mỗi lần)
+        const offset = -startIndex * (60 + 10); // 60px là chiều rộng mỗi ảnh, 10px là khoảng cách giữa các ảnh
+        thumbnailsWrapper.style.transform = `translateX(${offset}px)`;
+    };
+
+    // Cập nhật lại ảnh active cho các thumbnail
+    const updateActiveThumbnail = () => {
+        thumbnails.forEach((thumbnail, index) => {
+            if (index === activeIndex) {
+                thumbnail.classList.add('active-thumbnail');
+            } else {
+                thumbnail.classList.remove('active-thumbnail');
+            }
+        });
+    };
+  
+    // Sự kiện bấm nút Prev
+    thumbPrev.addEventListener('click', (e) => {
+        e.preventDefault(); // Ngừng hành động mặc định của nút Prev
+        if (startIndex > 0) {
+            startIndex -= maxVisibleThumbnails; // Di chuyển 4 ảnh về phía trước
+            activeIndex -= maxVisibleThumbnails; // Di chuyển 4 ảnh về phía trước trong carousel
+            if (startIndex < 0) startIndex = 0; // Đảm bảo không bị tràn quá ảnh đầu tiên
+            updateThumbnailVisibility();
+            
+            // Đặt lại activeIndex thành ảnh đầu tiên của nhóm thumbnail mới
+            activeIndex = startIndex;
+            updateActiveThumbnail();
+            
+            // Chuyển đến ảnh đầu tiên của nhóm thumbnail hiện tại
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            carouselInstance.to(activeIndex); // Chuyển đến slide tương ứng
+        }
+    });
+    
+    // Sự kiện bấm nút Next
+    thumbNext.addEventListener('click', (e) => {
+        e.preventDefault(); // Ngừng hành động mặc định của nút Next
+        if (startIndex + maxVisibleThumbnails < totalThumbnails) {
+            startIndex += maxVisibleThumbnails; // Di chuyển 4 ảnh về phía sau
+            activeIndex += maxVisibleThumbnails; // Di chuyển 4 ảnh tiếp theo trong carousel
+            updateThumbnailVisibility();
+            
+            // Đặt lại activeIndex thành ảnh đầu tiên của nhóm thumbnail mới
+            activeIndex = startIndex;
+            updateActiveThumbnail();
+            
+            // Chuyển đến ảnh đầu tiên của nhóm thumbnail mới
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            carouselInstance.to(activeIndex); // Chuyển đến slide tương ứng
+        }
+    });
+    
+    // Đồng bộ trạng thái thumbnails khi carousel thay đổi slide
+    carousel.addEventListener('slide.bs.carousel', function (e) {
+        activeIndex = parseInt(e.relatedTarget.dataset.bsSlideTo);
+        
+        // Kiểm tra và đặt lại startIndex sao cho luôn bắt đầu từ ảnh đầu tiên của nhóm
+        if (activeIndex % maxVisibleThumbnails === 0 || activeIndex === 0) {
+            startIndex = activeIndex; // Đặt lại startIndex về ảnh đầu tiên của nhóm
+        } else if (activeIndex % maxVisibleThumbnails !== 0 && activeIndex > startIndex + maxVisibleThumbnails - 1) {
+            startIndex = activeIndex - (activeIndex % maxVisibleThumbnails); // Điều chỉnh startIndex về ảnh đầu tiên trong nhóm
+        }
+        
+        // Đặt lại active thumbnail
+        updateActiveThumbnail();
+        updateThumbnailVisibility(); // Cập nhật lại vị trí của các thumbnails
+    });
+  
+    // Khởi tạo trạng thái ban đầu
+    updateThumbnailVisibility();
+    updateActiveThumbnail();
+});
+
+
 // Lặp lại 12 sản phẩm kiểu 1
 
 // document.addEventListener("DOMContentLoaded", () => {

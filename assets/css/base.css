@@ -153,3 +153,50 @@ footer .social-media ul li a img {
     width: 28px;
 }
 /* End Footer */
+
+/* Navigator */
+nav {
+    margin-bottom: 0px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+nav ul li {
+    padding: 5px;
+}
+
+nav ul li a {
+    color: black;
+}
+
+/* End Navigator */
+
+/* Bread Crumb */
+.breadcrumb {
+    margin-bottom: 0;
+    padding: 16px 0 16px 0;
+}
+.breadcrumb-item {
+    font-size: 14px;
+}
+.bread-crumb nav{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+
+/* Button */
+button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: #377CE6;
+    color: white;
+}
+
+/* End Button */

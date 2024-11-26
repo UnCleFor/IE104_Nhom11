@@ -1,0 +1,58 @@
+.thumbnails-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carousel-thumbnails-wrapper {
+    overflow: hidden;
+    width: calc(60px * 4 + 10px * 3); /* Hiển thị tối đa 4 ảnh nhỏ (60px mỗi ảnh + 10px khoảng cách) */
+  }
+  
+  .carousel-thumbnails {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel-thumbnails img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    margin-right: 10px;
+    border: 1px solid gray;
+    border-radius: 10%;
+    object-fit: cover;
+  }
+  
+  .carousel-thumbnails img:last-child {
+    margin-right: 0;
+  }
+  
+  .carousel-thumbnails img.active-thumbnail {
+    /* Viền xanh khi được chọn */
+    border: 2px solid  #377CE6;
+  }
+  #thumbPrev,
+  #thumbNext {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 1px solid gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+      
+  }
+  
+  #thumbPrev.d-none,
+  #thumbNext.d-none {
+    display: none;
+  }
+  
+  #thumbPrev span,
+  #thumbNext span {
+    filter: invert(1); /* Đổi màu biểu tượng */
+  }
+  
