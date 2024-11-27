@@ -54,7 +54,56 @@
                     </div>
                     <div class="col-xl-3">
                         <div class="customer">
-                            <button><i class="fa-solid fa-user"></i> Đăng nhập</button>
+                            <button id="openModalBtn"><i class="fa-solid fa-user"></i> Đăng nhập</button>
+                            <div id="modal" class="modal">
+                                <div class="modal-content">
+                                    <span id="closeModalBtn" class="close">&times;</span>
+                                    <div class="modal-header">
+                                        <h1 class="form-heading">Form đăng nhập</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" id="form-login">
+                                            <div class="form-group">
+                                                <i class="fa-solid fa-phone"></i>
+                                                <input type="text" class="form-input" placeholder=" Số điện thoại">
+                                            </div>
+                                            <div class="form-group">
+                                                <i class="fa-solid fa-key"></i>
+                                                <input type="password" class="form-input" placeholder=" Mật khẩu">
+                                            </div>
+                                            <input type="submit" value="Đăng nhập" class="form-submit">
+                                        </form>
+                                    </div>
+                                    <button id="openChildModalBtn">Chưa có Tài khoản?</button>
+                        
+                                    <!-- Modal Con -->
+                                    <div id="childModal" class="modal">
+                                        <div class="modal-content">
+                                            <span id="closeChildModalBtn" class="close">&times;</span>
+                                            <div class="modal-header">
+                                                <h1 class="form-heading">Form đăng ký</h1>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="" id="form-login">
+                                                    <div class="form-group">
+                                                        <i class="fa-solid fa-phone"></i>
+                                                        <input type="text" class="form-input" placeholder=" Số điện thoại">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <i class="fa-solid fa-key"></i>
+                                                        <input type="password" class="form-input" placeholder=" Mật khẩu">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <i class="fa-solid fa-key"></i>
+                                                        <input type="password" class="form-input" placeholder=" Xác nhận mật khẩu">
+                                                    </div>
+                                                    <input type="submit" value="Đăng ký" class="form-submit">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <button class="cart"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</button>
                         </div>
                     </div>
@@ -735,6 +784,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/9ce350b724.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/form.js"></script>
 </body>
 
 </html>
