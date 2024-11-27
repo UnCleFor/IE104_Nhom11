@@ -1,0 +1,141 @@
+header .main-header .customer button {
+    margin-left: -10px;
+}
+
+/* dropdown cá nhân */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: -25px;
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    color: black;
+}
+
+.dropdown-content img {
+    margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* End dropdown cá nhân */
+
+.qnt_item {
+    float: right;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    left: 38px;
+    bottom: -5px;
+}
+
+/* Order-cont*/
+
+.order-cont {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 270px 230px;
+    gap: 10px;
+    margin: 20px 0 0 30px;
+}
+
+.item-list {  
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin-left: 50px;
+    width: 870px;
+
+}
+
+.item-card {
+    display: flex; 
+    justify-content: space-between;
+    border-top: 1px solid gainsboro;
+    padding: 10px 50px 10px 50px;
+}
+
+.item-list .box:first-child {
+    display: flex; 
+    justify-content: space-between;
+    padding: 10px 50px 0 50px;
+}
+
+.item-list .box:nth-child(2){
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;    
+    padding: 10px 50px 0 50px;
+}
+
+.box2 {
+    border:gainsboro;
+    text-align: left;
+}
+
+.box, .box2 {
+    p:first-child {
+    font-weight: bold;
+}}
+
+.inner-name {
+    color: #5eaa55
+}
+
+.item-card img {
+    margin-right: -100px;
+}
+/* End Order-cont*/
+/* Payment */
+
+.bill {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    padding: 20px 16px 0 16px; 
+    width: 400px;
+    text-align: center;
+    height: 380px;
+}
+
+.price {
+    display: flex; 
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+    font-size: 18px;
+}
+
+.total {
+    padding: 10px;
+    display: flex; 
+    justify-content: space-between;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.total span {
+    color: #008DDC;
+}
+
+.order-btn {
+    width: 250px;
+}
+
+/* End Payment*/
