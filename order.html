@@ -103,17 +103,17 @@
                     placeholder="Tìm theo tên đơn, mã đơn, hoặc tên sản phẩm...">
             </div>
             <ul>
-                <li><a href="#">Tất cả</a></li>
-                <li><a href="#">Đang xử lý</a></li>
-                <li><a href="#">Đang giao</a></li>
-                <li><a href="#">Đã giao</a></li>
-                <li><a href="#">Đã hủy</a></li>
-                <li><a href="#">Trả hàng</a></li>                                   
+                <li><a href="#" class="filter-order" class="active" onClick="tatca(this)">Tất cả</a></li>
+                <li><a href="#" class="filter-order" onClick="other(this)">Đang xử lý</a></li>
+                <li><a href="#" class="filter-order" onClick="other(this)">Đang giao</a></li>
+                <li><a href="#" class="filter-order" onClick="other(this)">Đã giao</a></li>
+                <li><a href="#" class="filter-order" onClick="dahuy(this)">Đã hủy</a></li>
+                <li><a href="#" class="filter-order" onClick="other(this)">Trả hàng</a></li>                                   
             </ul>
             <div class="item-card">
                 <div class="box">
                     <p>Đơn hàng ngày 30/09/2024</p>
-                    <p class="inner-name">Đã giao</p>
+                    <p class="inner-name">Đã hủy</p>
                 </div>
                 <div class="item-info">
                     <div>
@@ -155,7 +155,28 @@
                 <button class="order-btn">Mua lại</button>
             </div>      
             
-
+            <div class="item-card2">
+                <div class="box">
+                    <p>Đơn hàng ngày 03/08/2024</p>
+                    <p class="inner-name">Đã hủy</p>
+                </div>
+                <div class="item-info">
+                    <div>
+                        <img src="assets/img/cart-order/item5.png" alt="">
+                        <p class="inner-name">TINH BỘT NGHỆ HONIMORE 130G</p>
+                        <p class="inner-price">138.000đ</p>
+                        <p>x3 chai</p>                        
+                    </div>
+                    <div>
+                        <a href="#">Xem chi tiết<img src="assets/img/cart-order/back.png"></a>
+                        <div>
+                            <p>Thành tiền:</p>
+                            <p class="inner-price">414.000đ</p>
+                        </div>  
+                    </div>
+                </div>
+                <button class="order-btn">Mua lại</button>
+            </div>
         </div>
     </section>
 
@@ -237,6 +258,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9ce350b724.js" crossorigin="anonymous"></script>
+    <script src="assets/js/cart-order.js"></script>
 </body>
 
 </html>

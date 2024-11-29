@@ -79,11 +79,11 @@ header .main-header .customer button {
     width: 1300px;
 }
 
-.order-cont li:nth-child(1) a {
+/* .order-cont li:nth-child(1) a {
     border-bottom: 1px solid #008DDC;
     border-width: thick;
     padding-bottom: 5px;
-  }
+  } */
 
 .order-cont ul li a{
     font-size: large;
@@ -91,24 +91,31 @@ header .main-header .customer button {
     color:black;    
 }
 
-.item-card {
+.item-card, .item-card2 {
     border: 1px solid #ccc;
     border-radius: 15px;
-    /* margin: 0 95px 0px 50px; */
     text-align: right;
     background-color: white;
+}
+
+.item-card2 {
+    display: none;
 }
 
 .box p:first-child {
     font-weight: bold;
 }
 
-.item-card .box {
+.item-card .box, .item-card2 .box {
     padding: 0 70px 0 70px;
 }
 
 .inner-name {
     color: #5eaa55
+}
+
+.item-card2 .inner-name {
+    color: crimson;
 }
 
 .item-info {
