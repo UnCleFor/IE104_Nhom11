@@ -131,10 +131,20 @@ article {
     border-radius: 10px;
 }
 
+.news .new .topic {
+    background-color: var(--background-color1);
+    border-radius: 30px;
+    width: 200px;
+    text-align: center;
+}
+
 .news .left .new img {
     width: 100%;
     height: auto;
-    background-size: cover;
+}
+
+.news .left .new .topic{
+    margin-top: 20px;
 }
 
 .news .right .new {
