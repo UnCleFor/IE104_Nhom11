@@ -47,43 +47,44 @@ header .main-header .customer button {
 
 /* quay lại giỏ hàng */
 .title {
-    margin: 10px 0 10px 90px;
+    margin: 10px 0 10px 0px;
 }
 
 /* Item List */
 .cart-cont {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 180px 360px 230px;
+    grid-template-rows: 160px 360px 190px;
     gap: 10px;
-    margin: 20px 0 -60px 30px;
 }
 
 .item-list {
     background-color: white;
     border-radius: 15px;
     border: 1px solid #ccc;
-    margin-left: 50px;
     width: 870px;
-    height: 120px;
+    height: 100px;
 }
 
 .item-card {
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px 10px 50px;
+    padding: 25px 50px 10px 50px;
 }
 
 .inner-name {
-    width: 300px;
-    padding: 0 10px 0 10px;
-    margin-top: 10px;
+    width: 350px;
+    margin: 2px 0 0 -40px;
 }
 
 .inner-price {
     margin-top: 10px;
     font-weight: bolder;
+}
+
+.qlt_unit {
+    margin-top: 10px;
 }
 
 /* End Item List*/
@@ -136,7 +137,7 @@ aside {
     border-radius: 15px;
     border: 1px solid #ccc;
     padding: 10px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     width: 870px;
     height: 300px;
 }
@@ -169,7 +170,7 @@ aside {
     background-color: white;
     border-radius: 15px;
     border: 1px solid #ccc;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     width: 870px;
     height: 130px;
 }

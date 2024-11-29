@@ -50,22 +50,23 @@ header .main-header .customer button {
 .order-cont {
     display: grid;
     gap: 10px;
-    margin: 20px 0 0 30px;
+    padding-bottom: 15px;
 }
 
 .order-cont .box {
     display: flex;
     justify-content: space-between;
-    margin: 0 100px 0 50px;
+}
+
+.order-cont .box p {
+    padding-top: 20px;
 }
 
 .order-cont .box .search-bar {
+    width: 50%;
     padding: 15px 15px;
+    border: 1px solid #ccc;
     border-radius: 50px;
-    border-color: #ccc;
-    height: 50px;
-    width: 500px;
-    margin-bottom: 20px;
 }
 
 .order-cont ul {
@@ -74,7 +75,6 @@ header .main-header .customer button {
     background-color: white;
     border-radius: 15px;
     border: 1px solid #ccc;
-    margin-left: 50px;
     padding: 10px 0 10px 0;
     width: 1300px;
 }
@@ -94,7 +94,7 @@ header .main-header .customer button {
 .item-card {
     border: 1px solid #ccc;
     border-radius: 15px;
-    margin: 0 95px 0px 50px;
+    /* margin: 0 95px 0px 50px; */
     text-align: right;
     background-color: white;
 }
@@ -104,7 +104,7 @@ header .main-header .customer button {
 }
 
 .item-card .box {
-    padding: 10px 50px 0 50px;
+    padding: 0 70px 0 70px;
 }
 
 .inner-name {
@@ -116,20 +116,29 @@ header .main-header .customer button {
     border-top: 1px solid gainsboro;
 }
 
-.item-info div:first-child {
+.item-info .inner-name {
+    width: 300px;
+    margin-left: -250px;
+    color: black;
+    text-align: left;
+}
+
+.item-info .inner-price {
+    color: black;
+}
+
+.item-info div {
     display: flex; 
-    justify-content: space-between;
+    justify-content: space-between;    
+}
+
+.item-info div:first-child {
+
     align-items: center;
     padding: 10px 80px 10px 80px;
 }
 
-.item-info div:first-child img {
-    margin-right: -300px;
-}
-
 .item-info div:nth-child(2){
-    display: flex; 
-    justify-content: space-between;
     padding: 0 40px 0 80px;
 }
 
