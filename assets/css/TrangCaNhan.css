@@ -6,6 +6,11 @@
 }
 
 /* Profile Card */
+.profile-info{
+    padding-bottom: 15px;
+    
+}
+
 .profile-info .container {
     width: 80%;
     margin: auto;
@@ -85,6 +90,4 @@ hr{
     transition: 0.3s;
 }
 
-.edit-button button:hover {
-    background-color: #003f7e;
-}
+
