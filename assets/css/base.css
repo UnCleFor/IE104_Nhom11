@@ -136,7 +136,8 @@ nav ul li {
 
 nav ul li a {
     color: black;
-    pointer-events: auto;
+    text-align: center;
+    padding: 9px;
 }
 
 /* End Navigator */
@@ -225,3 +226,47 @@ button {
 }
 
 /* End Button */
+
+/* dropdown Nav */
+nav .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 5px;
+    z-index: 3;
+}
+
+nav .dropdown-content ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav .dropdown-content ul li {
+    width: 100%;
+}
+
+nav .dropdown-content ul li i {
+    margin-right: 5px;
+}
+
+nav .dropdown-content ul li a {
+    color: black;
+    padding: 0px;
+}
+
+nav .dropdown-content ul li:hover {
+    background-color: var(--background-color1);
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+/* End dropdown Nav */
