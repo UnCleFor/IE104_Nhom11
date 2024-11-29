@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.edit-profile{
+    padding-bottom: 15px;
+}
 /* Profile Card Styling */
 .edit-profile .container {
     width: 80%;
@@ -79,9 +81,7 @@
     padding-bottom: 15px;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-}
+
 
 .form-check-label {
     font-size: 14px;
