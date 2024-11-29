@@ -193,7 +193,9 @@ nav ul {
 }
 
 nav ul li {
+    width: 200px;
     padding: 5px;
+    text-align: center;
 }
 
 nav ul li a {
@@ -241,6 +243,9 @@ nav .dropdown-content {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top: 5px;
     z-index: 3;
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
+    padding: 10px;
 }
 
 nav .dropdown-content ul {
