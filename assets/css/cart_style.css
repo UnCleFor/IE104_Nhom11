@@ -56,27 +56,27 @@ header .main-header .customer button {
 
 /* tiếp tục mua sắm */
 .back {
-    margin: 10px 0 0 90px;
+    margin: 10px 0 10px 0;
 }
 
 /* Item List */
 .cart-cont {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    padding-bottom: 15px;
     gap: 10px;
-    margin: 30px 0 0 30px;
 }
 
 .item-list {
     background-color: white;
     border-radius: 15px;
     border: 1px solid #ccc;
-    margin-left: 50px;
     width: 870px;
 }
   
 .checkbox-container {
     padding: 10px 10px 10px 50px;
+    
 }
 
  .checkbox-container label {
@@ -88,9 +88,14 @@ header .main-header .customer button {
     margin: 0 10px 0 -20px;
 }
 
-.item-list .box {
+.checkbox-container .box:first-child{
+    margin-left: 34px;
+}
+
+.checkbox-container div {
     display: inline-block;
-    padding-left: 80px;
+    margin-left: 71px;
+    width:auto;
 }
 
 .item-card {
@@ -114,24 +119,73 @@ input[type="checkbox"] {
 .inner-price {
     margin-top: 10px;
     color: #008DDC;
-}
-
-.quantity {
-    width: 80px;
-    margin-left: 70px;
-    border: 1px solid #ccc;
+    text-align: left;
+    width: 100px;
 }
 
 .del-btn {
-    margin-left: 30px;
     background: none;
 }
 
 .form-select {
-    margin-left: 40px;
+    margin: 0 -10px 0 20px;
+    text-align: left;
+    width: 100px;
 }
 
 /* End Item List*/
+
+/* Quantity Selector */
+
+/* Loại bỏ các nút điều chỉnh mặc định trên tất cả trình duyệt */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.quantity-selector {
+  display: flex;
+  padding: 0px;
+  gap: 10px;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.quantity-selector p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.input-group .btn {
+  border-radius: 50%; /* Bo tròn các nút */
+  width: 30px; /* Đặt chiều rộng cho nút - và + */
+  height: 30px; /* Đặt chiều cao cho nút - và + */
+  padding: 0; /* Loại bỏ padding để nút không bị dãn ra */
+  background-color: #ffffff;
+}
+
+.input-group input {
+  border-radius: 0; /* Bỏ bo tròn cho input */
+  text-align: center; /* Canh giữa nội dung */
+  padding: 0;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  height: 30px;
+}
+
+#quantity {
+  width: 50px; /* Rút ngắn chiều rộng của input còn 50px */
+  text-align: center; /* Canh giữa nội dung */
+  padding: 0; /* Loại bỏ padding nếu có */
+}
+
+/* End of Quantity Selector */
+
 /* Payment */
 
 .bill {

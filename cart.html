@@ -85,7 +85,7 @@
     </nav>
 
     
-    <section>
+    <section class="container">
         <div class="back">
             <a href="#"><img src="assets/img/cart-order/back.png"> Tiếp tục mua sắm</a>
         </div>
@@ -94,9 +94,12 @@
                 <div class="checkbox-container">
                     <input type="checkbox" id="selectAll">
                     <label for="selectAll">Chọn tất cả (3)</label>
-                    <div class="box">Giá thành</div>
-                    <div class="box">Số lượng</div>
-                    <div class="box">Đơn vị</div>
+                    <div>
+                        <div class="box">Giá thành</div>
+                        <div class="box">Số lượng</div>
+                        <div class="box">Đơn vị</div>                           
+                    </div>
+                     
                 </div>
 
                 <div class="item-card">
@@ -104,8 +107,13 @@
                     <img src="assets/img/cart-order/item1.png" alt="">
                     <p class="inner-name">Xịt chống muỗi Remos hương Lavender xua muỗi suốt 10 giờ (70ml)</p>
                     <p class="inner-price">36.000đ</p>
-                    <div>
-                        <input type="number" value="1" min="1" class="quantity">
+                    <div class="quantity-selector">
+                        <div class="input-group" style="max-width: 200px;">
+                            <button class="btn btn-outline-secondary" type="button" id="decrease">-</button>
+                            <input type="number" class="form-control text-center" id="quantity" value="1" min="1"
+                                max="100">
+                            <button class="btn btn-outline-secondary" type="button" id="increase">+</button>
+                        </div>
                     </div>
                     <div>
                         <select class="form-select" aria-label="Default select example">
@@ -121,8 +129,13 @@
                     <img src="assets/img/cart-order/item2.png" alt="">
                     <p class="inner-name">Son dưỡng dầu dừa Bến Tre Cocoon chống khô môi, nứt nẻ do thời tiết (5g)</p>
                     <p class="inner-price">64.000đ</p>
-                    <div>
-                        <input type="number" value="2" min="1" class="quantity">
+                    <div class="quantity-selector">
+                        <div class="input-group" style="max-width: 200px;">
+                            <button class="btn btn-outline-secondary" type="button" id="decrease">-</button>
+                            <input type="number" class="form-control text-center" id="quantity" value="1" min="1"
+                                max="100">
+                            <button class="btn btn-outline-secondary" type="button" id="increase">+</button>
+                        </div>
                     </div>
                     <div>
                         <select class="form-select" aria-label="Default select example">
@@ -138,8 +151,13 @@
                     <img src="assets/img/cart-order/item3.png" alt="">
                     <p class="inner-name">Sữa Ensure Original 237ml Abbott hương vani, bổ sung dinh dưỡng, hỗ trợ tiêu hóa (4 lốc x 6 chai)</p>
                     <p class="inner-price">228.000đ</p>
-                    <div>
-                        <input type="number" value="1" min="1" class="quantity">
+                    <div class="quantity-selector">
+                        <div class="input-group" style="max-width: 200px;">
+                            <button class="btn btn-outline-secondary" type="button" id="decrease">-</button>
+                            <input type="number" class="form-control text-center" id="quantity" value="1" min="1"
+                                max="100">
+                            <button class="btn btn-outline-secondary" type="button" id="increase">+</button>
+                        </div>
                     </div>
                     <div>
                         <select class="form-select" aria-label="Default select example">
@@ -212,6 +230,8 @@
                         <img src="./assets/img/bo_cong_thuong_a8e5750f57.svg" alt="bo_cong_thuong">
                         <img src="./assets/img/DMCA_1_1f84305343.svg" alt="DMCA">
                     </div>
+                </div>
+                <div class="col-xl-3">
                     <div class="payment">
                         <h4>HỖ TRỢ THANH TOÁN</h4>
                         <ul>
@@ -224,8 +244,6 @@
                             <li><a href="#"><img src="./assets/img/amex_2610a984a5.svg" alt=""></a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-xl-3">
                     <div class="social-media">
                         <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
                         <ul>
@@ -236,13 +254,13 @@
                 </div>
             </div>
         </div>
-        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9ce350b724.js" crossorigin="anonymous"></script>
+    <script src="assets/js/cart-order.js"></script>
 </body>
 
 </html>
