@@ -193,13 +193,15 @@ nav ul {
 }
 
 nav ul li {
-    width: 200px;
+    width: 250px;
     padding: 5px;
     text-align: center;
 }
 
 nav ul li a {
     color: black;
+    width: 250px;
+    text-align: center;
 }
 
 /* End Navigator */
@@ -354,7 +356,7 @@ nav .dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
-    width: 200px;
+    width: 250px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top: 5px;
     z-index: 3;
@@ -373,6 +375,10 @@ nav .dropdown-content ul li {
     width: 100%;
 }
 
+nav .dropdown-content ul li:hover {
+    background-color: var(--background-color1);
+}
+
 nav .dropdown-content ul li i {
     margin-right: 5px;
 }
@@ -382,8 +388,9 @@ nav .dropdown-content ul li a {
     padding: 0px;
 }
 
-nav .dropdown-content ul li:hover {
-    background-color: var(--background-color1);
+nav .dropdown-content ul li a img {
+    width: 25px;
+    height: 25px;
 }
 
 nav .dropdown:hover .dropdown-content {
