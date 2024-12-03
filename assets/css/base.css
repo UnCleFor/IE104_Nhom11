@@ -425,3 +425,7 @@ nav .dropdown:hover .dropdown-content {
     display: block;
 }
 /* End dropdown Nav */
+
+.card a {
+    color: black;
+}
