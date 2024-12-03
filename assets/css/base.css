@@ -295,27 +295,27 @@ button {
 /* End Close Btn */
 
 /* Form */
-#form-login{
-    /* max-width: 400px; */
+header #form-login{
+    /* max-width: 400px; */ 
     background: rgba(0, 0, 0, 0);
     flex-grow: 1;
 }
 
-.form-heading{
+header .form-heading{
     font-size: 25px;
     color: black;
     text-align: center;
     width: 100%;
 }
 
-.form-group{
+header .form-group{
     border-bottom: 1px solid black;
     margin-top: 15px;
     margin-bottom: 20px;
     display: flex;
 }
 
-.form-input{
+header .form-input{
     background: transparent;
     border: 0;
     outline: 0;
@@ -323,11 +323,11 @@ button {
     flex-grow: 1;
 }
 
-.form-input::placeholder{
+header .form-input::placeholder{
     color: black;
 }
 
-.form-submit{
+header .form-submit{
     background: transparent;
     /* border: 1px solid black; */
     color: white;
@@ -340,7 +340,7 @@ button {
     cursor: pointer;
 }
 
-input {
+header input {
     border-radius: 20px;
 }
 /* End Form */
