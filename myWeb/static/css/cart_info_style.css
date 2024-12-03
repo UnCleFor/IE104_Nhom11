@@ -1,0 +1,196 @@
+header .main-header .customer button {
+    margin-left: -10px;
+}
+
+/* dropdown cá nhân */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: -25px;
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    color: black;
+}
+
+.dropdown-content img {
+    margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* End dropdown cá nhân */
+
+.qnt_item {
+    float: right;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    left: 38px;
+    bottom: -5px;
+}
+
+/* quay lại giỏ hàng */
+.title {
+    margin: 10px 0 10px 0px;
+}
+
+/* Item List */
+.cart-cont {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 160px 360px 190px;
+    gap: 10px;
+}
+
+.item-list {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    width: 870px;
+    height: 100px;
+}
+
+.item-card {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px 10px 50px;
+}
+
+.inner-name {
+    width: 350px;
+    margin: 2px 0 0 -40px;
+}
+
+.inner-price {
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+.qlt_unit {
+    margin-top: 10px;
+}
+
+/* End Item List*/
+/* Payment */
+
+aside {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    padding: 20px 16px 0 16px;
+    margin-top: 40px;
+    width: 400px;
+    text-align: center;
+    height: 305px;
+    grid-column: 2/3;
+    grid-row: 1/3;
+}
+
+.price {
+    display: flex; 
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+    font-size: 18px;
+}
+
+.total {
+    padding: 10px;
+    display: flex; 
+    justify-content: space-between;
+    border-top: 1px solid gainsboro;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.total span {
+    color: #008DDC;
+}
+
+.cart-btn {
+    width: 250px;
+}
+
+/* End Payment*/
+/* Ship info*/
+
+.ship-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    /* margin-left: 50px; */
+    width: 870px;
+    height: 300px;
+}
+
+.ship-info div {
+    display: grid;
+    grid-column: 1 / span 2;
+}
+
+.fill-in {
+    opacity: 0.5;
+    padding: 10px;
+    margin: 10px;
+}
+
+.fill-in:focus {
+    margin: 10px;
+    border-color: #008DDC;
+}
+
+.fill-in::placeholder {
+    padding: 5px;
+    font-weight: 500;
+}
+
+/* End Ship info*/
+/* Type*/
+
+.type {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    /* margin-left: 50px; */
+    width: 870px;
+    height: 130px;
+}
+
+.type div{
+    align-items: center;
+    padding: 10px 50px 10px 50px;
+}
+
+.type div:nth-child(2) {
+    border-top: 1px solid #ccc;
+}
+
+.type div p {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+input[type="radio"] {
+    margin: 0 10px 0 -20px;
+}
+
+/* End Type*/

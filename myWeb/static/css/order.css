@@ -1,0 +1,165 @@
+header .main-header .customer button {
+    margin-left: -10px;
+}
+
+/* dropdown cá nhân */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: -25px;
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    color: black;
+}
+
+.dropdown-content img {
+    margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* End dropdown cá nhân */
+
+.qnt_item {
+    float: right;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    left: 38px;
+    bottom: -5px;
+}
+
+/* Order Container*/
+
+.order-cont {
+    display: grid;
+    gap: 10px;
+    padding-bottom: 15px;
+}
+
+.order-cont .box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-cont .box p {
+    padding-top: 20px;
+}
+
+.order-cont .box .search-bar {
+    width: 50%;
+    padding: 15px 15px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
+
+.order-cont ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    padding: 10px 0 10px 0;
+    width: 1300px;
+}
+
+/* .order-cont li:nth-child(1) a {
+    border-bottom: 1px solid #008DDC;
+    border-width: thick;
+    padding-bottom: 5px;
+  } */
+
+.order-cont ul li a{
+    font-size: large;
+    font-weight: bold;
+    color:black;    
+}
+
+.item-card, .item-card2 {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    text-align: right;
+    background-color: white;
+}
+
+.item-card2 {
+    display: none;
+}
+
+.box p:first-child {
+    font-weight: bold;
+}
+
+.item-card .box, .item-card2 .box {
+    padding: 0 70px 0 70px;
+}
+
+.inner-name {
+    color: #5eaa55
+}
+
+.item-card2 .inner-name {
+    color: crimson;
+}
+
+.item-info {
+    border-bottom: 1px solid gainsboro;
+    border-top: 1px solid gainsboro;
+}
+
+.item-info .inner-name {
+    width: 300px;
+    margin-left: -250px;
+    color: black;
+    text-align: left;
+}
+
+.item-info .inner-price {
+    color: black;
+}
+
+.item-info div {
+    display: flex; 
+    justify-content: space-between;    
+}
+
+.item-info div:first-child {
+
+    align-items: center;
+    padding: 10px 80px 10px 80px;
+}
+
+.item-info div:nth-child(2){
+    padding: 0 40px 0 80px;
+}
+
+.item-info div:nth-child(2) img {
+    transform: rotate(180deg);
+    margin-left: 10px; 
+}
+
+.inner-price {
+    color: #008DDC;
+    padding-left: 10px;
+}
+
+.order-btn {
+    width: 200px;
+    margin: 10px 80px 10px 0;
+}
