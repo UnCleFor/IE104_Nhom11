@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nha thuoc demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets\css\ctsp_tyle.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="top-header">
+                <div class="row">
+                    <div class="col-xl-9">
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="right">
+                            <div class="app">
+                                <p><a href="#"><i class="fa-solid fa-mobile-screen"></i> Tải ứng dụng</a></p>
+                            </div>
+                            <div class="hot-line">
+                                <p><i class="fa-solid fa-phone"></i> Tư vấn ngay: 1800 6928</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="row">
+                    <div class="col-xl-2">
+                        <div class="logo">
+                            <img src="./assets/img/logo.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-7">
+                        <div class="search">
+                            <input class="search-bar" type="text"
+                                placeholder="Tìm tên thuốc, bệnh lý, thực phẩm chức năng...">
+                            <div class="quick-search">
+                                <ul>
+                                    <li><a href="#">Men vi sinh</a></li>
+                                    <li><a href="#">Sữa rửa mặt</a></li>
+                                    <li><a href="#">Thuốc nhỏ mắt</a></li>
+                                    <li><a href="#">Kem chống nắng</a></li>
+                                    <li><a href="#">Dung dịch vệ sinh</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="customer">
+                            <button><i class="fa-solid fa-user"></i> Đăng nhập</button>
+                            <button class="cart"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li class="dropdown"><a href="./PList_ThucPhamChucNang.html">Thực phẩm chức năng</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt=""> Vitamin & Khoáng chất</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\SinhLyNoiTietTo.png" alt=""> Sinh lý & Nội tiết tố</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\CaiThienTangCuongChucNang.png" alt=""> Cải thiện & Tăng cường chức năng</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\HoTroDieuTri.png" alt=""> Hỗ trợ điều trị</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\HoTroTieuHoa.png" alt=""> Hỗ trợ tiêu hóa</a></li>
+                            <li><a href="#"><img src="./assets/img/categories/ThucPhamChucNang/ThanKinhNao.png" alt=""> Thần kinh não</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\HoTroLamDep.png" alt=""> Hỗ trợ làm đẹp</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\SucKhoeTimMach.png" alt=""> Sức khỏe tim mạch</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\DinhDuong.png" alt=""> Dinh dưỡng</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="./PList_DuocMyPham.html">Dược mỹ phẩm</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#"><img src="./assets\img\categories\DuocMyPham\ChamSocDaMat.png" alt=""> Chăm sóc da mặt</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\DuocMyPham\ChamSocCoThe.png" alt=""> Chăm sóc cơ thể</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\DuocMyPham\GiaiPhapLanDa.png" alt=""> Giải pháp làn da</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\DuocMyPham\ChamSocToc_DaDau.png" alt=""> Chăm sóc tóc - da đầu</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\DuocMyPham\MyPhamTrangDiem.png" alt=""> Mỹ phẩm trang điểm</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\DuocMyPham\ChamSocDaVungMat.png" alt=""> Chăm sóc da vùng mắt</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\DuocMyPham\SanPhamTuThienNhien.png" alt=""> Sản phẩm từ thiên nhiên</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="./PList_ChamSocCaNhan.html">Chăm sóc cá nhân</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#"><img src="./assets\img\categories\ChamSocCaNhan\HoTroTinhDuc.png" alt=""> Hỗ trợ tình dục</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ChamSocCaNhan\ThucPham_DoUong.png" alt=""> Thực phẩm - Đồ uống</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ChamSocCaNhan\VeSinhCaNhan.png" alt=""> Vệ sinh cá nhân</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ChamSocCaNhan\ChamSocRangMieng.png" alt=""> Chăm sóc răng miệng</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ChamSocCaNhan\DoDungGiaDinh.png" alt=""> Đồ dùng gia đình</a></li>
+                            <li><a href="#"><img src="./assets/img/categories/ThucPhamChucNang/ThanKinhNao.png" alt=""> Hàng tổng hợp</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\HoTroLamDep.png" alt=""> Tinh dầu các loại</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThucPhamChucNang\SucKhoeTimMach.png" alt=""> Thiết bị làm đẹp</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="./PList_Thuoc.html">Thuốc</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#"><img src="./assets\img\categories\Thuoc\ThuocKhongKeDon.png" alt=""> Thuốc không kê đơn</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\Thuoc\ThuocKeDon.png" alt=""> Thuốc kê đơn</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="./PList_ThietBiYTe.html">Thiết bị y tế</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#"><img src="./assets\img\categories\ThietBiYTe\DungCuYTe.png" alt=""> Dụng cụ y tế</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThietBiYTe\DungCuTheoDoi.png" alt=""> Dụng cụ theo dõi</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThietBiYTe\DungCuSoCuu.png" alt=""> Dụng cụ sơ cứu</a></li>
+                            <li><a href="#"><img src="./assets\img\categories\ThietBiYTe\KhauTrang.png" alt=""> Khẩu trang</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="./TruyenThong.html">Truyền thông</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="bread-crumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="TrangChu.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Tên phân loại lv1</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tên phân loại lv2</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="box">
+                <div class="col-sm-5">
+                    <div id="carouselExampleIndicators" class="carousel slide">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-slide-to="0">
+                                <img src="./assets\img\product\golex\golex_1.webp" class="d-block w-100" alt="Slide 1">
+                            </div>
+                            <div class="carousel-item" data-bs-slide-to="1">
+                                <img src="./assets\img\product\golex\golex_2.webp" class="d-block w-100" alt="Slide 2">
+                            </div>
+                            <div class="carousel-item" data-bs-slide-to="2">
+                                <img src="./assets\img\product\golex\golex_3.webp" class="d-block w-100" alt="Slide 3">
+                            </div>
+                            <div class="carousel-item" data-bs-slide-to="3">
+                                <img src="./assets\img\product\golex\golex_4.webp" class="d-block w-100" alt="Slide 4">
+                            </div>
+                            <div class="carousel-item" data-bs-slide-to="4">
+                                <img src="./assets/img/product/golex/golex_5.webp" class="d-block w-100" alt="Slide 5">
+                            </div>
+                            <div class="carousel-item" data-bs-slide-to="5">
+                                <img src="./assets\img\product\golex\golex_6.webp" class="d-block w-100" alt="Slide 6">
+                            </div>
+                            <div class="carousel-item" data-bs-slide-to="6">
+                                <img src="./assets\img\product\golex\golex_7.jpg" class="d-block w-100" alt="Slide 7">
+                            </div>
+                            <div class="carousel-item" data-bs-slide-to="7">
+                                <img src="./assets\img\product\golex\golex_8.webp" class="d-block w-100" alt="Slide 8">
+                            </div>
+                            <div class="carousel-item" data-bs-slide-to="8">
+                                <img src="./assets\img\product\golex\golex_9.webp" class="d-block w-100" alt="Slide 9">
+                            </div>
+                        </div>
+
+                        <!-- Thumbnails navigation with scrolling -->
+                        <div class="thumbnails-container d-flex align-items-center justify-content-center mt-3">
+                            <button id="thumbPrev" class="btn btn-outline-primary rounded-circle d-none">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </button>
+
+                            <div class="carousel-thumbnails-wrapper overflow-hidden mx-2">
+                                <div class="carousel-thumbnails d-flex">
+                                    <img src="./assets\img\product\golex\golex_1.webp"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                        class="active-thumbnail" alt="Thumbnail 1">
+                                    <img src="./assets\img\product\golex\golex_2.webp"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                        alt="Thumbnail 2">
+                                    <img src="./assets\img\product\golex\golex_3.webp"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                        alt="Thumbnail 3">
+                                    <img src="./assets\img\product\golex\golex_4.webp"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                                        alt="Thumbnail 4">
+                                    <img src="./assets\img\product\golex\golex_5.webp"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                                        alt="Thumbnail 5">
+                                    <img src="./assets\img\product\golex\golex_6.webp"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                                        alt="Thumbnail 6">
+                                    <img src="./assets\img\product\golex\golex_7.jpg"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
+                                        alt="Thumbnail 7">
+                                    <img src="./assets\img\product\golex\golex_8.webp"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"
+                                        alt="Thumbnail 8">
+                                    <img src="./assets\img\product\golex\golex_9.webp"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8"
+                                        alt="Thumbnail 9">
+                                </div>
+                            </div>
+
+                            <button id="thumbNext" class="btn btn-outline-primary rounded-circle">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-like">
+                        <div class="quantity-selector">
+                            <p>Chọn số lượng:</p>
+                            <div class="input-group" style="max-width: 200px;">
+                              <button class="btn btn-outline-secondary decrease" type="button">-</button>
+                              <input type="number" class="form-control text-center quantity" value="1" min="1" max="100">
+                              <button class="btn btn-outline-secondary increase" type="button">+</button>
+                            </div>
+                          </div>
+
+                        <div class="like-button">
+                            <p>Thích: </p>
+                            <button id="likeButton" class="btn-like">
+                                <i id="likeIcon" class="fa-regular fa-heart"></i> <!-- Trái tim trống ban đầu -->
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="addtocart-buy">
+                        <button class="addtocart">Thêm vào giỏ hàng</button>
+                        <button class="buy">Mua ngay</button>
+                    </div>
+                    <hr>
+                    <div class="quality">
+                        <div class="quality-box">
+                            <img src="./assets\img\ChiTietSanPham\quality 1.png" alt="">
+                            <p>Chất lượng cao</p>
+                        </div>
+                        <div class="quality-box">
+                            <img src="./assets\img\ChiTietSanPham\commercial 1.png" alt="">
+                            <p>Miễn phí đổi trả</p>
+                        </div>
+                        <div class="quality-box">
+                            <img src="./assets\img\ChiTietSanPham\fast-delivery 1.png" alt="">
+                            <p>Giao hàng siêu tốc</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-7">
+                    <h1>Viên uống Golex Ocavill hỗ trợ chống lại sự phình to của tuyến tiền liệt, cải thiện các rối loạn
+                        tiểu tiện (30 viên)</h1>
+                    <p class="price"><del>120.000 đ</del></p>
+                    <div class="product-info">
+                        <p class="price">100.000 đ/Hộp</p>
+                        <div class="rate-and-sold">
+                            <p class="rate"><i class="fa-solid fa-heart"></i>35.1k</p>
+                            <p class="vertical-line">|</p>
+                            <p class="sold">Đã bán 6.5k</p>
+                        </div>
+                    </div>
+
+                    <div class="overall">
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Đơn vị tính</h3>
+                            <p>Hộp</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Danh mục</h3>
+                            <p>Thực phẩm chức năng, Hỗ trợ điều trị</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Mô tả ngắn</h3>
+                            <p>Golex hỗ trợ chống lại sự phình to của tuyến tiền liệt, cải thiện các rối loạn tiểu tiện
+                                ở bệnh nhân phì đại tiền liệt tuyến: Tiểu đêm, tiểu buốt, tiểu không hết, tiểu nhiều
+                                lần.</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Thành phần</h3>
+                            <p>Chiết xuất Cây cọ lùn (Saw Palmetto), Hạt bí ngô, Tầm ma, Kẽm, Lycopene, Vitamin E,
+                                Vitamin B6</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Đối tượng sử dụng</h3>
+                            <p>Người trên 18 tuổi</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Nước sản xuất</h3>
+                            <p>Anh</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Thương hiệu</h3>
+                            <p>THE OXFORD HEALTH COMPANY LTD</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Xuất xứ thương hiệu</h3>
+                            <p>Anh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+
+            <div class="box">
+                <div class="padding">
+                    <div class="overall">
+                        <div class="overall-item">
+                            <h3>Chi tiết thành phần</h3>
+                            <table>
+                                <tr>
+                                    <th>Thông tin thành phần</td>
+                                    <th>Hàm lượng</td>
+                                </tr>
+                                <tr>
+                                    <td>Chiết xuất Cây cọ lùn (Saw Palmetto)</td>
+                                    <td>650mg</td>
+                                </tr>
+                                <tr>
+                                    <td>Hạt bí ngô</td>
+                                    <td>650mg</td>
+                                </tr>
+                                <tr>
+                                    <td>Tầm ma</td>
+                                    <td>650mg</td>
+                                </tr>
+                                <tr>
+                                    <td>Kẽm</td>
+                                    <td>650mg</td>
+                                </tr>
+                                <tr>
+                                    <td>Lycopene</td>
+                                    <td>650mg</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamin E</td>
+                                    <td>650mg</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamin B6</td>
+                                    <td>650mg</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Công dụng</h3>
+                            <p>Golex hỗ trợ chống lại sự phình to của tuyến tiền liệt, cải thiện các rối loạn tiểu tiện
+                                ở bệnh nhân phì đại tiền liệt tuyến: Tiểu đêm, tiểu buốt, tiểu không hết, tiểu nhiều
+                                lần.<br>
+                                Hạn chế sự phát triển của u xơ tiền liệt tuyến lành tính hoặc sử dụng để hỗ trợ sau phẫu
+                                thuật.</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Cách dùng</h3>
+                            <p>Uống 2 viên mỗi ngày, uống sau bữa ăn.</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Tác dụng phụ</h3>
+                            <p>Chưa có thông tin về tác dụng phụ của sản phẩm.</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Lưu ý</h3>
+                            <p>Không dùng cho người mẫn cảm với bất kỳ thành phần nào của sản phẩm.
+                                <br>Người đang dùng thuốc, phụ nữ mang thai hoặc cho con bú, hỏi ý kiến thầy thuốc trước
+                                khi dùng.
+                                <br>Thực phẩm bảo vệ sức khỏe, không thể thay thế chế độ ăn uống đa dạng và cân bằng.
+                                <br>Không dùng cho người dưới 18 tuổi.
+                                <br>Ngừng sử dụng và hỏi ý kiến bác sĩ nếu có phản ứng bất thường.
+                                <br>Không dùng quá liều khuyến cáo mỗi ngày.
+                                <br>Sản phẩm này không nhằm mục đích chữa bệnh, ngăn ngừa, chẩn đoán bệnh nào.
+                                <br>Đọc kỹ hướng dẫn sử dụng trước khi dùng.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Bảo quản</h3>
+                            <p>Bảo quản nơi khô ráo, thoáng mát, nhiệt độ không quá 30 độ C, tránh ánh sáng.
+                                <br> Để xa tầm tay trẻ em.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container">
+            <div class="comment">
+                <!-- Tiêu đề phần đánh giá -->
+                <div class="header">
+                    <h4>Đánh giá sản phẩm</h4>
+                    <p>(10)</p>
+                </div>
+                <hr>
+                <!-- Form viết đánh giá -->
+                <form class="mb-4">
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Viết đánh giá của bạn:</label>
+                        <textarea class="form-control" id="comment" rows="3"
+                            placeholder="Viết nhận xét tại đây..."></textarea>
+                    </div>
+                    <button>Gửi đánh giá</button>
+                </form>
+                <hr>
+                <!-- Danh sách đánh giá -->
+                <div class="review-list mb-4">
+                    <!-- Bình luận đầu tiên -->
+                    <div class="d-flex box-comment ">
+                        <img src="assets\img\ChiTietSanPham\avatar.png" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Nguyễn Thanh Nhã</h6>
+                            <p class="mb-1">Phụ nữ cho con bú có uống được không ạ.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">15 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bình luận trả lời -->
+                    <div class="reply d-flex box-comment ">
+                        <img src="assets\img\ChiTietSanPham\avatarAdmin.png" alt="User Avatar"
+                            class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Trạm Thuốc</h6>
+                            <p class="mb-1">Phụ nữ cho con bú không dùng được ạ.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">15 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reply d-flex box-comment">
+                        <img src="assets\img\ChiTietSanPham\avatar.png" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Nguyễn Thanh Nhã</h6>
+                            <p class="mb-1">Cám ơn nhà thuốc ạ.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">15 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bình luận thứ hai -->
+                    <div class="d-flex box-comment ">
+                        <img src="assets\img\ChiTietSanPham\avatar.png" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Lê Thái Khánh Ngân</h6>
+                            <p class="mb-1">Bao giờ có giảm giá thế shop.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">11 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex box-comment ">
+                        <img src="assets\img\ChiTietSanPham\avatar.png" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Phan Võ Mỹ Huyền</h6>
+                            <p class="mb-1">Thuốc có gây đau bao tử không ạ.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">3 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Thêm nhiều bình luận -->
+                    <button class="btn btn-link p-0 mt-3">Xem thêm 5 bình luận</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2">
+                    <h4>VỀ CHÚNG TÔI</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Quy chế hoạt động</a></li>
+                        <li><a href="#">Chính sách nội dung</a></li>
+                        <li><a href="#">Chính sách đổi trả thuốc</a></li>
+                        <li><a href="#">Chính sách giao hàng</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-2">
+                    <h4>DANH MỤC</h4>
+                    <ul>
+                        <li><a href="#">Thực phẩm chức năng</a></li>
+                        <li><a href="#">Dược mỹ phẩm</a></li>
+                        <li><a href="#">Chăm sóc cá nhân</a></li>
+                        <li><a href="#">Thuốc</a></li>
+                        <li><a href="#">Trang thiết bị y tế</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-2">
+                    <h4>TÌM HIỂU THÊM</h4>
+                    <ul>
+                        <li><a href="#">Góc sức khỏe</a></li>
+                        <li><a href="#">Tra cứu thuốc</a></li>
+                        <li><a href="#">Bệnh thường gặp</a></li>
+                        <li><a href="#">Tin tức sự kiện</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-3">
+                    <h4>TỔNG ĐÀI</h4>
+                    <ul>
+                        <li>Tư vấn mua hàng</li>
+                        <li><a href="#">18006928 (Nhánh 1)</a></li>
+                        <li>Góp ý, khiếu nại</li>
+                        <li><a href="#">18006928 (Nhánh 3)</a></li>
+                    </ul>
+                    <div class="certification">
+                        <h4>CHỨNG NHẬN BỞI</h4>
+                        <img src="./assets/img/bo_cong_thuong_a8e5750f57.svg" alt="bo_cong_thuong">
+                        <img src="./assets/img/DMCA_1_1f84305343.svg" alt="DMCA">
+                    </div>
+                </div>
+                <div class="col-xl-3">
+                    <div class="payment">
+                        <h4>HỖ TRỢ THANH TOÁN</h4>
+                        <ul>
+                            <li><a href="#"><img src="./assets/img/momo_ebbd8eb9b0.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/mtc_1ed684ff7c.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/visa_fdc3324c35.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/vnpay_1f73f546c4.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/zalopay_884e503cf9.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/jcb_7655e615ce.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/amex_2610a984a5.svg" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="social-media">
+                        <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+                        <ul>
+                            <li><a href="#"><img src="./assets/img/facebook_logo_3152b9bb16.svg" alt=""></a></li>
+                            <li><a href="#"><img src="./assets/img/Logo_Zalo_979d41d52b.svg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+    <script src="https://kit.fontawesome.com/9ce350b724.js" crossorigin="anonymous"></script>
+    <script src="./assets\js\myjs.js"></script>
+
+</body>
+
+</html>
