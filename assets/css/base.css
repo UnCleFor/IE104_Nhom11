@@ -154,58 +154,6 @@ footer .social-media ul li a img {
 }
 /* End Footer */
 
-/* Navigator */
-/* nav {
-    background-color: white;
-    margin-bottom: 0px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0px;
-}
-
-nav ul li {
-    width: 250px;
-    padding: 5px;
-    text-align: center;
-}
-
-nav ul li a {
-    color: black;
-    width: 250px;
-} */
-
-/* End Navigator */
-
-/* Navigator */
-/* nav {
-    background-color: white;
-    margin-bottom: 0px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0px;
-}
-
-nav ul li {
-    padding: 5px;
-    width: 250px;
-}
-
-nav ul li a {
-    color: black;
-    text-align: center;
-    padding: 9px;
-    width: 100%;
-} */
-/* End Navigator */
-
 /* Bread Crumb */
 .breadcrumb {
     margin-bottom: 0;
@@ -348,7 +296,6 @@ header input {
 
 
 /* Navigator */
-
 nav {
     background-color: white;
     margin-bottom: 0px;
