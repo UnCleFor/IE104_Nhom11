@@ -324,11 +324,9 @@ button {
 }
 
 .product-cards .card {
-    display: none;
+    display: grid;
 }
-.product-cards .activated{
-    display: flex;
-}
+
 .card-img-top {
     width: 100%;
     height: 100%;
@@ -446,7 +444,7 @@ button {
 /* Product List */
 .product-cards .grid {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
     width: 957px;
 }
@@ -470,9 +468,21 @@ button {
 }
 
 /* Pagination */
-.pagination {
-    margin: 16px 0;
-    justify-content: center;
+.PhanTrang nav {
+    background: transparent;
+    box-shadow: none;
 }
 
+.PhanTrang nav ul li {
+    width: 40px;  /* Thu nhỏ kích thước các nút phân trang */
+    padding: 0px; /* Thu gọn padding */
+    text-align: center;
+    font-size: 12px; /* Giảm kích thước font chữ */
+}
 
+.PhanTrang ul li a {
+    color: black;
+    width: 100%;
+    font-size: 12px; /* Giảm kích thước font chữ của liên kết */
+    padding: 6px 10px;
+}
