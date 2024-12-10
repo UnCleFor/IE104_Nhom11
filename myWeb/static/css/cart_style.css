@@ -3,7 +3,7 @@ header .main-header .customer button {
 }
 
 /* dropdown cá nhân */
-.dropdown {
+.customer .dropdown {
     position: relative;
     display: inline-block;
 }
@@ -21,22 +21,22 @@ header .main-header .customer button {
     padding: 10px;
 }
 
-.dropdown-content ul li:hover {
+.customer .dropdown-content ul li:hover {
     background-color: var(--background-color1);
 }
 
-.dropdown-content a {
+.customer .dropdown-content a {
     display: flex;
     align-items: center;
     padding: 10px;
     color: black;
 }
 
-.dropdown-content img {
+.customer .dropdown-content img {
     margin-right: 10px;
 }
 
-.dropdown:hover .dropdown-content {
+.customer .dropdown:hover .dropdown-content {
     display: block;
 }
 
@@ -51,14 +51,7 @@ header .main-header .customer button {
     bottom: -5px;
 }
 
-.qnt_item {
-    float: right;
-    position: relative;
-    height: 15px;
-    width: 15px;
-    left: 38px;
-    bottom: -5px;
-}
+
 
 /* tiếp tục mua sắm */
 .back {

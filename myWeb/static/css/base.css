@@ -430,3 +430,57 @@ nav .dropdown:hover .dropdown-content {
     color: black;
 }
 
+header .main-header .customer button {
+    margin-left: -10px;
+}
+
+/* dropdown cá nhân */
+.customer .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.customer .dropdown-content {
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+    background-color: white;
+    width: 210px; 
+    height: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: -25px;
+    z-index: 3;
+    padding: 10px;
+}
+
+.customer .dropdown-content ul li:hover {
+    background-color: var(--background-color1);
+}
+
+.customer .dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: black;
+}
+
+.customer .dropdown-content img {
+    margin-right: 10px;
+}
+
+.customer .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* End dropdown cá nhân */
+
+.qnt_item {
+    float: right;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    left: 38px;
+    bottom: -5px;
+}
+
+

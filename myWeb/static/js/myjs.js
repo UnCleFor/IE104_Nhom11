@@ -304,3 +304,4 @@ likeButton.addEventListener("click", () => {
 //     `;
 //     productGrid.appendChild(card);
 // });
+

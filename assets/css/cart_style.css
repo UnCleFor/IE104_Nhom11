@@ -51,14 +51,7 @@ header .main-header .customer button {
     bottom: -5px;
 }
 
-.qnt_item {
-    float: right;
-    position: relative;
-    height: 15px;
-    width: 15px;
-    left: 38px;
-    bottom: -5px;
-}
+
 
 /* tiếp tục mua sắm */
 .back {

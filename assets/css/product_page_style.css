@@ -401,7 +401,7 @@ button {
 .filter-and-product-cards {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    gap: 20px;
+    gap: 10px;
     
 }
 @media (max-width: 768px) {

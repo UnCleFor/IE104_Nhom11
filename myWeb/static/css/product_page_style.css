@@ -1,172 +1,4 @@
-/* Header */
-/* Top-header */
-header {
-    background-color: var(--color-primary);
-}
 
-header .top-header {
-    padding-top: 5px;
-    padding-bottom: 10px;
-    font-size: 14px;
-}
-
-header .top-header .left p {
-    color: white;
-}
-
-header .top-header .left p a {
-    color: white;
-    text-decoration: underline;
-}
-
-header .top-header .right {
-    display: flex;
-    justify-content: space-between;
-}
-
-header .top-header .right p {
-    color: white;
-}
-
-header .top-header .right p a {
-    color: white;
-}
-
-/* End Top-header */
-/* Main-header */
-header .main-header .logo {
-    display: flex;
-    justify-content: center;
-}
-
-header .main-header .logo img {
-    width: 100%;
-}
-
-header .main-header .search {
-    padding-left: 20px;
-}
-
-header .main-header .search .search-bar {
-    width: 100%;
-    padding: 15px 15px;
-    border: none;
-    border-radius: 50px;
-  
-}
-
-header .main-header .search .quick-search ul {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-    margin-bottom: 20px;
-}
-
-header .main-header .search .quick-search ul li a {
-    color: white;
-}
-
-header .main-header .customer {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 10px;
-}
-
-header .main-header .customer button {
-    margin-left: 10px;
-}
-
-header .main-header .customer .cart {
-    background-color: #004C76;
-}
-header .main-header .customer button {
-    background-color: transparent ;
-}
-
-/* End Main-header */
-/* End Header */
-
-/* Navigator */
-nav {
-    margin-bottom: 0px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0px;
-}
-
-nav ul li {
-    padding: 5px;
-}
-
-nav ul li a {
-    color: black;
-}
-
-/* End Navigator */
-/* Footer */
-footer {
-    padding-top: 30px;
-    position: relative;
-}
-
-footer::before {
-    content: "";
-    background: linear-gradient(0deg, #008DDC 0%, #0075B6 25%, #005C90 57.5%);
-    width: 100%;
-    height: 20px;
-    top: 0;
-    position: absolute;
-}
-
-footer li {
-    padding: 5px;
-}
-
-footer .payment ul {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-footer .payment ul li {
-    flex: 1 auto;
-}
-
-footer .social-media ul {
-    display: flex;
-}
-
-footer .social-media ul li a img {
-    width: 28px;
-}
-/* End Footer */
-
-/* Button */
-button {
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: none;
-    background-color: #377CE6;
-    color: white;
-}
-
-/* End Button */
-
-/* Bread Crumb */
-.breadcrumb {
-    margin-bottom: 0;
-    padding: 16px 0 16px 0;
-}
-.breadcrumb-item {
-    font-size: 14px;
-}
-.bread-crumb nav{
-    background-color: transparent;
-    box-shadow: none;
-}
  /* Category Card */
 
 .categories .grid {
@@ -399,7 +231,7 @@ button {
 .filter-and-product-cards {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    gap: 20px;
+    gap: 10px;
     
 }
 @media (max-width: 768px) {
@@ -446,7 +278,7 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
-    width: 957px;
+    width: auto;
 }
 @media (max-width: 768px) {
     .product-cards .grid {
@@ -483,6 +315,33 @@ button {
 .PhanTrang ul li a {
     color: black;
     width: 100%;
+    height: 40px;
     font-size: 12px; /* Giảm kích thước font chữ của liên kết */
-    padding: 6px 10px;
+    padding: 10px;
+    margin-bottom: 5px;
 }
+
+
+
+/* Styles for sorting buttons */
+.sort button {
+    background-color: #fff;
+    border: 1px solid #007bff; /* Border color */
+    color: #007bff; /* Text color */
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sort button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Styles for sorting buttons when clicked */
+.sort button.clicked {
+    background-color: #fff;
+    color: #007bff;
+    border-color: #007bff;
+}
+
