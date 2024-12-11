@@ -173,6 +173,38 @@ def TruyenThong(request):
     context = {}
     return render(request,'TruyenThong.html',context)
 
+
 def TrangChu(request):
-    context = {}
-    return render(request,'TrangChu.html',context)
+    # Lấy 12 sản phẩm bán chạy nhất (sắp xếp theo số lượng bán giảm dần)
+    best_sellers = Product.objects.all().order_by('-prod_sold')[:12]
+    
+    # Lấy sản phẩm và gắn URL của ảnh avatar vào từng sản phẩm
+    for product in best_sellers:
+        avatar = Product_Image.objects.filter(prod_name=product, is_avatar=True).first()
+        product.avatar_url = avatar.ImageURL if avatar else None
+    
+     # Định dạng giá
+        product.prod_price_formatted = "{:,.0f}".format(product.prod_price)
+
+        # Định dạng số đã bán và số lượng đánh giá
+        if product.prod_sold > 999:
+            product.prod_sold_formatted = "{:.1f}k".format(product.prod_sold / 1000)
+        else:
+            product.prod_sold_formatted = product.prod_sold
+
+        if product.prod_num_rating > 999:
+            product.prod_num_rating_formatted = "{:.1f}k".format(product.prod_num_rating / 1000)
+        else:
+            product.prod_num_rating_formatted = product.prod_num_rating
+
+        # Định dạng giá giảm
+        if product.prod_discount > 0:
+            product.prod_discount_formatted = "{:,.0f}".format(product.prod_discount)
+        else:
+            product.prod_discount_formatted = ''
+    
+    context = {
+        'page_obj': best_sellers,
+        
+    }
+    return render(request, 'TrangChu.html', context)

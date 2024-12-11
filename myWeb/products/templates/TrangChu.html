@@ -23,26 +23,34 @@
     <div class="container">
         <h1><i class="fa-regular fa-circle-check"></i>Sản phẩm bán chạy</h1>
         <div class="items">
-            
-            <div class="card">
-                <img src="{% static 'img/product/paracetalmol.jpg' %}" class="card-img-top" alt="">
+            {% for product in page_obj %}
+            <div class="card" data-price="{{ product.prod_price }}">
+                <a href="#">
+                    {% if product.avatar_url %}
+                        <img src="{{ product.avatar_url }}" alt="{{ product.prod_name }} avatar" class="card-img-top">
+                    {% else %}
+                        <img src="/static/default-avatar.jpg" alt="Default avatar" class="card-img">
+                    {% endif %}
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title line-clamp">Paracetamol thuốc bổ giảm giá săn sele sập sàn siêu deal
-                        siêu hot siêu sang siêu giàu
-                    </h5>
-                    <p class="price"><del>120.000 đ</del></p>
+                    <a href="#" class="card-title-link">
+                        <h5 class="card-title line-clamp">
+                            {{ product.prod_name }}
+                        </h5>
+                    </a>
+                    <p class="price"><del>{{ product.prod_discount_formatted }}</del></p>
                     <div class="product-info">
-                        <p class="price">100.000 đ/Hộp</p>
+                        <p class="price">{{ product.prod_price_formatted }}đ / {{ product.prod_unit_type }}</p>
                         <div class="rate-and-sold">
-                            <p class="rate"><i class="fa-solid fa-heart"></i>35.1k</p>
+                            <p class="rate"><i class="fa-solid fa-heart"></i>{{ product.prod_num_rating_formatted }}</p>
                             <p class="vertical-line">|</p>
-                            <p class="sold">Đã bán 6.5k</p>
+                            <p class="sold">Đã bán {{ product.prod_sold_formatted }}</p>
                         </div>
                     </div>
                     <button>CHỌN MUA</button>
                 </div>
             </div>
-            
+            {% endfor %}
         </div>
         <div class="bottom-best-sellers">
             <a href="#"><img src="{% static 'img/categories/bottombs1.svg' %}" alt=""></a>
