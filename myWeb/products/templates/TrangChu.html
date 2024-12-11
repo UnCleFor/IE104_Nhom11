@@ -25,7 +25,7 @@
         <div class="items">
             {% for product in page_obj %}
             <div class="card" data-price="{{ product.prod_price }}">
-                <a href="#">
+                <a href="{% url 'product_detail' product.prod_cate_lv1 product.prod_cate_lv2 product.prod_name %}">
                     {% if product.avatar_url %}
                         <img src="{{ product.avatar_url }}" alt="{{ product.prod_name }} avatar" class="card-img-top">
                     {% else %}
@@ -33,7 +33,7 @@
                     {% endif %}
                 </a>
                 <div class="card-body">
-                    <a href="#" class="card-title-link">
+                    <a href="{% url 'product_detail' product.prod_cate_lv1 product.prod_cate_lv2 product.prod_name %}" class="card-title-link">
                         <h5 class="card-title line-clamp">
                             {{ product.prod_name }}
                         </h5>
@@ -60,22 +60,25 @@
 </section>
 
 
-<section class="categories"> 
+<section class="categories">
     <div class="container">
-        <h1>{{ cate_lv1.cate_1 }}</h1>
-        <div class="grid">
-            {% for category in categories_lv2 %}
-                <a href="{% url 'categories_lv2' cate_lv1.cate_1 category.cate_2 %}" class="card-link">
+        <article class="category">
+            <h1><i class="fa-regular fa-circle-check"></i> Danh mục nổi bật</h1>
+            <div class="grid">
+                {% for category in top_categories %}
+                <a href="#">
                     <div class="card">
                         <div class="card-body">
                             <img src="{{ category.cate_2_image.url }}" alt="{{ category.cate_2 }}">
-                            <h5>{{ category.cate_2 }}</h5>
-                            <p> {{ category.num_products }} sản phẩm</p>
+                            <p>{{ category.cate_2 }}</p>
+                            <p>{{ category.num_products }} sản phẩm</p>
                         </div>
                     </div>
                 </a>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
+        </article>
     </div>
 </section>
+
 {% endblock %}

@@ -8,9 +8,8 @@ from .models import Product, Category_lv1, Category_lv2
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
 
-from .models import Product, Category_lv1, Category_lv2, Product_Image
+from .models import *
 from django.shortcuts import get_object_or_404
-from .models import Category_lv1, Category_lv2
 
 def PList_Lv1(request, cate_lv1_name):
     # Lấy danh mục cấp 1 dựa trên tên
@@ -47,7 +46,7 @@ def PList_Lv1(request, cate_lv1_name):
 
         # Định dạng giá giảm
         if product.prod_discount > 0:
-            product.prod_discount_formatted = "{:,.0f}".format(product.prod_discount)  # xxx.xxx
+            product.prod_discount_formatted = "{:,.0f} đ".format(product.prod_discount)  # xxx.xxx
         else:
             product.prod_discount_formatted = ''
 
@@ -122,7 +121,7 @@ def PList_Lv2(request, cate_lv1_name, cate_lv2_name):
 
         # Định dạng giá giảm
         if product.prod_discount > 0:
-            product.prod_discount_formatted = "{:,.0f}".format(product.prod_discount)
+            product.prod_discount_formatted = "{:,.0f} đ".format(product.prod_discount)
         else:
             product.prod_discount_formatted = ''
 
@@ -199,15 +198,126 @@ def TrangChu(request):
 
         # Định dạng giá giảm
         if product.prod_discount > 0:
-            product.prod_discount_formatted = "{:,.0f}".format(product.prod_discount)
+            product.prod_discount_formatted = "{:,.0f} đ".format(product.prod_discount)
         else:
             product.prod_discount_formatted = ''
 
-    # Lấy 
-    top_categories = Category_lv2.objects.all().order_by('-num_products')[:12]
+    # Cập nhật số lượng sản phẩm cho tất phân loại 2
+    categories_lv2 = Category_lv2.objects.all()
+    for category in categories_lv2:
+        category.update_num_products()
+    # Lấp top 14 phân loại 2 có nhiều sản phẩm nhất
+    top_categories = Category_lv2.objects.all().order_by('-num_products')[:14]
         
     context = {
         'page_obj': best_sellers,
-        'cate_lv2': top_categories,
+        'top_categories': top_categories,
     }
     return render(request, 'TrangChu.html', context)
+
+
+
+def ChiTietSanPham(request, cate_lv1_name, cate_lv2_name, product_name):
+    # Lấy danh mục cấp 1 và cấp 2 dựa trên tên
+    cate_lv1 = get_object_or_404(Category_lv1, cate_1=cate_lv1_name)
+    cate_lv2 = get_object_or_404(Category_lv2, cate_2=cate_lv2_name, cate_1=cate_lv1)
+
+    # Lấy sản phẩm
+    product = get_object_or_404(Product, prod_name=product_name, prod_cate_lv1=cate_lv1, prod_cate_lv2=cate_lv2)
+
+    # Lấy danh sách ảnh của sản phẩm
+    images = Product_Image.objects.filter(prod_name=product)
+    images_with_url = [{'url': img.ImageURL, 'is_avatar': img.is_avatar} for img in images]
+    
+    # Định dạng giá
+    product.prod_price_formatted = "{:,.0f}".format(product.prod_price)
+
+    # Định dạng số đã bán và số lượng đánh giá
+    if product.prod_sold > 999:
+        product.prod_sold_formatted = "{:.1f}k".format(product.prod_sold / 1000)
+    else:
+        product.prod_sold_formatted = product.prod_sold
+
+    if product.prod_num_rating > 999:
+        product.prod_num_rating_formatted = "{:.1f}k".format(product.prod_num_rating / 1000)
+    else:
+        product.prod_num_rating_formatted = product.prod_num_rating
+
+    # Định dạng giá giảm
+    if product.prod_discount > 0:
+        product.prod_discount_formatted = "{:,.0f} đ".format(product.prod_discount)
+    else:
+        product.prod_discount_formatted = ''
+    
+    # Cập nhật breadcrumb
+    breadcrumb = [
+        {"name": "Trang chủ", "url": "/"},
+        {"name": cate_lv1.cate_1, "url": f"/{cate_lv1.cate_1}/"},
+        {"name": cate_lv2.cate_2, "url": f"/{cate_lv1.cate_1}/{cate_lv2.cate_2}/"}
+    ]
+    
+    context = {
+        'cate_lv1': cate_lv1,
+        'cate_lv2': cate_lv2,
+        'product': product,
+        'images': images_with_url,
+        'breadcrumb': breadcrumb
+
+    }
+    return render(request, 'ChiTietSanPham.html', context)
+def GioHang(request):  
+    cart_items = []
+    images_with_url = []
+
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        # Lấy tất cả các sản phẩm trong giỏ hàng
+        cart_items = Cart.objects.filter(cart_customer=customer)
+
+        # Duyệt qua từng sản phẩm để lấy ảnh đại diện và định dạng giá
+        for cart_item in cart_items:
+            product = cart_item.cart_product
+
+            # Định dạng giá
+            product.prod_price_formatted = "{:,.0f}".format(product.prod_price)
+
+            # Lấy ảnh đại diện
+            avatar_image = Product_Image.objects.filter(
+                prod_name=product, is_avatar=True
+            ).first()  # Lấy ảnh avatar đầu tiên nếu có
+
+            if avatar_image:
+                images_with_url.append({
+                    'product_id': product.id,
+                    'url': avatar_image.ImageURL,
+                    'is_avatar': avatar_image.is_avatar,
+                })
+
+    # Kiểm tra giỏ hàng có rỗng hay không
+    if not cart_items:
+        empty_cart_message = "Bạn chưa bỏ gì vào giỏ hàng"
+    else:
+        empty_cart_message = ""
+
+    context = {
+        'cart_items': cart_items,
+        'images': images_with_url,
+        'empty_cart_message': empty_cart_message,  # Thêm thông báo nếu giỏ hàng trống
+    }
+    return render(request, 'GioHang.html', context)
+
+
+
+
+
+def TrangCaNhan(request):
+    context = { }
+    return render(request,'TrangCaNhan.html',context)
+
+def EditTrangCaNhan(request):
+    context = { }
+    return render(request,'EditTrangCaNhan.html',context)
+
+def DonHangCuaToi(request):
+    context = { }
+    return render(request,'DonHangCuaToi.html',context)

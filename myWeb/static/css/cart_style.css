@@ -67,15 +67,18 @@ header .main-header .customer button {
 }
 
 .item-list {
-    background-color: white;
     border-radius: 15px;
-    border: 1px solid #ccc;
-    width: 870px;
+
+
 }
   
 .checkbox-container {
     padding: 10px 10px 10px 50px;
-    
+    background-color: white;
+    border-radius: 10px 10px 0px 0px;
+    border-top: 1px solid gainsboro;
+    border-left: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
 }
 
  .checkbox-container label {
@@ -102,7 +105,15 @@ header .main-header .customer button {
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px 10px 50px;
-    border-top: 1px solid gainsboro;
+    border: 1px solid gainsboro;
+    background-color: white;
+    border-radius: 0; /* Không bo góc cho các thẻ thông thường */
+}
+
+/* Áp dụng bo góc dưới cho item-card cuối cùng */
+.item-card:last-child {
+    border-bottom-left-radius: 10px; /* Bo góc dưới trái */
+    border-bottom-right-radius: 10px; /* Bo góc dưới phải */
 }
 
 input[type="checkbox"] {
@@ -112,11 +123,11 @@ input[type="checkbox"] {
 .inner-name {
     width: 300px;
     padding: 0 10px 0 10px;
-    margin-top: 10px;
+
 }
 
 .inner-price {
-    margin-top: 10px;
+
     color: #008DDC;
     text-align: left;
     width: 100px;
@@ -219,4 +230,27 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .cart-btn {
     width: 250px;
+}
+
+.avatar-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* Đảm bảo ảnh được cắt để vừa khung */
+    border-radius: 5px; /* (Tùy chọn) Bo góc nhẹ cho ảnh */
+}
+
+
+.unit-type {
+    margin-left: 55px;
+}
+p {
+    margin-bottom: 0;
+}
+.empty-cart-message {
+    padding: 50px;
+    text-align: center;
+    font-size: 40px;
+}
+.inner-name a {
+    color: black;
 }

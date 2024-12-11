@@ -1,0 +1,463 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/ctsp_tyle.css' %}">
+<section class="bread-crumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% for item in breadcrumb %}
+                    {% if forloop.last %}
+                        <li class="breadcrumb-item active" aria-current="page">{{ item.name }}</li>
+                    {% else %}
+                        <li class="breadcrumb-item"><a href="{{ item.url }}">{{ item.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+</section>
+
+
+    <section>
+        <div class="container">
+            <div class="box">
+                <div class="col-sm-5">
+                    <div id="carouselExampleIndicators" class="carousel slide">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            {% for img in images %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-slide-to="{{ forloop.counter0 }}">
+                                <img src="{{ img.url }}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    
+                        <!-- Thumbnails navigation with scrolling -->
+                        <div class="thumbnails-container d-flex align-items-center justify-content-center mt-3">
+                            <button id="thumbPrev" class="btn btn-outline-primary rounded-circle d-none">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </button>
+                    
+                            <div class="carousel-thumbnails-wrapper overflow-hidden mx-2">
+                                <div class="carousel-thumbnails d-flex">
+                                    {% for img in images %}
+                                    <img src="{{ img.url }}" 
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" 
+                                        class="{% if forloop.first %}active-thumbnail{% endif %}" 
+                                        alt="Thumbnail {{ forloop.counter }}">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                    
+                            <button id="thumbNext" class="btn btn-outline-primary rounded-circle">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                    
+
+                    <div class="quantity-like">
+                        <div class="quantity-selector">
+                            <p>Chọn số lượng:</p>
+                            <div class="input-group" style="max-width: 200px;">
+                                <button class="btn btn-outline-secondary decrease" type="button">-</button>
+                                <input type="number" class="form-control text-center quantity" value="1" min="1" max="100">
+                                <button class="btn btn-outline-secondary increase" type="button">+</button>
+                            </div>
+                        </div>
+                    
+                        <div class="like-button">
+                            <p>Thích: </p>
+                            <button id="likeButton" class="btn-like">
+                                <i id="likeIcon" class="fa-regular fa-heart"></i> <!-- Trái tim trống ban đầu -->
+                            </button>
+                        </div>
+                    </div>
+                    
+
+                    <div class="addtocart-buy">
+                        <button class="addtocart">Thêm vào giỏ hàng</button>
+                        <button class="buy">Mua ngay</button>
+                    </div>
+                    <hr>
+                    <div class="quality">
+                        <div class="quality-box">
+                            <img src="{% static 'img/ChiTietSanPham/quality 1.png' %}" alt="Chất lượng cao">
+                            <p>Chất lượng cao</p>
+                        </div>
+                        <div class="quality-box">
+                            <img src="{% static 'img/ChiTietSanPham/commercial 1.png' %}" alt="Miễn phí đổi trả">
+                            <p>Miễn phí đổi trả</p>
+                        </div>
+                        <div class="quality-box">
+                            <img src="{% static 'img/ChiTietSanPham/fast-delivery 1.png' %}" alt="Giao hàng siêu tốc">
+                            <p>Giao hàng siêu tốc</p>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="col-sm-7">
+                    <h1>{{product.prod_name}}</h1>
+                    <p class="price"><del>{{product.prod_discount_formatted}}</del></p>
+                    <div class="product-info">
+                        <p class="price">{{product.prod_price_formatted}}đ / {{product.prod_unit_type}}</p>
+                        <div class="rate-and-sold">
+                            <p class="rate"><i class="fa-solid fa-heart"></i>{{product.prod_num_rating_formatted}}</p>
+                            <p class="vertical-line">|</p>
+                            <p class="sold">Đã bán {{product.prod_sold_formatted}}</p>
+                        </div>
+                    </div>
+
+                    <div class="overall">
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Đơn vị tính</h3>
+                            <p>{{product.prod_unit_type}}</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Danh mục</h3>
+                            <p>{{product.prod_cate_lv1}}, {{product.prod_cate_lv2}}</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Mô tả ngắn</h3>
+                            <p>{{product.prod_description}}</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Thành phần</h3>
+                            <p>{{product.prod_ingredient}}</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Đối tượng sử dụng</h3>
+                            <p>{{product.prod_who_to_use}}</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Cách dùng</h3>
+                            <p>{{product.prod_how_to_use}}</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Thương hiệu</h3>
+                            <p>{{product.prod_brand}}</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Nước sản xuất</h3>
+                            <p>{{product.prod_country}}</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+
+            <div class="box">
+                <div class="padding">
+                    <div class="overall">
+                        <div class="overall-item">
+                            <h3>Công dụng</h3>
+                            <p>{{product.prod_effect}}</p>
+                        </div>
+                        <hr>
+                        <div class="overall-item">
+                            <h3>Tác dụng phụ</h3>
+                            <p>{{product.prod_side_effect}}</p>
+                        </div>
+                        <hr>
+                        
+                        <div class="overall-item">
+                            <h3>Bảo quản</h3>
+                            <p>{{product.prod_preserve}}</p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container">
+            <div class="comment">
+                <!-- Tiêu đề phần đánh giá -->
+                <div class="header">
+                    <h4>Đánh giá sản phẩm</h4>
+                    <p>(10)</p>
+                </div>
+                <hr>
+                <!-- Form viết đánh giá -->
+                <form class="mb-4">
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Viết đánh giá của bạn:</label>
+                        <textarea class="form-control" id="comment" rows="3"
+                            placeholder="Viết nhận xét tại đây..."></textarea>
+                    </div>
+                    <button>Gửi đánh giá</button>
+                </form>
+                <hr>
+                <!-- Danh sách đánh giá -->
+                <div class="review-list mb-4">
+                    <!-- Bình luận đầu tiên -->
+                    <div class="d-flex box-comment ">
+                        <img src="assets\img\ChiTietSanPham\avatar.png" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Nguyễn Thanh Nhã</h6>
+                            <p class="mb-1">Phụ nữ cho con bú có uống được không ạ.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">15 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bình luận trả lời -->
+                    <div class="reply d-flex box-comment ">
+                        <img src="assets\img\ChiTietSanPham\avatarAdmin.png" alt="User Avatar"
+                            class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Trạm Thuốc</h6>
+                            <p class="mb-1">Phụ nữ cho con bú không dùng được ạ.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">15 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reply d-flex box-comment">
+                        <img src="assets\img\ChiTietSanPham\avatar.png" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Nguyễn Thanh Nhã</h6>
+                            <p class="mb-1">Cám ơn nhà thuốc ạ.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">15 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bình luận thứ hai -->
+                    <div class="d-flex box-comment ">
+                        <img src="assets\img\ChiTietSanPham\avatar.png" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Lê Thái Khánh Ngân</h6>
+                            <p class="mb-1">Bao giờ có giảm giá thế shop.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">11 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex box-comment ">
+                        <img src="assets\img\ChiTietSanPham\avatar.png" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h6 class="fw-bold mb-1">Phan Võ Mỹ Huyền</h6>
+                            <p class="mb-1">Thuốc có gây đau bao tử không ạ.</p>
+                            <div class="d-flex">
+                                <small class="text-muted">3 ngày trước</small>
+                                <p class="vertical-line">|</p>
+                                <button class="btn btn-link btn-sm p-0 ">Trả lời</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Thêm nhiều bình luận -->
+                    <button class="btn btn-link p-0 mt-3">Xem thêm 5 bình luận</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 2. Carousel cho ảnh sản phẩm
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.querySelector('#carouselExampleIndicators');
+            const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
+            const thumbnailsWrapper = document.querySelector('.carousel-thumbnails');
+            const thumbPrev = document.querySelector('#thumbPrev');
+            const thumbNext = document.querySelector('#thumbNext');
+            
+            const maxVisibleThumbnails = 4; // Số lượng thumbnails tối đa hiển thị mỗi lần
+            const totalThumbnails = thumbnails.length; // Tổng số ảnh thumbnail
+            let startIndex = 0; // Vị trí bắt đầu của thumbnails đang hiển thị
+            let activeIndex = 0; // Vị trí của ảnh đang active trên carousel
+            
+            const updateThumbnailVisibility = () => {
+                // Kiểm tra nút Prev
+                if (startIndex === 0) {
+                    thumbPrev.classList.add('d-none'); // Ẩn nếu đang ở vị trí đầu tiên
+                } else {
+                    thumbPrev.classList.remove('d-none'); // Hiện nếu không ở vị trí đầu tiên
+                }
+            
+                // Kiểm tra nút Next
+                if (startIndex + maxVisibleThumbnails >= totalThumbnails) {
+                    thumbNext.classList.add('d-none'); // Ẩn nếu ở vị trí cuối cùng
+                } else {
+                    thumbNext.classList.remove('d-none'); // Hiện nếu còn ảnh phía sau
+                }
+            
+                // Dịch chuyển thumbnails (Hiện 4 ảnh mỗi lần)
+                const offset = -startIndex * (60 + 10); // 60px là chiều rộng mỗi ảnh, 10px là khoảng cách giữa các ảnh
+                thumbnailsWrapper.style.transform = `translateX(${offset}px)`;
+            };
+        
+            // Cập nhật lại ảnh active cho các thumbnail
+            const updateActiveThumbnail = () => {
+                thumbnails.forEach((thumbnail, index) => {
+                    if (index === activeIndex) {
+                        thumbnail.classList.add('active-thumbnail');
+                    } else {
+                        thumbnail.classList.remove('active-thumbnail');
+                    }
+                });
+            };
+            
+            // Sự kiện bấm nút Prev
+            thumbPrev.addEventListener('click', (e) => {
+                e.preventDefault(); // Ngừng hành động mặc định của nút Prev
+                if (startIndex > 0) {
+                    startIndex -= maxVisibleThumbnails; // Di chuyển 4 ảnh về phía trước
+                    activeIndex -= maxVisibleThumbnails; // Di chuyển 4 ảnh về phía trước trong carousel
+                    if (startIndex < 0) startIndex = 0; // Đảm bảo không bị tràn quá ảnh đầu tiên
+                    updateThumbnailVisibility();
+                    
+                    // Đặt lại activeIndex thành ảnh đầu tiên của nhóm thumbnail mới
+                    activeIndex = startIndex;
+                    updateActiveThumbnail();
+                    
+                    // Chuyển đến ảnh đầu tiên của nhóm thumbnail hiện tại
+                    const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+                    carouselInstance.to(activeIndex); // Chuyển đến slide tương ứng
+                }
+            });
+            
+            // Sự kiện bấm nút Next
+            thumbNext.addEventListener('click', (e) => {
+                e.preventDefault(); // Ngừng hành động mặc định của nút Next
+                if (startIndex + maxVisibleThumbnails < totalThumbnails) {
+                    startIndex += maxVisibleThumbnails; // Di chuyển 4 ảnh về phía sau
+                    activeIndex += maxVisibleThumbnails; // Di chuyển 4 ảnh tiếp theo trong carousel
+                    updateThumbnailVisibility();
+                    
+                    // Đặt lại activeIndex thành ảnh đầu tiên của nhóm thumbnail mới
+                    activeIndex = startIndex;
+                    updateActiveThumbnail();
+                    
+                    // Chuyển đến ảnh đầu tiên của nhóm thumbnail mới
+                    const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+                    carouselInstance.to(activeIndex); // Chuyển đến slide tương ứng
+                }
+            });
+            
+            // Đồng bộ trạng thái thumbnails khi carousel thay đổi slide
+            carousel.addEventListener('slide.bs.carousel', function (e) {
+                activeIndex = parseInt(e.relatedTarget.dataset.bsSlideTo);
+                
+                // Kiểm tra và đặt lại startIndex sao cho luôn bắt đầu từ ảnh đầu tiên của nhóm
+                if (activeIndex % maxVisibleThumbnails === 0 || activeIndex === 0) {
+                    startIndex = activeIndex; // Đặt lại startIndex về ảnh đầu tiên của nhóm
+                } else if (activeIndex % maxVisibleThumbnails !== 0 && activeIndex > startIndex + maxVisibleThumbnails - 1) {
+                    startIndex = activeIndex - (activeIndex % maxVisibleThumbnails); // Điều chỉnh startIndex về ảnh đầu tiên trong nhóm
+                }
+                
+                // Đặt lại active thumbnail
+                updateActiveThumbnail();
+                updateThumbnailVisibility(); // Cập nhật lại vị trí của các thumbnails
+            });
+        
+            // Khởi tạo trạng thái ban đầu
+            updateThumbnailVisibility();
+            updateActiveThumbnail();
+        });
+    </script>
+        
+    <script>
+        // 3. Hộp chọn số lượng sản phẩm
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            // Lấy tất cả các quantity selectors
+            const quantitySelectors = document.querySelectorAll(".quantity-selector");
+        
+            quantitySelectors.forEach((selector) => {
+                const decreaseButton = selector.querySelector(".decrease");
+                const increaseButton = selector.querySelector(".increase");
+                const quantityInput = selector.querySelector(".quantity");
+        
+                // Xử lý khi nhấn nút tăng
+                increaseButton.addEventListener("click", function () {
+                    const max = parseInt(quantityInput.max) || Infinity;
+                    const currentValue = parseInt(quantityInput.value) || 0;
+                    if (currentValue < max) {
+                        quantityInput.value = currentValue + 1;
+                    }
+                });
+        
+                // Xử lý khi nhấn nút giảm
+                decreaseButton.addEventListener("click", function () {
+                    const min = parseInt(quantityInput.min) || 1;
+                    const currentValue = parseInt(quantityInput.value) || 0;
+                    if (currentValue > min) {
+                        quantityInput.value = currentValue - 1;
+                    }
+                });
+        
+                // Đảm bảo giá trị nhập tay nằm trong giới hạn
+                quantityInput.addEventListener("input", function () {
+                    const min = parseInt(quantityInput.min) || 1;
+                    const max = parseInt(quantityInput.max) || Infinity;
+                    const value = parseInt(quantityInput.value) || min;
+                    if (value < min) {
+                        quantityInput.value = min;
+                    } else if (value > max) {
+                        quantityInput.value = max;
+                    }
+                });
+            });
+        });
+    </script>
+        
+    <script>
+        // Nút like
+        document.addEventListener('DOMContentLoaded', function () {
+            const likeButton = document.getElementById("likeButton");
+            const likeIcon = document.getElementById("likeIcon");
+        
+            // Xử lý sự kiện click
+            likeButton.addEventListener("click", () => {
+                // Toggle class "liked" khi nhấn
+                likeButton.classList.toggle("liked");
+        
+                // Kiểm tra trạng thái "liked"
+                if (likeButton.classList.contains("liked")) {
+                    likeIcon.classList.remove("fa-regular", "fa-heart");
+                    likeIcon.classList.add("fa-solid", "fa-heart"); // Đổi thành trái tim xám khi liked
+                } else {
+                    likeIcon.classList.remove("fa-solid", "fa-heart");
+                    likeIcon.classList.add("fa-regular", "fa-heart"); // Đổi về trái tim trống khi bỏ liked
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/order.css'%}">
+
+    <section class="bread-crumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'TrangChu' %}">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Đơn hàng của tôi</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="order-cont">
+            <div class="box">
+                <p>Đơn hàng của tôi</p>
+                <input class="search-bar" type="text"
+                    placeholder="Tìm theo tên đơn, mã đơn, hoặc tên sản phẩm...">
+            </div>
+            <ul>
+                <li><a href="#" class="filter-order" class="active" onClick="tatca(this)">Tất cả</a></li>
+                <li><a href="#" class="filter-order" onClick="other(this)">Đang xử lý</a></li>
+                <li><a href="#" class="filter-order" onClick="other(this)">Đang giao</a></li>
+                <li><a href="#" class="filter-order" onClick="other(this)">Đã giao</a></li>
+                <li><a href="#" class="filter-order" onClick="dahuy(this)">Đã hủy</a></li>
+                <li><a href="#" class="filter-order" onClick="other(this)">Trả hàng</a></li>                                   
+            </ul>
+            <div class="item-card">
+                <div class="box">
+                    <p>Đơn hàng ngày 30/09/2024</p>
+                    <p class="inner-name">Đã hủy</p>
+                </div>
+                <div class="item-info">
+                    <div>
+                        <img src="assets/img/cart-order/item4.png" alt="">
+                        <p class="inner-name">ACNOTIN 20MG MEGA 3X10</p>
+                        <p class="inner-price">15.000đ</p>
+                        <p>x7 viên</p>                        
+                    </div>
+                    <div>
+                        <a href="#">Xem chi tiết<img src="assets/img/cart-order/back.png"></a>
+                        <div>
+                            <p>Thành tiền:</p>
+                            <p class="inner-price">105.000đ</p>
+                        </div>  
+                    </div>
+                </div>
+                <button class="order-btn">Mua lại</button>
+            </div>      
+            <div class="item-card">
+                <div class="box">
+                    <p>Đơn hàng ngày 20/07/2024</p>
+                    <p class="inner-name">Đã giao</p>
+                </div>
+                <div class="item-info">
+                    <div>
+                        <img src="assets/img/cart-order/item5.png" alt="">
+                        <p class="inner-name">TINH BỘT NGHỆ HONIMORE 130G</p>
+                        <p class="inner-price">138.000đ</p>
+                        <p>x1 chai</p>                        
+                    </div>
+                    <div>
+                        <a href="#">Xem chi tiết<img src="assets/img/cart-order/back.png"></a>
+                        <div>
+                            <p>Thành tiền:</p>
+                            <p class="inner-price">138.000đ</p>
+                        </div>  
+                    </div>
+                </div>
+                <button class="order-btn">Mua lại</button>
+            </div>      
+            
+            <div class="item-card2">
+                <div class="box">
+                    <p>Đơn hàng ngày 03/08/2024</p>
+                    <p class="inner-name">Đã hủy</p>
+                </div>
+                <div class="item-info">
+                    <div>
+                        <img src="assets/img/cart-order/item5.png" alt="">
+                        <p class="inner-name">TINH BỘT NGHỆ HONIMORE 130G</p>
+                        <p class="inner-price">138.000đ</p>
+                        <p>x3 chai</p>                        
+                    </div>
+                    <div>
+                        <a href="#">Xem chi tiết<img src="assets/img/cart-order/back.png"></a>
+                        <div>
+                            <p>Thành tiền:</p>
+                            <p class="inner-price">414.000đ</p>
+                        </div>  
+                    </div>
+                </div>
+                <button class="order-btn">Mua lại</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+            // tăng giảm số lượng (cart)
+
+    // Lấy tất cả các quantity selectors
+    const quantitySelectors = document.querySelectorAll(".quantity-selector");
+
+    quantitySelectors.forEach((selector) => {
+    const decreaseButton = selector.querySelector(".decrease");
+    const increaseButton = selector.querySelector(".increase");
+    const quantityInput = selector.querySelector(".quantity");
+
+    // Xử lý khi nhấn nút tăng
+    increaseButton.addEventListener("click", function () {
+        const max = parseInt(quantityInput.max) || Infinity;
+        const currentValue = parseInt(quantityInput.value) || 0;
+        if (currentValue < max) {
+        quantityInput.value = currentValue + 1;
+        }
+    });
+
+    // Xử lý khi nhấn nút giảm
+    decreaseButton.addEventListener("click", function () {
+        const min = parseInt(quantityInput.min) || 1;
+        const currentValue = parseInt(quantityInput.value) || 0;
+        if (currentValue > min) {
+        quantityInput.value = currentValue - 1;
+        }
+    });
+
+    // Đảm bảo giá trị nhập tay nằm trong giới hạn
+    quantityInput.addEventListener("input", function () {
+        const min = parseInt(quantityInput.min) || 1;
+        const max = parseInt(quantityInput.max) || Infinity;
+        const value = parseInt(quantityInput.value) || min;
+        if (value < min) {
+        quantityInput.value = min;
+        } else if (value > max) {
+        quantityInput.value = max;
+        }
+    });
+    });
+
+    // check tất cả (cart)
+
+    const selectAllCheckbox = document.getElementById('selectAll');
+    const optionCheckboxes = document.querySelectorAll('input[name="options"]');
+
+    selectAllCheckbox.addEventListener('change', () => {
+    optionCheckboxes.forEach(checkbox => {
+        checkbox.checked = selectAllCheckbox.checked;
+    });
+    });
+
+    optionCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        selectAllCheckbox.checked = [...optionCheckboxes].every(cb => cb.checked);
+    });
+    });
+
+    // thay đổi phân loại đơn hàng (order)
+
+    function tatca(link) {
+        const itemCards = document.getElementsByClassName("item-card");
+        for (let i = 0; i < itemCards.length; i++) {
+        itemCards[i].style.display = "block";
+        }
+        
+        activeLink(link)
+    }
+    
+    function dahuy(link) {
+        const itemCard = document.getElementsByClassName("item-card");
+        for (let i = 0; i < itemCard.length; i++) {
+        itemCard[i].style.display = "none";
+        }
+
+        const itemCard2 = document.getElementsByClassName("item-card2");
+        for (let i = 0; i < itemCard2.length; i++) {
+        itemCard2[i].style.display = "block";
+    }
+
+        activeLink(link)
+    }
+
+    function other(link) {
+        const itemCard = document.querySelectorAll('[class^="item-card"]');
+        for (let i = 0; i < itemCard.length; i++) {
+        itemCard[i].style.display = "none";
+        }
+
+        activeLink(link)
+    }
+
+    function activeLink(link) {
+        // Lấy tất cả các liên kết
+        const links = document.querySelectorAll('.filter-order');
+    
+        // Xóa kiểu dáng của tất cả các liên kết
+        links.forEach(link => {
+        link.style.borderBottom = '';
+        link.style.borderWidth = '';
+        link.style.paddingBottom = '';
+        });
+    
+        // Thêm kiểu dáng cho liên kết vừa được click
+        link.style.borderBottom = '1px solid #008DDC';
+        link.style.borderWidth = 'thick';
+        link.style.paddingBottom = '5px';
+    }
+        
+    </script>
+
+{% endblock %}

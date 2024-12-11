@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/EditTrangCaNhan.css'%}">
+   
+    <section class="bread-crumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'TrangChu' %}">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'TrangCaNhan' %}">Thông tin cá nhân</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sửa</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="edit-profile">
+        <div class="container">
+            <div class="profile-card">
+                <h2>Thông tin cá nhân</h2>
+                <hr/>
+                <form>
+                    <div class="profile-avatar">
+                        <img src="./assets/img/Trang cá nhân/avatar.png" alt="Avatar">
+                       
+                    </div>
+                    <div class="profile-details">
+                        <div class="form-group mb-3">
+                            <label for="fullName">Họ và tên</label>
+                            <input type="text" id="fullName" class="form-control" value="Nguyễn Văn A">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="text" id="phone" class="form-control" value="0372839990">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Giới tính</label>
+                            <div class="d-flex align-items-center">
+                                <div class="form-check me-3">
+                                    <input type="radio" id="male" name="gender" class="form-check-input" checked>
+                                    <label for="male" class="form-check-label">Nam</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="female" name="gender" class="form-check-input">
+                                    <label for="female" class="form-check-label">Nữ</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="birthDate">Ngày sinh</label>
+                            <input type="date" id="birthDate" class="form-control" value="2004-02-22">
+                        </div>
+                    </div>
+                    <div class="edit-button">
+                        <button type="submit" class="btn-primary" onclick="window.location.href = '{% url 'TrangCaNhan' %}'">Cập nhật thông tin</button>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const fullNameInput = document.getElementById("fullName");
+            const phoneInput = document.getElementById("phone");
+            const birthDateInput = document.getElementById("birthDate");
+          
+            // Kiểm tra thông tin khi gửi form
+            form.addEventListener("submit", function (event) {
+              event.preventDefault();
+          
+              const fullName = fullNameInput.value.trim();
+              const phone = phoneInput.value.trim();
+              const birthDate = birthDateInput.value;
+          
+              if (!fullName) {
+                alert("Họ và tên không được để trống!");
+                return;
+              }
+          
+              if (!/^\d{10}$/.test(phone)) {
+                alert("Số điện thoại phải là 10 chữ số!");
+                return;
+              }
+          
+              if (!birthDate) {
+                alert("Vui lòng chọn ngày sinh!");
+                return;
+              }
+          
+              // Hiển thị thông báo khi tất cả dữ liệu hợp lệ
+              alert("Cập nhật thông tin thành công!");
+            });
+          });
+          
+    </script>
+{% endblock %}
