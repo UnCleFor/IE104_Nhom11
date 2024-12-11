@@ -202,9 +202,12 @@ def TrangChu(request):
             product.prod_discount_formatted = "{:,.0f}".format(product.prod_discount)
         else:
             product.prod_discount_formatted = ''
-    
+
+    # Lấy 
+    top_categories = Category_lv2.objects.all().order_by('-num_products')[:12]
+        
     context = {
         'page_obj': best_sellers,
-        
+        'cate_lv2': top_categories,
     }
     return render(request, 'TrangChu.html', context)

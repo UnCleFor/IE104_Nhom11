@@ -60,107 +60,22 @@
 </section>
 
 
-    <section class="categories">
-        <div class="container">
-            <article class="category">
-                <h1><i class="fa-regular fa-circle-check"></i>Danh mục nổi bật</h1>
-                <div class="grid">
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
+<section class="categories"> 
+    <div class="container">
+        <h1>{{ cate_lv1.cate_1 }}</h1>
+        <div class="grid">
+            {% for category in categories_lv2 %}
+                <a href="{% url 'categories_lv2' cate_lv1.cate_1 category.cate_2 %}" class="card-link">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="{{ category.cate_2_image.url }}" alt="{{ category.cate_2 }}">
+                            <h5>{{ category.cate_2 }}</h5>
+                            <p> {{ category.num_products }} sản phẩm</p>
                         </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="./assets\img\categories\ThucPhamChucNang\VitaminKhoangChat.png" alt="">
-                                <p>Vitamin & Khoáng chất</p>
-                                <p>201 sản phẩm</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="bottom-category">
-                    <a href="#"><img src="./assets/img/categories/main_banner_destop_2c409133ee.webp" alt=""></a>
-                </div>
-            </article>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
-    </section>
-
+    </div>
+</section>
 {% endblock %}
