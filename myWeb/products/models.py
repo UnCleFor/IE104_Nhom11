@@ -1,7 +1,51 @@
+from django import forms
 from django.db import models
 
 # Create your models here.
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+
+# Tạo class để thay đổi form đăng nhập của django bằng cách kế thừa class UserCreationForm
+class CreateUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username','email','first_name','last_name','password1','password2']
+        widgets = {
+            'username': forms.TextInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Nhập tên đăng nhập'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Nhập email'
+            }),
+            'first_name': forms.TextInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Nhập tên'
+            }),
+            'last_name': forms.TextInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Nhập họ'
+            }),
+            # 2 cái dưới này lỗi ko load được
+            'password1': forms.PasswordInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Nhập mật khẩu'
+            }),
+            'password2': forms.PasswordInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Nhập lại mật khẩu'
+            }),
+        }
+
+    def clean_password2(self):
+        # Lấy dữ liệu từ cả hai trường mật khẩu
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Mật khẩu không khớp. Vui lòng kiểm tra lại.")
+        return password2
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete = models.SET_NULL, null=True, blank= False)

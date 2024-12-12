@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.TrangChu, name='TrangChu'),
     path('Truyền thông/', views.TruyenThong, name='TruyenThong'),
     path('Đăng nhập/', views.DangNhap, name='DangNhap'),
+    path('Đăng ký/', views.DangKy, name='DangKy'),
     path('Giỏ hàng/', views.GioHang, name='GioHang'),
     
     path('update_item/', views.updateItem, name='update_item'),

@@ -356,7 +356,19 @@ def updateItem(request):
 
     return JsonResponse('Sản phẩm đã được cập nhật', safe=False)
 
-
+# Thêm tự tạo form đăng ký user của django
+from django.contrib.auth.forms import UserCreationForm
 def DangNhap(request):
     context = {}
     return render(request,'DangNhap.html',context)
+
+def DangKy(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        # Nếu là post thì gán form bằng cái form bên kia
+        form = CreateUserForm(request.POST)
+        # kiểm tra xem các trường được điền vào có hợp lệ với điều kiện mặc định của django hay ko
+        if form.is_valid():
+            form.save()
+    context = { 'form': form }
+    return render(request,'DangKy.html',context)

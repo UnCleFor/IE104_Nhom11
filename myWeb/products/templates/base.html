@@ -393,6 +393,16 @@
             old_list.forEach(product => productList.appendChild(product));
         });
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const password1Field = document.getElementById('id_password1');
+        const password2Field = document.getElementById('id_password2');
+    
+        // Gán placeholder cho password1 và password2
+        password1Field.setAttribute('placeholder', 'Nhập mật khẩu');
+        password2Field.setAttribute('placeholder', 'Nhập lại mật khẩu');
+    });
+    
 </script> 
 
 </html>
