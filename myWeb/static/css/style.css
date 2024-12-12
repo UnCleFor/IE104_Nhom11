@@ -161,6 +161,12 @@ button {
     margin: 2px 0;
 }
 
+.items .card .card-body .product-info .price del {
+    color: rgb(91, 91, 91);
+    min-height: 1em; 
+    display: inline-block; 
+}
+
 .items .card .card-body .product-info .rate-and-sold .rate,
 .items .card .card-body .product-info .rate-and-sold .sold {
     margin-bottom: auto;
