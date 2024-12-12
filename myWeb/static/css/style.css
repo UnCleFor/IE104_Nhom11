@@ -159,12 +159,18 @@ button {
     font-weight: bold;
     color: #377CE6;
     margin: 2px 0;
+    
 }
 
-.items .card .card-body .product-info .price del {
+ del {
     color: rgb(91, 91, 91);
     min-height: 1em; 
     display: inline-block; 
+    margin-bottom: 0px;
+}
+
+.price {
+    margin-bottom: 0px;
 }
 
 .items .card .card-body .product-info .rate-and-sold .rate,
