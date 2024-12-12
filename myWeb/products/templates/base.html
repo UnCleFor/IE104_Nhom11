@@ -104,7 +104,9 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="{% static 'img/cart-order/location.png' %}" alt="">Quản lý sổ địa chỉ
+                                                    <img src="{% static 'img/sanphamuuthich.png' %}" alt="" class="img-fluid" style="width: 22px; height: 22px;">
+                                                    Sản phẩm ưa thích
+                                                    
                                                 </a>
                                             </li>
                                         </ul>
@@ -122,10 +124,10 @@
                             </div>
                         {% else %}
                             <div class="customer">
-                                <button onclick="#">
+                                <button onclick="window.location.href = '{% url 'DangNhap' %}'">
                                     <i class="fa-solid fa-user"></i> Đăng nhập
                                 </button>
-                                <button class="cart" >
+                                <button class="cart" onclick="window.location.href = '{% url 'DangNhap' %}'" >
                                     <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
                                 </button>
                             </div>
@@ -254,7 +256,8 @@
             console.log('user:', user);
             
             if (user === "AnonymousUser") {
-                console.log('Người dùng chưa đăng nhập.');
+                // Chưa đăng nhập thì không cho update giỏ hàng
+                alert('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.');
             } else {
                 updateUserOrder(productId, action);
             }
@@ -292,8 +295,12 @@
     
         popupButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Hiển thị popup khi nhấn nút
-                showPopup();
+                if (user === "AnonymousUser") {
+                    // Không làm gì cả nếu chưa đăng nhập hoặc có thể dẫn qua trang đăng nhập
+                    
+                } else {
+                    showPopup();
+                }
             });
         });
     
@@ -305,6 +312,7 @@
             }, 2000);
         }
     });
+    
     // 3. Bộ lọc và sắp xếp cho trang danh sách sản phẩm lv1
     document.addEventListener('DOMContentLoaded', () => {
         const sortAscBtn = document.getElementById('sort-asc');

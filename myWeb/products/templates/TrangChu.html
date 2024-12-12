@@ -47,7 +47,11 @@
                             <p class="sold">Đã bán {{ product.prod_sold_formatted }}</p>
                         </div>
                     </div>
-                    <button>CHỌN MUA</button>
+                    <div id="popup" class="popup hidden">
+                        <img src="{% static 'img/Thông báo Thêm vào giỏ hàng.png' %}" alt="Sản phẩm đã được thêm vào giỏ hàng">
+                    </div>
+                    
+                    <button data-product="{{ product.id }}" data-action="add" class="update-cart">CHỌN MUA</button>
                 </div>
             </div>
             {% endfor %}

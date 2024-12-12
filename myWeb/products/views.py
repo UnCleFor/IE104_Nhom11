@@ -355,3 +355,8 @@ def updateItem(request):
         cart_item.save()
 
     return JsonResponse('Sản phẩm đã được cập nhật', safe=False)
+
+
+def DangNhap(request):
+    context = {}
+    return render(request,'DangNhap.html',context)
