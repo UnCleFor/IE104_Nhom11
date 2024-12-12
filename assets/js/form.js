@@ -1,38 +1,41 @@
-// Lấy các phần tử modal và nút mở/đóng modal
-const openModalBtn = document.getElementById("openModalBtn");
-const modal = document.getElementById("modal");
-const closeModalBtn = document.getElementById("closeModalBtn");
+// Modal 1
+const openModal1Btn = document.getElementById('openModalBtn');
+const modal1 = document.getElementById('modal1');
+const closeModal1Btn = document.getElementById('closeModal1Btn');
+openModal1Btn.onclick = () => modal1.style.display = 'block';
+closeModal1Btn.onclick = () => modal1.style.display = 'none';
 
-const openChildModalBtn = document.getElementById("openChildModalBtn");
-const childModal = document.getElementById("childModal");
-const closeChildModalBtn = document.getElementById("closeChildModalBtn");
+// Modal 2
+const openModal2Btn = document.getElementById('openModal2Btn');
+const modal2 = document.getElementById('modal2');
+const closeModal2Btn = document.getElementById('closeModal2Btn');
+openModal2Btn.onclick = () => modal2.style.display = 'block';
+closeModal2Btn.onclick = () => modal2.style.display = 'none';
 
-// Mở Modal Cha
-openModalBtn.onclick = function() {
-    modal.style.display = "block";
-}
+// Modal 3
+const openModal3Btn = document.getElementById('openModal3Btn');
+const modal3 = document.getElementById('modal3');
+const closeModal3Btn = document.getElementById('closeModal3Btn');
+openModal3Btn.onclick = () => modal3.style.display = 'block';
+closeModal3Btn.onclick = () => modal3.style.display = 'none';
 
-// Đóng Modal Cha
-closeModalBtn.onclick = function() {
-    modal.style.display = "none";
-}
+// Modal 4
+const openModal4Btn = document.getElementById('openModal4Btn');
+const modal4 = document.getElementById('modal4');
+const closeModal4Btn = document.getElementById('closeModal4Btn');
+openModal4Btn.onclick = () => modal4.style.display = 'block';
+closeModal4Btn.onclick = () => modal4.style.display = 'none';
 
-// Mở Modal Con
-openChildModalBtn.onclick = function() {
-    childModal.style.display = "block";
-}
+// Modal 5
+const openModal5Btn = document.getElementById('openModal5Btn');
+const modal5 = document.getElementById('modal5');
+const closeModal5Btn = document.getElementById('closeModal5Btn');
+openModal5Btn.onclick = () => modal5.style.display = 'block';
+closeModal5Btn.onclick = () => modal5.style.display = 'none';
 
-// Đóng Modal Con
-closeChildModalBtn.onclick = function() {
-    childModal.style.display = "none";
-}
-
-// Đóng modal khi nhấp ra ngoài
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-    if (event.target == childModal) {
-        childModal.style.display = "none";
-    }
-}
+// Modal 6
+const openModal6Btn = document.getElementById('openModal6Btn');
+const modal6 = document.getElementById('modal6');
+const closeModal6Btn = document.getElementById('closeModal6Btn');
+openModal6Btn.onclick = () => modal6.style.display = 'block';
+closeModal6Btn.onclick = () => modal6.style.display = 'none';
