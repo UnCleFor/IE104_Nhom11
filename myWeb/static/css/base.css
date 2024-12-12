@@ -477,10 +477,18 @@ header .main-header .customer button {
 .qnt_item {
     float: right;
     position: relative;
-    height: 15px;
-    width: 15px;
-    left: 38px;
-    bottom: -5px;
+    left: 30px;
+    width: 20px; /* Kích thước hình tròn */
+    height: 20px; /* Kích thước hình tròn */
+    line-height: 20px; /* Căn chỉnh số theo chiều dọc */
+    border-radius: 50%; /* Tạo hình tròn */
+    background-color: orange; /* Màu nền cam */
+    color: white; /* Màu chữ trắng */
+    font-weight: bold; /* In đậm số */
+    text-align: center; /* Căn chỉnh số theo chiều ngang */
+    font-size: 16px; /* Kích thước chữ */
+    margin-left: 0px ; /* Canh lề (tuỳ ý nếu cần chỉnh thêm) */
+    z-index: 100;
 }
 
 

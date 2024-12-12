@@ -110,7 +110,12 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <img src="{% static 'img/cart-order/qnt_item.png' %}" alt="" class="qnt_item">
+                                {% comment %} Nếu có sản phẩm trong giỏ mới hiện {% endcomment %}
+                                {% if cart_item_count > 0 %}
+                                <p class="qnt_item">{{ cart_item_count }}</p>
+                                {% endif %}
+                            
+
                                 <button class="cart" onclick="window.location.href = '{% url 'GioHang' %}'">
                                     <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
                                 </button>                                

@@ -1,4 +1,4 @@
-from .models import Category_lv1, Category_lv2
+from .models import *
 
 def nav_categories(request):
     # Lấy danh mục cấp 1 và các danh mục cấp 2 liên quan
@@ -15,3 +15,12 @@ def nav_categories(request):
     return {
         "categories_data": categories_data
     }
+
+def cart_item_count(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        cart_items = Cart.objects.filter(cart_customer=customer)
+        item_count = cart_items.count()  # Số loại sản phẩm trong giỏ hàng
+    else:
+        item_count = 0  # Người dùng chưa đăng nhập
+    return {'cart_item_count': item_count}
