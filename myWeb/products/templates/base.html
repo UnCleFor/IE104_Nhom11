@@ -21,7 +21,25 @@
     <script src="https://kit.fontawesome.com/9ce350b724.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+    </script>
 </head>
 
 <body>
@@ -216,5 +234,152 @@
     </footer>
 
 </body>
+
+<script>
+    // 1. Thêm vào giỏ hàng, xóa khỏi giỏ hàng, cập nhật giỏ hàng
+    console.log('hello');
+    var updateBtns = document.getElementsByClassName('update-cart');
+
+    for (let i = 0; i < updateBtns.length; i++) {
+        updateBtns[i].addEventListener('click', function () {
+            console.log('thêm dô');
+            var productId = this.dataset.product;
+            var action = this.dataset.action;
+            console.log('productId:', productId, 'action:', action);
+            console.log('user:', user);
+            
+            if (user === "AnonymousUser") {
+                console.log('Người dùng chưa đăng nhập.');
+            } else {
+                updateUserOrder(productId, action);
+            }
+        });
+    }
+
+    function updateUserOrder(productId, action) {
+        console.log('Đang gửi yêu cầu thêm/xóa sản phẩm.');
+        var url = '/update_item/';
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken // Lấy csrftoken
+            },
+            body: JSON.stringify({ 'productId': productId, 'action': action }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Phản hồi từ server:', data);
+
+                // Reload trang để cập nhật giỏ hàng
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Lỗi khi gửi yêu cầu:', error);
+            });
+    }
+    
+    // 2. Hiển thị pop up thông báo khi ấn nút Chọn mua
+    document.addEventListener('DOMContentLoaded', () => {
+        const popup = document.getElementById('popup');
+        const popupButtons = document.querySelectorAll('.update-cart');
+    
+        popupButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Hiển thị popup khi nhấn nút
+                showPopup();
+            });
+        });
+    
+        function showPopup() {
+            popup.classList.remove('hidden'); // Hiển thị popup
+    
+            setTimeout(() => {
+                popup.classList.add('hidden'); // Ẩn popup sau 2 giây
+            }, 2000);
+        }
+    });
+    // 3. Bộ lọc và sắp xếp cho trang danh sách sản phẩm lv1
+    document.addEventListener('DOMContentLoaded', () => {
+        const sortAscBtn = document.getElementById('sort-asc');
+        const sortDescBtn = document.getElementById('sort-desc');
+        const sortDefaultBtn = document.getElementById('sort-default'); // Nút mặc định
+        const priceFilter = document.getElementById('price-filter');
+        const productList = document.getElementById('product-list');
+        const old_list = Array.from(productList.children);
+    
+        // Hàm sắp xếp sản phẩm
+        function sortProducts(order) {
+            const products = Array.from(productList.children);
+    
+            products.sort((a, b) => {
+                const priceA = parseFloat(a.dataset.price);
+                const priceB = parseFloat(b.dataset.price);
+    
+                if (order === 'asc') {
+                    return priceA - priceB;
+                } else {
+                    return priceB - priceA;
+                }
+            });
+    
+            productList.innerHTML = '';
+            products.forEach(product => productList.appendChild(product));
+        }
+    
+        // Hàm lọc sản phẩm
+        function filterProductsByPrice(priceRange,) {
+            const filteredProducts = old_list.filter(product => {
+                const productPrice = parseFloat(product.dataset.price);
+    
+                switch (priceRange) {
+                    case '1': return productPrice < 100000;
+                    case '2': return productPrice >= 100000 && productPrice < 300000;
+                    case '3': return productPrice >= 300000 && productPrice < 500000;
+                    case '4': return productPrice >= 500000;
+                    default: return true;
+                }
+            });
+    
+            productList.innerHTML = '';
+            filteredProducts.forEach(product => productList.appendChild(product));
+        }
+    
+        // Khi trang được tải lần đầu, nút "Mặc định" sẽ được active
+        sortDefaultBtn.classList.add('active');
+    
+        // Lắng nghe sự kiện cho bộ lọc
+        priceFilter.addEventListener('change', (event) => {
+            filterProductsByPrice(event.target.value);
+
+
+        });
+    
+        // Lắng nghe sự kiện cho nút sắp xếp
+        sortAscBtn.addEventListener('click', () => {
+            sortAscBtn.classList.add('active');
+            sortDescBtn.classList.remove('active');
+            sortDefaultBtn.classList.remove('active');
+            sortProducts('asc');
+        });
+    
+        sortDescBtn.addEventListener('click', () => {
+            sortDescBtn.classList.add('active');
+            sortAscBtn.classList.remove('active');
+            sortDefaultBtn.classList.remove('active');
+        
+            sortProducts('desc');
+        });
+    
+        sortDefaultBtn.addEventListener('click', () => {
+            sortAscBtn.classList.remove('active');
+            sortDescBtn.classList.remove('active');
+            sortDefaultBtn.classList.add('active');
+            productList.innerHTML = '';
+            old_list.forEach(product => productList.appendChild(product));
+        });
+    });
+</script> 
 
 </html>

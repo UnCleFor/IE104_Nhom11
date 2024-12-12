@@ -51,10 +51,11 @@
                             
                             <div class="quantity-selector">
                                 <div class="input-group" style="max-width: 200px;">
-                                    <button class="btn btn-outline-secondary decrease" type="button">-</button>
+                                    <button class="btn btn-outline-secondary decrease update-cart" type="button" data-product ={{item.cart_product.id}} data-action = "remove">-</button>
                                     <input type="number" class="form-control text-center quantity" 
-                                        value="{{ item.cart_product_quantity }}" min="1" max="100">
-                                    <button class="btn btn-outline-secondary increase" type="button">+</button>
+                                        value="{{ item.cart_product_quantity }}" min="1" max="100" readonly>
+
+                                    <button class="btn btn-outline-secondary increase update-cart" type="button" data-product ={{item.cart_product.id}} data-action = "add">+</button>
                                 </div>
                             </div>
                             
@@ -62,9 +63,8 @@
                                 
                                     <p>{{ item.cart_product.prod_unit_type }}</p>
                                 
-                            </div>
-                            
-                            <button class="del-btn">
+                            </div>                        
+                            <button data-product ={{item.cart_product.id}} data-action = "remove_all"  class="del-btn update-cart">                             
                                 <img src="{% static 'img/cart-order/del-item.png' %}" alt="Xóa sản phẩm">
                             </button>
                         </div>
@@ -157,8 +157,11 @@
     
         // Khi trang load lần đầu tiên
         document.addEventListener('DOMContentLoaded', updateTotalItems);
+
+
+        
     </script>
     
-    
+      
     
 {% endblock %}

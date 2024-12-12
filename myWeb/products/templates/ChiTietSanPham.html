@@ -77,8 +77,11 @@
                     </div>
                     
 
-                    <div class="addtocart-buy">
-                        <button class="addtocart">Thêm vào giỏ hàng</button>
+                    <div class="addtocart-buy">                     
+                        <div id="popup" class="popup hidden">
+                            <img src="{% static 'img/Thông báo Thêm vào giỏ hàng.png' %}" alt="Sản phẩm đã được thêm vào giỏ hàng">
+                        </div> 
+                        <button data-product="{{ product.id }}" data-action="add" class="addtocart update-cart">Thêm vào giỏ hàng</button>
                         <button class="buy">Mua ngay</button>
                     </div>
                     <hr>

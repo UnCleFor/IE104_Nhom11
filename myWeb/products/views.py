@@ -306,10 +306,6 @@ def GioHang(request):
     }
     return render(request, 'GioHang.html', context)
 
-
-
-
-
 def TrangCaNhan(request):
     context = { }
     return render(request,'TrangCaNhan.html',context)
@@ -321,3 +317,41 @@ def EditTrangCaNhan(request):
 def DonHangCuaToi(request):
     context = { }
     return render(request,'DonHangCuaToi.html',context)
+
+
+from django.http import HttpResponse, JsonResponse
+import json
+
+def updateItem(request):
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+
+    # Lấy sản phẩm trong giỏ hàng hoặc tạo mới nếu chưa có
+    cart_item, created = Cart.objects.get_or_create(
+        cart_customer=customer,
+        cart_product=product
+    )
+
+    if action == 'add':
+        if created:
+            cart_item.cart_product_quantity = 1  # Nếu tạo mới, gán số lượng là 1
+        else:
+            cart_item.cart_product_quantity += 1  # Nếu đã tồn tại, tăng số lượng
+    elif action == 'remove':
+        cart_item.cart_product_quantity -= 1
+        # Xóa sản phẩm nếu số lượng <= 0
+        if cart_item.cart_product_quantity <= 0:
+            cart_item.delete()
+    elif action == 'remove_all':
+        # Xóa sản phẩm bất kể số lượng
+        cart_item.delete()
+
+    # Lưu sản phẩm nếu không bị xóa
+    if action in ['add', 'remove'] and cart_item.cart_product_quantity > 0:
+        cart_item.save()
+
+    return JsonResponse('Sản phẩm đã được cập nhật', safe=False)
