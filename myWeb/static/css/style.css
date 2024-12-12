@@ -44,7 +44,7 @@
     width: 100%;
     height: 100%;
 }
-.best-sellers i {
+.best-sellers .fa-circle-check {
     color: #377CE6;
     margin-right: 10px;
 }
@@ -257,5 +257,12 @@ button {
     font-size: 14px;
     margin-top: 4px;
     margin-bottom: 0px;
+}
+
+.category .card .card-body .name-cate {
+    text-align: center;
+}
+
+.category .card .card-body .num-product {
     color: grey;
 }
