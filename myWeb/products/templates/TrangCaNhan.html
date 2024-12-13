@@ -21,32 +21,32 @@
     
                 <h2>Thông tin cá nhân</h2>
                 <hr/>
-                
+
                     <div class="profile-avatar">
-                        <img src="./assets/img/Trang cá nhân/avatar.png" alt="Avatar">
+                        <img src="{% static 'img/Trang cá nhân/avatar.png'%}" alt="Avatar">
                     </div>
                     <div class="profile-details">
                         <div class="detail-item">
-                            <span>Họ và tên</span>
-                            <p>Nguyễn Văn A</p>
+                            <span>Tên đăng nhập</span>
+                            <p>{{ customer.username }}</p>
+                        </div>
+                        <hr/>
+                        <div class="detail-item">
+                            <span>Họ</span>
+                            <p>{{ customer.last_name }}</p>
+                        </div>
+                        <hr/>
+                        <div class="detail-item">
+                            <span>Tên</span>
+                            <p>{{ customer.first_name}}</p>
+                        </div>
+                        <hr/>
+                        <div class="detail-item">
+                            <span>Email</span>
+                            <p>{{ customer.email}}</p>
+                        </div>
+                        <hr/>
                         
-                        </div>
-                        <hr/>
-                        <div class="detail-item">
-                            <span>Số điện thoại</span>
-                            <p>0372839990</p>
-                        </div>
-                        <hr/>
-                        <div class="detail-item">
-                            <span>Giới tính</span>
-                            <p>Nam</p>
-                        </div>
-                        <hr/>
-                        <div class="detail-item">
-                            <span>Ngày sinh</span>
-                            <p>22/02/2004</p>
-                        </div>
-                        <hr/>
                     </div>
                 
                 <div class="edit-button">

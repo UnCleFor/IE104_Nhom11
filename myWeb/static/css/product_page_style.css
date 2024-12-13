@@ -345,3 +345,10 @@
     border-color: #007bff;
 }
 
+.result {
+    padding-top: 20px;
+}
+
+.alert-warning {
+    margin-bottom: 300px;
+}

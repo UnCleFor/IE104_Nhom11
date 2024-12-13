@@ -16,6 +16,16 @@
     background-color: white;
 }
 
+#wrapper #form-register{
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0);
+    flex-grow: 1;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
 #wrapper .form-heading{
     font-size: 25px;
     color: black;

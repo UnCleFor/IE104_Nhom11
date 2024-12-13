@@ -51,17 +51,42 @@
         </form>
     </div>
     </section>
-    <script>
-        {% if messages %}
-            let errors = "";
-            {% for message in messages %}
-                errors += "{{ message }}\n";
-            {% endfor %}
-            if (errors) {
-                alert(errors);
+  
+<script>
+    document.getElementById('form-login').addEventListener('submit', function(e) {
+        e.preventDefault(); // Ngăn form tải lại trang
+
+        const formData = new FormData(this);
+
+        fetch('', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
             }
-        {% endif %}
-    </script>
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message); // Hiển thị thông báo thành công
+                window.location.href = "{% url 'DangNhap' %}"; // Chuyển hướng đến trang đăng nhập
+            } else {
+                // Hiển thị lỗi
+                let errorMessages = "";
+                for (const [field, errors] of Object.entries(data.errors)) {
+                    errors.forEach(err => {
+                        errorMessages += `${field}: ${err.message}\n`;
+                    });
+                }
+                alert(errorMessages); // Hiển thị lỗi qua alert
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Đã xảy ra lỗi, vui lòng thử lại!');
+        });
+    });
+</script>
     
     
 {% endblock %}

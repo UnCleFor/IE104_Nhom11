@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<script src="{% static 'js/myjs.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/product_page_style.css' %}">
+
+
+    
+<section class="product-list">
+    <div class="container">
+        <h3 class="result"> Kết quả tìm kiếm cho "{{searched}}" </h3>
+
+        {% if no_results_message %}
+        <div class="alert alert-warning">
+            {{ no_results_message }}
+        </div>
+        {% else %}
+
+        <div class="product-header">
+            <div class="grid">
+                <h1>Danh sách sản phẩm</h1>
+                <div class="sort">
+                    <h2>Sắp xếp theo</h2>
+                    <button id="sort-default">Mặc định</button> 
+                    <button id="sort-asc">Tăng dần</button>
+                    <button id="sort-desc">Giảm dần</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-and-product-cards">
+            <div class="filter">
+                <h1><i class="fa fa-list" aria-hidden="true"></i>Bộ lọc nâng cao</h1>
+                <div class="filter-by-price">
+                    <h2>Lọc theo giá</h2>
+                    <select class="form-select" id="price-filter" aria-label="Default select example">
+                        <option selected>Tất cả</option>
+                        <option value="1">Dưới 100.000đ</option>
+                        <option value="2">100.000 -> dưới 300.000đ</option>
+                        <option value="3">300.000đ -> dưới 500.000đ</option>
+                        <option value="4">500.000đ trở lên</option>
+                    </select>
+                </div>
+                <div class="filter-by-brand">
+                    <h2>Lọc theo đơn vị tính</h2>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Tất cả</option>
+                        <option value="1">Hộp</option>
+                        <option value="2">Tuýt</option>
+                        <option value="3">Ống</option>
+                        <option value="4">Viên</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="product-cards">
+                    <div class="grid" id="product-list">
+                        {% for product in page_obj %}
+                        <div class="card" data-price="{{ product.prod_price }}">
+                            <a href="{% url 'product_detail' product.prod_cate_lv1 product.prod_cate_lv2 product.prod_name %}">
+                                {% if product.avatar_url %}
+                                    <img src="{{ product.avatar_url }}" alt="{{ product.prod_name }} avatar" class="card-img-top">
+                                {% else %}
+                                    <img src="/static/default-avatar.jpg" alt="Default avatar" class="card-img">
+                                {% endif %}
+                            </a>
+                            <div class="card-body">
+                                <a href="{% url 'product_detail' product.prod_cate_lv1 product.prod_cate_lv2 product.prod_name %}" class="card-title-link">
+                                    <h5 class="card-title line-clamp">
+                                        {{ product.prod_name }}
+                                    </h5>
+                                </a>
+                                <p class="price"><del>{{ product.prod_discount_formatted }}</del></p>
+                                <div class="product-info">
+                                    <p class="price">{{ product.prod_price_formatted }}đ / {{ product.prod_unit_type }}</p>
+                                    <div class="rate-and-sold">
+                                        <p class="rate"><i class="fa-solid fa-heart"></i>{{ product.prod_num_rating_formatted }}</p>
+                                        <p class="vertical-line">|</p>
+                                        <p class="sold">Đã bán {{ product.prod_sold_formatted }}</p>
+                                    </div>
+                                </div>
+                                <div id="popup" class="popup hidden">
+                                    <img src="{% static 'img/Thông báo Thêm vào giỏ hàng.png' %}" alt="Sản phẩm đã được thêm vào giỏ hàng">
+                                </div>
+                                <button data-product="{{ product.id }}" data-action="add" class="update-cart">CHỌN MUA</button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Phân trang -->
+                <div class="PhanTrang">
+                    <nav aria-label="Page navigation" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            {% for num in page_range %}
+                                {% if num == '...' %}
+                                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                                {% else %}
+                                    <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+    
+    
+    
+    
+
+{% endblock %}

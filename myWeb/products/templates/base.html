@@ -43,6 +43,7 @@
 </head>
 
 <body>
+    
     <header>
         <div class="container">
             <div class="top-header">
@@ -72,8 +73,11 @@
                     </div>
                     <div class="col-xl-7">
                         <div class="search">
-                            <input class="search-bar" type="text"
-                                placeholder="Tìm tên thuốc, bệnh lý, thực phẩm chức năng...">
+                            
+                            <form method="POST" action="{% url 'TimKiem' %}" onsubmit="return validateSearch();">
+                                {% csrf_token %}
+                                <input class="search-bar" type="text" name="searched" placeholder="Tìm tên thuốc..." required>
+                            </form>
                             <div class="quick-search">
                                 <ul>
                                     <li><a href="#">Men vi sinh</a></li>
@@ -94,19 +98,20 @@
                                         <ul>
                                             <li>
                                                 <a href="{% url 'TrangCaNhan' %}">
-                                                    <img src="{% static 'img/cart-order/user.png' %}" alt="">Thông tin cá nhân
+                                                    <img src="{% static 'img/info.png' %}" alt="" class="img-fluid" style="width: 22px; height: 22px;">
+                                                    Thông tin cá nhân
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{% url 'DonHangCuaToi' %}">
-                                                    <img src="{% static 'img/cart-order/package.png' %}" alt="">Đơn hàng của tôi
+                                                    <img src="{% static 'img/package.png' %}" alt="" class="img-fluid" style="width: 22px; height: 22px;">
+                                                    Đơn hàng của tôi
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{% url 'DangXuat' %}">
-                                                    <img src="{% static 'img/logout.png' %}" alt="" class="img-fluid" style="width: 22px; height: 22px;">
+                                                <a href="#" id="logout-link">
+                                                    <img src="{% static 'img/quit.png' %}" alt="" class="img-fluid" style="width: 22px; height: 22px;">
                                                     Đăng xuất
-                                                    
                                                 </a>
                                             </li>
                                         </ul>
@@ -242,7 +247,25 @@
 
 </body>
 
+<script >
+    document.getElementById('logout-link').addEventListener('click', function(event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
+
+        if (confirm('Bạn có chắc chắn muốn đăng xuất không?')) {
+            window.location.href = "{% url 'DangXuat' %}";
+        }
+    });
+</script>
+
 <script>
+    function validateSearch() {
+        var searched = document.querySelector('[name="searched"]').value.trim();
+        if (searched === "") {
+            alert("Vui lòng nhập thông tin tìm kiếm.");
+            return false;
+        }
+        return true;
+    }
     // 1. Thêm vào giỏ hàng, xóa khỏi giỏ hàng, cập nhật giỏ hàng
     console.log('hello');
     var updateBtns = document.getElementsByClassName('update-cart');
@@ -403,6 +426,7 @@
         password2Field.setAttribute('placeholder', 'Nhập lại mật khẩu');
     });
     
+
 </script> 
 
 </html>

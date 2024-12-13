@@ -1,55 +1,4 @@
-header .main-header .customer button {
-    margin-left: -10px;
-}
 
-/* dropdown cá nhân */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.customer .dropdown-content {
-    display: none;
-    position: absolute;
-    border-radius: 10px;
-    background-color: white;
-    width: 210px; 
-    height: 150px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    right: -25px;
-    z-index: 3;
-    padding: 10px;
-}
-
-.dropdown-content ul li:hover {
-    background-color: var(--background-color1);
-}
-
-.dropdown-content a {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: black;
-}
-
-.dropdown-content img {
-    margin-right: 10px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* End dropdown cá nhân */
-
-.qnt_item {
-    float: right;
-    position: relative;
-    height: 15px;
-    width: 15px;
-    left: 38px;
-    bottom: -5px;
-}
 
 /* Order Container*/
 
@@ -145,12 +94,12 @@ header .main-header .customer button {
     justify-content: space-between;    
 }
 
-.item-info div:first-child {
+.item-info div{
 
     align-items: center;
-    padding: 10px 80px 10px 80px;
+    padding: 10px 80px 0px 80px;
 }
-
+/*
 .item-info div:nth-child(2){
     padding: 0 40px 0 80px;
 }
@@ -158,7 +107,7 @@ header .main-header .customer button {
 .item-info div:nth-child(2) img {
     transform: rotate(180deg);
     margin-left: 10px; 
-}
+} */
 
 .inner-price {
     color: #008DDC;
@@ -167,5 +116,25 @@ header .main-header .customer button {
 
 .order-btn {
     width: 200px;
-    margin: 10px 80px 10px 0;
+    margin: 0px 0px 10px 0;
+}
+
+.avatar-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* Đảm bảo ảnh được cắt để vừa khung */
+    border-radius: 5px; /* (Tùy chọn) Bo góc nhẹ cho ảnh */
+}
+
+.order-info {
+    padding-left: 70px;
+    border-top: 1px solid gainsboro;
+    padding-top: 10px;
+}
+
+.item-card .order-info p {
+    text-align: left;
+}
+.total-method {
+    border-top: 1px solid gainsboro;
 }

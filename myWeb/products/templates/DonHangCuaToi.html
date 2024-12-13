@@ -14,202 +14,111 @@
             </nav>
         </div>
     </section>
-
+    
     <section class="container">
         <div class="order-cont">
             <div class="box">
                 <p>Đơn hàng của tôi</p>
-                <input class="search-bar" type="text"
-                    placeholder="Tìm theo tên đơn, mã đơn, hoặc tên sản phẩm...">
             </div>
             <ul>
-                <li><a href="#" class="filter-order" class="active" onClick="tatca(this)">Tất cả</a></li>
+                <li><a href="#" class="filter-order active" onClick="tatca(this)">Tất cả</a></li>
                 <li><a href="#" class="filter-order" onClick="other(this)">Đang xử lý</a></li>
                 <li><a href="#" class="filter-order" onClick="other(this)">Đang giao</a></li>
                 <li><a href="#" class="filter-order" onClick="other(this)">Đã giao</a></li>
                 <li><a href="#" class="filter-order" onClick="dahuy(this)">Đã hủy</a></li>
                 <li><a href="#" class="filter-order" onClick="other(this)">Trả hàng</a></li>                                   
             </ul>
-            <div class="item-card">
-                <div class="box">
-                    <p>Đơn hàng ngày 30/09/2024</p>
-                    <p class="inner-name">Đã hủy</p>
-                </div>
-                <div class="item-info">
-                    <div>
-                        <img src="assets/img/cart-order/item4.png" alt="">
-                        <p class="inner-name">ACNOTIN 20MG MEGA 3X10</p>
-                        <p class="inner-price">15.000đ</p>
-                        <p>x7 viên</p>                        
-                    </div>
-                    <div>
-                        <a href="#">Xem chi tiết<img src="assets/img/cart-order/back.png"></a>
-                        <div>
-                            <p>Thành tiền:</p>
-                            <p class="inner-price">105.000đ</p>
-                        </div>  
-                    </div>
-                </div>
-                <button class="order-btn">Mua lại</button>
-            </div>      
-            <div class="item-card">
-                <div class="box">
-                    <p>Đơn hàng ngày 20/07/2024</p>
-                    <p class="inner-name">Đã giao</p>
-                </div>
-                <div class="item-info">
-                    <div>
-                        <img src="assets/img/cart-order/item5.png" alt="">
-                        <p class="inner-name">TINH BỘT NGHỆ HONIMORE 130G</p>
-                        <p class="inner-price">138.000đ</p>
-                        <p>x1 chai</p>                        
-                    </div>
-                    <div>
-                        <a href="#">Xem chi tiết<img src="assets/img/cart-order/back.png"></a>
-                        <div>
-                            <p>Thành tiền:</p>
-                            <p class="inner-price">138.000đ</p>
-                        </div>  
-                    </div>
-                </div>
-                <button class="order-btn">Mua lại</button>
-            </div>      
             
-            <div class="item-card2">
-                <div class="box">
-                    <p>Đơn hàng ngày 03/08/2024</p>
-                    <p class="inner-name">Đã hủy</p>
-                </div>
-                <div class="item-info">
-                    <div>
-                        <img src="assets/img/cart-order/item5.png" alt="">
-                        <p class="inner-name">TINH BỘT NGHỆ HONIMORE 130G</p>
-                        <p class="inner-price">138.000đ</p>
-                        <p>x3 chai</p>                        
+            {% for order in order_details %}
+                <div class="item-card" data-status="{{ order.order_status }}">
+                    <div class="box">
+                        <p>Đơn hàng ngày {{ order.order_date|date:"d/m/Y" }}</p>
+                        <p class="inner-name">{{ order.order_status }}</p>
                     </div>
-                    <div>
-                        <a href="#">Xem chi tiết<img src="assets/img/cart-order/back.png"></a>
+                    <div class="order-info">
+                        <p>Người nhận: {{ order.receiver_name }}</p>
+                        <p>Số điện thoại nhận hàng: {{ order.receiver_phone }}</p>
+                        <p>Địa chỉ nhận hàng: {{ order.receiver_address }}</p>
+                    </div>
+                    <div class="item-info">
+                        {% for item in order.items %}
                         <div>
-                            <p>Thành tiền:</p>
-                            <p class="inner-price">414.000đ</p>
-                        </div>  
+                            <img src="{{ item.image_url }}" alt="" class="avatar-image">
+                            <p class="inner-name">{{ item.product_name }}</p>
+                            <p class="inner-price">{{ item.total_price }}đ</p>
+                            <p>x{{ item.quantity }} {{ item.product_unit_type }}</p>                        
+                        </div>
+                        {% endfor %}
+                        <div class="total-method">
+                            <p>{{order.order_method}}</p>
+                            <div>
+                                <p>Thành tiền:</p>
+                                <p class="inner-price">{{ order.order_total }}đ</p>
+                            </div> 
+                            {% if order.order_status == "Đang xử lý" %}
+                            <button class="order-btn">Yêu cầu hủy</button>
+                            {% endif %}
+                        </div>
+                        
                     </div>
+                    
+                    
                 </div>
-                <button class="order-btn">Mua lại</button>
-            </div>
+            {% endfor %}
         </div>
     </section>
-
+    
     <script>
-            // tăng giảm số lượng (cart)
-
-    // Lấy tất cả các quantity selectors
-    const quantitySelectors = document.querySelectorAll(".quantity-selector");
-
-    quantitySelectors.forEach((selector) => {
-    const decreaseButton = selector.querySelector(".decrease");
-    const increaseButton = selector.querySelector(".increase");
-    const quantityInput = selector.querySelector(".quantity");
-
-    // Xử lý khi nhấn nút tăng
-    increaseButton.addEventListener("click", function () {
-        const max = parseInt(quantityInput.max) || Infinity;
-        const currentValue = parseInt(quantityInput.value) || 0;
-        if (currentValue < max) {
-        quantityInput.value = currentValue + 1;
-        }
-    });
-
-    // Xử lý khi nhấn nút giảm
-    decreaseButton.addEventListener("click", function () {
-        const min = parseInt(quantityInput.min) || 1;
-        const currentValue = parseInt(quantityInput.value) || 0;
-        if (currentValue > min) {
-        quantityInput.value = currentValue - 1;
-        }
-    });
-
-    // Đảm bảo giá trị nhập tay nằm trong giới hạn
-    quantityInput.addEventListener("input", function () {
-        const min = parseInt(quantityInput.min) || 1;
-        const max = parseInt(quantityInput.max) || Infinity;
-        const value = parseInt(quantityInput.value) || min;
-        if (value < min) {
-        quantityInput.value = min;
-        } else if (value > max) {
-        quantityInput.value = max;
-        }
-    });
-    });
-
-    // check tất cả (cart)
-
-    const selectAllCheckbox = document.getElementById('selectAll');
-    const optionCheckboxes = document.querySelectorAll('input[name="options"]');
-
-    selectAllCheckbox.addEventListener('change', () => {
-    optionCheckboxes.forEach(checkbox => {
-        checkbox.checked = selectAllCheckbox.checked;
-    });
-    });
-
-    optionCheckboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-        selectAllCheckbox.checked = [...optionCheckboxes].every(cb => cb.checked);
-    });
-    });
-
-    // thay đổi phân loại đơn hàng (order)
-
-    function tatca(link) {
-        const itemCards = document.getElementsByClassName("item-card");
-        for (let i = 0; i < itemCards.length; i++) {
-        itemCards[i].style.display = "block";
+        function tatca(link) {
+            const itemCards = document.querySelectorAll(".item-card");
+            itemCards.forEach(card => {
+                card.style.display = "block";
+            });
+            activeLink(link);
         }
         
-        activeLink(link)
-    }
-    
-    function dahuy(link) {
-        const itemCard = document.getElementsByClassName("item-card");
-        for (let i = 0; i < itemCard.length; i++) {
-        itemCard[i].style.display = "none";
+        function dahuy(link) {
+            const itemCards = document.querySelectorAll(".item-card");
+            itemCards.forEach(card => {
+                card.style.display = card.getAttribute("data-status") === "Đã hủy" ? "block" : "none";
+            });
+            activeLink(link);
         }
-
-        const itemCard2 = document.getElementsByClassName("item-card2");
-        for (let i = 0; i < itemCard2.length; i++) {
-        itemCard2[i].style.display = "block";
-    }
-
-        activeLink(link)
-    }
-
-    function other(link) {
-        const itemCard = document.querySelectorAll('[class^="item-card"]');
-        for (let i = 0; i < itemCard.length; i++) {
-        itemCard[i].style.display = "none";
+        
+        function other(link) {
+            const itemCards = document.querySelectorAll(".item-card");
+            itemCards.forEach(card => {
+                card.style.display = card.getAttribute("data-status") === link.innerText.trim() ? "block" : "none";
+            });
+            activeLink(link);
         }
-
-        activeLink(link)
-    }
-
-    function activeLink(link) {
-        // Lấy tất cả các liên kết
-        const links = document.querySelectorAll('.filter-order');
-    
-        // Xóa kiểu dáng của tất cả các liên kết
-        links.forEach(link => {
-        link.style.borderBottom = '';
-        link.style.borderWidth = '';
-        link.style.paddingBottom = '';
+        
+        function activeLink(link) {
+            // Lấy tất cả các liên kết
+            const links = document.querySelectorAll('.filter-order');
+        
+            // Xóa kiểu dáng của tất cả các liên kết
+            links.forEach(link => {
+                link.style.borderBottom = '';
+                link.style.borderWidth = '';
+                link.style.paddingBottom = '';
+            });
+        
+            // Thêm kiểu dáng cho liên kết vừa được click
+            link.style.borderBottom = '1px solid #008DDC';
+            link.style.borderWidth = 'thick';
+            link.style.paddingBottom = '5px';
+        }
+        
+        // Đặt liên kết "Tất cả" làm mặc định khi tải trang
+        document.addEventListener("DOMContentLoaded", function() {
+            const allLink = document.querySelector('.filter-order.active');
+            if (allLink) {
+                activeLink(allLink);
+            }
         });
-    
-        // Thêm kiểu dáng cho liên kết vừa được click
-        link.style.borderBottom = '1px solid #008DDC';
-        link.style.borderWidth = 'thick';
-        link.style.paddingBottom = '5px';
-    }
         
     </script>
-
-{% endblock %}
+    
+    {% endblock %}
+    

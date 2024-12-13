@@ -4,17 +4,27 @@ from . import views
 urlpatterns = [
     path('', views.TrangChu, name='TrangChu'),
     path('Truyền thông/', views.TruyenThong, name='TruyenThong'),
+     path('Tìm kiếm/', views.TimKiem, name='TimKiem'),
+    
     path('Đăng nhập/', views.DangNhap, name='DangNhap'),
     path('Đăng ký/', views.DangKy, name='DangKy'),
     path('Đăng xuất/', views.DangXuat, name='DangXuat'),
     path('Giỏ hàng/', views.GioHang, name='GioHang'),
+    path('Đặt hàng/', views.DatHang, name='DatHang'),
+
     
     path('update_item/', views.updateItem, name='update_item'),
     
     
     path('Trang cá nhân/', views.TrangCaNhan, name='TrangCaNhan'),
     path('Edit trang cá nhân/', views.EditTrangCaNhan, name='EditTrangCaNhan'),
-    path('Đơn hàng của tôi', views.DonHangCuaToi, name='DonHangCuaToi'),
+    
+    
+    path('Đơn hàng của tôi/', views.DonHangCuaToi, name='DonHangCuaToi'),
+    # path('Chi tiết đơn hàng', views.ChiTietDonHang, name='ChiTietDonHang'),
+    
+
+    
     path('<str:cate_lv1_name>/', views.PList_Lv1, name='categories_products'),
     path('<str:cate_lv1_name>/<str:cate_lv2_name>/', views.PList_Lv2, name='categories_lv2'),
     path('<str:cate_lv1_name>/<str:cate_lv2_name>/<str:product_name>/', views.ChiTietSanPham, name='product_detail'),

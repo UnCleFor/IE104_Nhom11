@@ -37,7 +37,12 @@ class CreateUserForm(UserCreationForm):
                 'placeholder': 'Nhập lại mật khẩu'
             }),
         }
-
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError('This email is already taken.')
+        return email
+    
     # def clean_password2(self):
     #     # Lấy dữ liệu từ cả hai trường mật khẩu
     #     password1 = self.cleaned_data.get('password1')
@@ -127,15 +132,31 @@ class Cart(models.Model):
     cart_customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
     cart_product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=False)
     cart_product_quantity = models.IntegerField(default=1)
+    is_selected = models.BooleanField(default=False)  # Trạng thái chọn/deselect sản phẩm
     
     def __str__(self) -> str:
         return f"Giỏ hàng của {self.cart_customer.username}: {self.cart_product.prod_name}"
     class Meta:
         unique_together = ('cart_customer', 'cart_product')  # Một khách hàng không thể thêm trùng sản phẩm vào giỏ
 
+    @property
+    def get_total_cart(self):
+        # Tính tổng tiền cho sản phẩm này nếu được chọn
+        if self.is_selected:
+            return self.cart_product.prod_price * self.cart_product_quantity
+        return 0
+
+    @staticmethod
+    def calculate_selected_total(user):
+        # Lấy tất cả các mục trong giỏ hàng của người dùng và đã được chọn
+        selected_items = Cart.objects.filter(cart_customer=user, is_selected=True)
+        # Tính tổng tiền từ tất cả các mục
+        total = sum(item.cart_product.prod_price * item.cart_product_quantity for item in selected_items)
+        return total
+        
 class Order(models.Model):
     UNIT_TYPE_CHOICES = [
-        ('Chưa hoàn tất', 'Chưa hoàn tất'),
+        
         ('Đang xử lý', 'Đang xử lý'),
         ('Đang giao', 'Đang giao'),
         ('Đã giao', 'Đã giao'),
@@ -151,23 +172,17 @@ class Order(models.Model):
     order_status = models.CharField(max_length=100,choices=UNIT_TYPE_CHOICES)
     order_total = models.IntegerField(null=True,blank=False)
     order_method = models.CharField(max_length=100,choices=METHOD_CHOICE)
+    
+    order_receiver_name = models.CharField(max_length=100,null=True,blank=False)
+    order_receiver_phone = models.CharField(max_length=15,null=True,blank=False)
+    order_adress = models.CharField(max_length=100,null=True,blank=False)
 
     def __str__(self) -> str:
         return f"Đơn hàng từ {self.order_customer} vào ngày {self.order_date}"
 class OrderItem(models.Model):
-    order = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=False)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=False)
     quantity = models.IntegerField(null=True,blank=False)
     
     def __str__(self) -> str:
         return f"Đơn {self.order.order_customer} vào ngày {self.order.order_date} mua {self.product.prod_name}"
-class Shipping(models.Model):
-    ship_customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
-    ship_order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=False)
-    ship_receiver_name = models.CharField(max_length=100)
-    ship_receiver_phone = models.CharField(max_length=15)
-    ship_adress = models.CharField(max_length=100)
-    
-    def __str__(self):
-        return f"Giao hàng cho {self.ship_customer.username}"
-  

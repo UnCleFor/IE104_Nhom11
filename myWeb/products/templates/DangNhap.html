@@ -28,12 +28,34 @@
     </div>
 </section>
 
-<!-- JavaScript để hiển thị alert -->
 <script>
-    {% if messages %}
-        {% for message in messages %}
-            alert("{{ message }}");
-        {% endfor %}
-    {% endif %}
+    document.getElementById('form-login').addEventListener('submit', function(e) {
+        e.preventDefault(); // Ngăn form tải lại trang
+    
+        const formData = new FormData(this);
+    
+        fetch('', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message); // Hiển thị thông báo thành công
+                window.location.href = "{% url 'TrangChu' %}"; // Chuyển hướng đến trang chủ
+            } else {
+                alert(data.message); // Hiển thị thông báo lỗi
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Đã xảy ra lỗi, vui lòng thử lại!');
+        });
+    });
 </script>
+    
+
 {% endblock %}

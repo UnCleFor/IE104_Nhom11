@@ -20,82 +20,50 @@
         <div class="container">
             <div class="profile-card">
                 <h2>Thông tin cá nhân</h2>
-                <hr/>
-                <form>
+                <hr />
+                <form method="POST" action="{% url 'EditTrangCaNhan' %}" id="edit-profile-form">
+                    {% csrf_token %}
                     <div class="profile-avatar">
-                        <img src="./assets/img/Trang cá nhân/avatar.png" alt="Avatar">
-                       
+                        <img src="{% static 'img/Trang cá nhân/avatar.png'%}" alt="Avatar" />
                     </div>
                     <div class="profile-details">
                         <div class="form-group mb-3">
-                            <label for="fullName">Họ và tên</label>
-                            <input type="text" id="fullName" class="form-control" value="Nguyễn Văn A">
+                            <label for="username">Tên người dùng</label>
+                            <input type="text" id="username" name="username" class="form-control" value="{{ user.username }}" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="phone">Số điện thoại</label>
-                            <input type="text" id="phone" class="form-control" value="0372839990">
+                            <label for="last-name">Họ</label>
+                            <input type="text" id="last-name" name="last_name" class="form-control" value="{{ user.last_name }}" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Giới tính</label>
-                            <div class="d-flex align-items-center">
-                                <div class="form-check me-3">
-                                    <input type="radio" id="male" name="gender" class="form-check-input" checked>
-                                    <label for="male" class="form-check-label">Nam</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="radio" id="female" name="gender" class="form-check-input">
-                                    <label for="female" class="form-check-label">Nữ</label>
-                                </div>
-                            </div>
+                            <label for="first-name">Tên</label>
+                            <input type="text" id="first-name" name="first_name" class="form-control" value="{{ user.first_name }}" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="birthDate">Ngày sinh</label>
-                            <input type="date" id="birthDate" class="form-control" value="2004-02-22">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" value="{{ user.email }}" required>
                         </div>
                     </div>
                     <div class="edit-button">
-                        <button type="submit" class="btn-primary" onclick="window.location.href = '{% url 'TrangCaNhan' %}'">Cập nhật thông tin</button>
-                        
+                        <button type="submit" class="btn-primary">Cập nhật thông tin</button>
                     </div>
                 </form>
+                {% if messages %}
+                <div class="alert-messages">
+                    {% for message in messages %}
+                        <div class="alert  alert-danger">{{ message }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
         </div>
     </section>
-
+    
+    
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector("form");
-            const fullNameInput = document.getElementById("fullName");
-            const phoneInput = document.getElementById("phone");
-            const birthDateInput = document.getElementById("birthDate");
-          
-            // Kiểm tra thông tin khi gửi form
-            form.addEventListener("submit", function (event) {
-              event.preventDefault();
-          
-              const fullName = fullNameInput.value.trim();
-              const phone = phoneInput.value.trim();
-              const birthDate = birthDateInput.value;
-          
-              if (!fullName) {
-                alert("Họ và tên không được để trống!");
-                return;
-              }
-          
-              if (!/^\d{10}$/.test(phone)) {
-                alert("Số điện thoại phải là 10 chữ số!");
-                return;
-              }
-          
-              if (!birthDate) {
-                alert("Vui lòng chọn ngày sinh!");
-                return;
-              }
-          
-              // Hiển thị thông báo khi tất cả dữ liệu hợp lệ
-              alert("Cập nhật thông tin thành công!");
-            });
-          });
-          
+        
     </script>
+        
+    
+        
 {% endblock %}

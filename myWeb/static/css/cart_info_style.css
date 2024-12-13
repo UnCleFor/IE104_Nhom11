@@ -1,55 +1,4 @@
-header .main-header .customer button {
-    margin-left: -10px;
-}
 
-/* dropdown cá nhân */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.customer .dropdown-content {
-    display: none;
-    position: absolute;
-    border-radius: 10px;
-    background-color: white;
-    width: 210px; 
-    height: 150px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    right: -25px;
-    z-index: 3;
-    padding: 10px;
-}
-
-.dropdown-content ul li:hover {
-    background-color: var(--background-color1);
-}
-
-.dropdown-content a {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: black;
-}
-
-.dropdown-content img {
-    margin-right: 10px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* End dropdown cá nhân */
-
-.qnt_item {
-    float: right;
-    position: relative;
-    height: 15px;
-    width: 15px;
-    left: 38px;
-    bottom: -5px;
-}
 
 /* quay lại giỏ hàng */
 .title {
@@ -60,8 +9,9 @@ header .main-header .customer button {
 .cart-cont {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 160px 360px 190px;
+    grid-template-rows: 1 / span 2;
     gap: 10px;
+    margin-bottom: 10px;
 }
 
 .item-list {
@@ -69,7 +19,7 @@ header .main-header .customer button {
     border-radius: 15px;
     border: 1px solid #ccc;
     width: 870px;
-    height: 100px;
+
 }
 
 .item-card {
@@ -138,14 +88,13 @@ aside {
 
 .ship-info {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     background-color: white;
     border-radius: 15px;
     border: 1px solid #ccc;
     padding: 10px;
     /* margin-left: 50px; */
-    width: 870px;
-    height: 300px;
+   
 }
 
 .ship-info div {
@@ -200,3 +149,9 @@ input[type="radio"] {
 }
 
 /* End Type*/
+.avatar-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* Đảm bảo ảnh được cắt để vừa khung */
+    border-radius: 5px; /* (Tùy chọn) Bo góc nhẹ cho ảnh */
+}
