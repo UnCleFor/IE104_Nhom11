@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Category_lv1, Category_lv2
 from django.core.paginator import Paginator
 
@@ -358,9 +358,6 @@ def updateItem(request):
 
 # Thêm tự tạo form đăng ký user của django
 from django.contrib.auth.forms import UserCreationForm
-def DangNhap(request):
-    context = {}
-    return render(request,'DangNhap.html',context)
 
 def DangKy(request):
     form = CreateUserForm()
@@ -372,3 +369,26 @@ def DangKy(request):
             form.save()
     context = { 'form': form }
     return render(request,'DangKy.html',context)
+
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
+def DangNhap(request):
+    # Nếu đã đăng nhập rồi thì về trang chủ
+    if request.user.is_authenticated:
+        return redirect('TrangChu')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username = username, password = password)
+        # Nếu có user này trong dữ liệu thì login
+        if user is not None :
+            login(request,user)
+            return redirect('TrangChu')
+        else :
+            messages.info(request,'Tên đăng nhập hoặc mật khẩu chưa đúng')
+    context = {}
+    return render(request,'DangNhap.html',context)
+
+def DangXuat(request):
+    logout(request)
+    return redirect('DangNhap')

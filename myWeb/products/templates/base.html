@@ -89,7 +89,7 @@
                         {% if user.is_authenticated %}
                             <div class="customer">
                                 <div class="dropdown">
-                                    <button><i class="fa-solid fa-user"></i> {{ user.get_full_name|default:user.username }}</button>
+                                    <button><i class="fa-solid fa-user"></i> {{ user.username }}</button>
                                     <div class="dropdown-content">
                                         <ul>
                                             <li>
@@ -103,9 +103,9 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <img src="{% static 'img/sanphamuuthich.png' %}" alt="" class="img-fluid" style="width: 22px; height: 22px;">
-                                                    Sản phẩm ưa thích
+                                                <a href="{% url 'DangXuat' %}">
+                                                    <img src="{% static 'img/logout.png' %}" alt="" class="img-fluid" style="width: 22px; height: 22px;">
+                                                    Đăng xuất
                                                     
                                                 </a>
                                             </li>
