@@ -17,10 +17,12 @@ def nav_categories(request):
     }
 
 def cart_item_count(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        cart_items = Cart.objects.filter(cart_customer=customer)
-        item_count = cart_items.count()  # Số loại sản phẩm trong giỏ hàng
-    else:
-        item_count = 0  # Người dùng chưa đăng nhập
-    return {'cart_item_count': item_count}
+    # if request.user.is_authenticated:
+    #     customer = request.user.customer
+    #     cart_items = Cart.objects.filter(cart_customer=customer)
+    #     item_count = cart_items.count()  # Số loại sản phẩm trong giỏ hàng
+    # else:
+    #     item_count = 0  # Người dùng chưa đăng nhập
+    ...
+    return {'cart_item_count': 0}
+    

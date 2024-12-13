@@ -51,5 +51,17 @@
         </form>
     </div>
     </section>
+    <script>
+        {% if messages %}
+            let errors = "";
+            {% for message in messages %}
+                errors += "{{ message }}\n";
+            {% endfor %}
+            if (errors) {
+                alert(errors);
+            }
+        {% endif %}
+    </script>
+    
     
 {% endblock %}

@@ -38,24 +38,16 @@ class CreateUserForm(UserCreationForm):
             }),
         }
 
-    def clean_password2(self):
-        # Lấy dữ liệu từ cả hai trường mật khẩu
-        password1 = self.cleaned_data.get('password1')
-        password2 = self.cleaned_data.get('password2')
+    # def clean_password2(self):
+    #     # Lấy dữ liệu từ cả hai trường mật khẩu
+    #     password1 = self.cleaned_data.get('password1')
+    #     password2 = self.cleaned_data.get('password2')
 
-        if password1 and password2 and password1 != password2:
-            raise forms.ValidationError("Mật khẩu không khớp. Vui lòng kiểm tra lại.")
-        return password2
+    #     if password1 and password2 and password1 != password2:
+    #         raise forms.ValidationError("Mật khẩu không khớp. Vui lòng kiểm tra lại.")
+    #     return password2
 
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete = models.SET_NULL, null=True, blank= False)
-    user_name = models.CharField(max_length=500)
-    user_birth = models.DateField()
-    user_phone = models.CharField(max_length=15)
-    user_email = models.EmailField(max_length=100, null =True)
 
-    def __str__(self) -> str:
-        return self.user_name
 
 class Category_lv1(models.Model):
     cate_1 = models.CharField(max_length=500)
@@ -132,12 +124,12 @@ class Product_Image(models.Model):
         return url
 
 class Cart(models.Model):
-    cart_customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=False)
+    cart_customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
     cart_product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=False)
     cart_product_quantity = models.IntegerField(default=1)
     
     def __str__(self) -> str:
-        return f"Giỏ hàng của {self.cart_customer.user_name}: {self.cart_product.prod_name}"
+        return f"Giỏ hàng của {self.cart_customer.username}: {self.cart_product.prod_name}"
     class Meta:
         unique_together = ('cart_customer', 'cart_product')  # Một khách hàng không thể thêm trùng sản phẩm vào giỏ
 
@@ -154,7 +146,7 @@ class Order(models.Model):
         ('Thanh toán tiền mặt khi nhận hàng', 'Thanh toán tiền mặt khi nhận hàng'),
         ('Thanh toán bằng thẻ ATM nội địa và tài khoản ngân hàng', 'Thanh toán bằng thẻ ATM nội địa và tài khoản ngân hàng'),
     ]
-    order_customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=False)
+    order_customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
     order_date = models.DateField(auto_now_add=True)
     order_status = models.CharField(max_length=100,choices=UNIT_TYPE_CHOICES)
     order_total = models.IntegerField(null=True,blank=False)
@@ -163,18 +155,19 @@ class Order(models.Model):
     def __str__(self) -> str:
         return f"Đơn hàng từ {self.order_customer} vào ngày {self.order_date}"
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=False)
+    order = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=False)
     quantity = models.IntegerField(null=True,blank=False)
     
     def __str__(self) -> str:
         return f"Đơn {self.order.order_customer} vào ngày {self.order.order_date} mua {self.product.prod_name}"
 class Shipping(models.Model):
-    ship_customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=False)
+    ship_customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
     ship_order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=False)
     ship_receiver_name = models.CharField(max_length=100)
     ship_receiver_phone = models.CharField(max_length=15)
     ship_adress = models.CharField(max_length=100)
     
-    def __str__(self) -> str:
-        return f"Giao đơn hàng từ {self.ship_order.order_customer} vào ngày {self.ship_order.order_date}"
+    def __str__(self):
+        return f"Giao hàng cho {self.ship_customer.username}"
+  

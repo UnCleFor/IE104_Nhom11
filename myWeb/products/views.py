@@ -270,7 +270,7 @@ def GioHang(request):
     images_with_url = []
 
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer = request.user
         # Lấy tất cả các sản phẩm trong giỏ hàng
         cart_items = Cart.objects.filter(cart_customer=customer)
 
@@ -327,7 +327,7 @@ def updateItem(request):
     productId = data['productId']
     action = data['action']
 
-    customer = request.user.customer
+    customer = request.user
     product = Product.objects.get(id=productId)
 
     # Lấy sản phẩm trong giỏ hàng hoặc tạo mới nếu chưa có
@@ -362,13 +362,19 @@ from django.contrib.auth.forms import UserCreationForm
 def DangKy(request):
     form = CreateUserForm()
     if request.method == 'POST':
-        # Nếu là post thì gán form bằng cái form bên kia
         form = CreateUserForm(request.POST)
-        # kiểm tra xem các trường được điền vào có hợp lệ với điều kiện mặc định của django hay ko
         if form.is_valid():
             form.save()
-    context = { 'form': form }
-    return render(request,'DangKy.html',context)
+            messages.success(request, 'Đăng ký thành công!')
+            return redirect('DangNhap')  # Chuyển hướng sau khi đăng ký thành công
+        else:
+            # Lặp qua các lỗi và thêm vào thông báo
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"Lỗi ở {field}: {error}")
+
+    context = {'form': form}
+    return render(request, 'DangKy.html', context)
 
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
