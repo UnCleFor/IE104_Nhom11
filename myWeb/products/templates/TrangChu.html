@@ -70,7 +70,7 @@
             <h1><i class="fa-regular fa-circle-check"></i> Danh mục nổi bật</h1>
             <div class="grid">
                 {% for category in top_categories %}
-                <a href="#">
+                <a href="{% url 'categories_lv2' category.cate_1 category.cate_2 %}">
                     <div class="card">
                         <div class="card-body">
                             <img src="{{ category.cate_2_image.url }}" alt="{{ category.cate_2 }}">
