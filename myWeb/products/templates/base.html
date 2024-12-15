@@ -312,44 +312,15 @@
     
     // 4. Hiển thị pop up thông báo khi ấn nút Chọn mua
 
-    // 4.1 Xác thực hành động của user
-    document.addEventListener('DOMContentLoaded', () => {
-        const popup = document.getElementById('popup');
-        const popupButtons = document.querySelectorAll('.update-cart');
-    
-        popupButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (user === "AnonymousUser") {
-                    // Không làm gì cả nếu chưa đăng nhập hoặc có thể dẫn qua trang đăng nhập
-                    
-                } else {
-                    showPopup();
-                }
-            });
-        });
-    
-    // 4.2 Hiện pop up 
-        function showPopup() {
-            popup.classList.remove('hidden'); // Hiển thị popup
-    
-            setTimeout(() => {
-                popup.classList.add('hidden'); // Ẩn popup sau 2 giây
-            }, 2000);
-        }
-    });
+    // Đặt trong TrangChu.html, PList_Lv1.html, PList_Lv2.html, TimKiem.html, ChiTietSanPham.html vì không load được trong trường hợp chưa đăng nhập
     
     // 5. Bộ lọc và sắp xếp cho trang danh sách sản phẩm lv1 (Chỉ có bộ lọc theo giá)
-    //    Đặt trong file PList_Lv1.html và PList_Lv2.html
+
+    //    Đặt trong file TimKiem.html, PList_Lv1.html và PList_Lv2.html vì load
 
     // 6. Gắn thuộc tính placeholder bằng js vì model không truyền thuộc tính vào được 
-    document.addEventListener('DOMContentLoaded', function() {
-        const password1Field = document.getElementById('id_password1');
-        const password2Field = document.getElementById('id_password2');
     
-        // Gán placeholder cho password1 và password2
-        password1Field.setAttribute('placeholder', 'Nhập mật khẩu');
-        password2Field.setAttribute('placeholder', 'Nhập lại mật khẩu');
-    });
+    //    Đặt trong file DangKy.html vì không load
     
     // 7. Cập nhật tổng tiền và thành tiền trong giỏ hàng
     function updateTotal() {
@@ -536,49 +507,8 @@
     });
 
     // 11. Tạo đơn hàng mới
-    document.getElementById('checkout-button').addEventListener('click', function(event) {
-        // Lấy giá trị các trường thông tin nhận hàng
-        const fullName = document.querySelector('input[name="full_name"]').value.trim();
-        const phoneNumber = document.querySelector('input[name="phone_number"]').value.trim();
-        const address = document.querySelector('input[name="address"]').value.trim();
-        const paymentMethods = document.querySelectorAll('input[name="payment_method"]');
-        let paymentMethodSelected = false; // Flag để kiểm tra xem có phương thức thanh toán được chọn hay không
     
-        // Kiểm tra mỗi trường nhập thông tin nhận hàng
-        let errorMessage = "";
-        if (!fullName) {
-            errorMessage += "Vui lòng nhập họ và tên người nhận.\n";
-        }
-    
-        if (!phoneNumber) {
-            errorMessage += "Vui lòng nhập số điện thoại người nhận.\n";
-        }
-    
-        if (!address) {
-            errorMessage += "Vui lòng nhập địa chỉ.\n";
-        }
-    
-        // Kiểm tra xem có phương thức thanh toán nào được chọn không
-        for (const method of paymentMethods) {
-            if (method.checked) {
-                paymentMethodSelected = true;
-                break;
-            }
-        }
-    
-        if (!paymentMethodSelected) {
-            errorMessage += "Vui lòng chọn phương thức thanh toán.\n";
-        }
-    
-        if (errorMessage) {
-            // Hiển thị alert với các lỗi và ngăn form submit
-            alert(errorMessage);
-            event.preventDefault();  
-        } else {
-            alert('Đã tạo đơn hàng thành công');
-            document.getElementById('order-form').submit();  // Submit form nếu không có lỗi
-        }
-    });
+    // Đặt trong DatHang.html vì gây thông báo sai ở trang chỉnh sửa trang cá nhân
     
 </script> 
 

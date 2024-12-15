@@ -53,6 +53,17 @@
     </section>
   
 <script>
+    // 6. Gắn thuộc tính placeholder bằng js vì model không truyền thuộc tính vào được
+    document.addEventListener('DOMContentLoaded', function() {
+        const password1Field = document.getElementById('id_password1');
+        const password2Field = document.getElementById('id_password2');
+    
+        // Gán placeholder cho password1 và password2
+        password1Field.setAttribute('placeholder', 'Nhập mật khẩu');
+        password2Field.setAttribute('placeholder', 'Nhập lại mật khẩu');
+    });
+
+    // Gửi form đến view để đăng ký
     document.getElementById('form-login').addEventListener('submit', function(e) {
         e.preventDefault(); // Ngăn form tải lại trang
 

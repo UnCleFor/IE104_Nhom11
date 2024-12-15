@@ -130,6 +130,118 @@
 </section>
 
     
+<script>
+
+    // 4. Hiển thị pop up thông báo khi ấn nút Chọn mua
+
+    // Đặt trong TrangChu.html, PList_Lv1.html, PList_Lv2.html, TimKiem.html, ChiTietSanPham.html vì không load được trong trường hợp chưa đăng nhập
+    // 4.1 Xác thực hành động của user
+    document.addEventListener('DOMContentLoaded', () => {
+        const popup = document.getElementById('popup');
+        const popupButtons = document.querySelectorAll('.update-cart');
+        
+        popupButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (user === "AnonymousUser") {
+                    // Không làm gì cả nếu chưa đăng nhập hoặc có thể dẫn qua trang đăng nhập
+                    alert('Bạn phải đăng nhập để thêm vào giỏ hàng');
+                } else {
+                    showPopup();
+                }
+            });
+        });
+    });
+    
+    // 4.2 Hiện pop up 
+        function showPopup() {
+            popup.classList.remove('hidden'); // Hiển thị popup
+    
+            setTimeout(() => {
+                popup.classList.add('hidden'); // Ẩn popup sau 2 giây
+            }, 2000);
+        }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const sortAscBtn = document.getElementById('sort-asc');
+        const sortDescBtn = document.getElementById('sort-desc');
+        const sortDefaultBtn = document.getElementById('sort-default'); // Nút mặc định
+        const priceFilter = document.getElementById('price-filter');
+        const productList = document.getElementById('product-list');
+        const old_list = Array.from(productList.children);
+    
+        // Hàm sắp xếp sản phẩm
+        function sortProducts(order) {
+            const products = Array.from(productList.children);
+    
+            products.sort((a, b) => {
+                const priceA = parseFloat(a.dataset.price);
+                const priceB = parseFloat(b.dataset.price);
+    
+                if (order === 'asc') {
+                    return priceA - priceB;
+                } else {
+                    return priceB - priceA;
+                }
+            });
+    
+            productList.innerHTML = '';
+            products.forEach(product => productList.appendChild(product));
+        }
+    
+        // Hàm lọc sản phẩm
+        function filterProductsByPrice(priceRange,) {
+            const filteredProducts = old_list.filter(product => {
+                const productPrice = parseFloat(product.dataset.price);
+    
+                switch (priceRange) {
+                    case '1': return productPrice < 100000;
+                    case '2': return productPrice >= 100000 && productPrice < 300000;
+                    case '3': return productPrice >= 300000 && productPrice < 500000;
+                    case '4': return productPrice >= 500000;
+                    default: return true;
+                }
+            });
+    
+            productList.innerHTML = '';
+            filteredProducts.forEach(product => productList.appendChild(product));
+        }
+    
+        // Khi trang được tải lần đầu, nút "Mặc định" sẽ được active
+        sortDefaultBtn.classList.add('active');
+    
+        // Lắng nghe sự kiện cho bộ lọc
+        priceFilter.addEventListener('change', (event) => {
+            filterProductsByPrice(event.target.value);
+
+
+        });
+    
+        // Lắng nghe sự kiện cho nút sắp xếp
+        sortAscBtn.addEventListener('click', () => {
+            sortAscBtn.classList.add('active');
+            sortDescBtn.classList.remove('active');
+            sortDefaultBtn.classList.remove('active');
+            sortProducts('asc');
+        });
+    
+        sortDescBtn.addEventListener('click', () => {
+            sortDescBtn.classList.add('active');
+            sortAscBtn.classList.remove('active');
+            sortDefaultBtn.classList.remove('active');
+        
+            sortProducts('desc');
+        });
+    
+        sortDefaultBtn.addEventListener('click', () => {
+            sortAscBtn.classList.remove('active');
+            sortDescBtn.classList.remove('active');
+            sortDefaultBtn.classList.add('active');
+            productList.innerHTML = '';
+            old_list.forEach(product => productList.appendChild(product));
+        });
+    });
+</script>
+    
     
     
     

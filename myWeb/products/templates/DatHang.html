@@ -76,8 +76,52 @@
     </div>
 </section>
 
+<script>
+    // 11. Tạo đơn hàng mới
+    document.getElementById('checkout-button').addEventListener('click', function(event) {
+        // Lấy giá trị các trường thông tin nhận hàng
+        const fullName = document.querySelector('input[name="full_name"]').value.trim();
+        const phoneNumber = document.querySelector('input[name="phone_number"]').value.trim();
+        const address = document.querySelector('input[name="address"]').value.trim();
+        const paymentMethods = document.querySelectorAll('input[name="payment_method"]');
+        let paymentMethodSelected = false; // Flag để kiểm tra xem có phương thức thanh toán được chọn hay không
 
+        // Kiểm tra mỗi trường nhập thông tin nhận hàng
+        let errorMessage = "";
+        if (!fullName) {
+            errorMessage += "Vui lòng nhập họ và tên người nhận.\n";
+        }
 
+        if (!phoneNumber) {
+            errorMessage += "Vui lòng nhập số điện thoại người nhận.\n";
+        }
+
+        if (!address) {
+            errorMessage += "Vui lòng nhập địa chỉ.\n";
+        }
+
+        // Kiểm tra xem có phương thức thanh toán nào được chọn không
+        for (const method of paymentMethods) {
+            if (method.checked) {
+                paymentMethodSelected = true;
+                break;
+            }
+        }
+
+        if (!paymentMethodSelected) {
+            errorMessage += "Vui lòng chọn phương thức thanh toán.\n";
+        }
+
+        if (errorMessage) {
+            // Hiển thị alert với các lỗi và ngăn form submit
+            alert(errorMessage);
+            event.preventDefault();  
+        } else {
+            alert('Đã tạo đơn hàng thành công');
+            document.getElementById('order-form').submit();  // Submit form nếu không có lỗi
+        }
+    });
+</script>
 
 
 {% endblock %}
