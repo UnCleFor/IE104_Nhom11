@@ -68,57 +68,5 @@
         </div>
     </section>
     
-    <script>
-        function tatca(link) {
-            const itemCards = document.querySelectorAll(".item-card");
-            itemCards.forEach(card => {
-                card.style.display = "block";
-            });
-            activeLink(link);
-        }
-        
-        function dahuy(link) {
-            const itemCards = document.querySelectorAll(".item-card");
-            itemCards.forEach(card => {
-                card.style.display = card.getAttribute("data-status") === "Đã hủy" ? "block" : "none";
-            });
-            activeLink(link);
-        }
-        
-        function other(link) {
-            const itemCards = document.querySelectorAll(".item-card");
-            itemCards.forEach(card => {
-                card.style.display = card.getAttribute("data-status") === link.innerText.trim() ? "block" : "none";
-            });
-            activeLink(link);
-        }
-        
-        function activeLink(link) {
-            // Lấy tất cả các liên kết
-            const links = document.querySelectorAll('.filter-order');
-        
-            // Xóa kiểu dáng của tất cả các liên kết
-            links.forEach(link => {
-                link.style.borderBottom = '';
-                link.style.borderWidth = '';
-                link.style.paddingBottom = '';
-            });
-        
-            // Thêm kiểu dáng cho liên kết vừa được click
-            link.style.borderBottom = '1px solid #008DDC';
-            link.style.borderWidth = 'thick';
-            link.style.paddingBottom = '5px';
-        }
-        
-        // Đặt liên kết "Tất cả" làm mặc định khi tải trang
-        document.addEventListener("DOMContentLoaded", function() {
-            const allLink = document.querySelector('.filter-order.active');
-            if (allLink) {
-                activeLink(allLink);
-            }
-        });
-        
-    </script>
-    
     {% endblock %}
     

@@ -74,60 +74,36 @@
                 </div> 
                 <div class="bill">
                     <p class="price">Tổng tiền <span id="total-price">{{total_selected_price}}</span></p>
-                    <p class="price">Giảm giá <span>0đ</span></p>
+                    <p class="price">Giảm giá <span>0 đ</span></p>
                     <p class="total">Thành tiền <span id="grand-total">{{total_selected_price}}</span></p>     
-                    <a href="{% url 'DatHang'%}"><button class="cart-btn">Mua hàng</button></a>
+                    <a href="{% url 'DatHang'%}">
+                        <button class="cart-btn" id="DatHang">Mua hàng</button>
+                    </a>
+                    
                 </div>
             </div>
         {% endif %}
     </section>
     
-    <script>
-    
-    // Cập nhật tổng tiền và thành tiền
-    function updateTotal() {
-        let total = 0;
-        let checkedItems = document.querySelectorAll('.item-checkbox:checked');
-
-        checkedItems.forEach(item => {
-            const price = parseFloat(item.getAttribute('data-price'));
-            const quantity = item.closest('.item-card').querySelector('.quantity').value;
-            total += price * quantity;
-        });
-
-        document.getElementById('total-price').innerText = `${total.toLocaleString()}đ`;
-        document.getElementById('grand-total').innerText = `${total.toLocaleString()}đ`;
-    }
-
-    // Lắng nghe sự kiện chọn/dỡ bỏ chọn sản phẩm
-    
-</script>
 
     
-    <script>
+    {% comment %} <script>
         // Lấy tất cả các nút tăng/giảm số lượng
         const quantityInputs = document.querySelectorAll('.quantity');
-    
         // Lắng nghe sự kiện thay đổi số lượng
         quantityInputs.forEach(input => {
             input.addEventListener('change', function() {
                 updateTotalItems();
             });
         });
-    
         // Cập nhật số lượng sản phẩm trong giỏ hàng
         function updateTotalItems() {
             const itemsCount = document.querySelectorAll('.quantity').length;
             document.querySelector('label[for="selectAll"]').innerText = `Chọn tất cả (${itemsCount})`;
         }
-    
         // Khi trang load lần đầu tiên
         document.addEventListener('DOMContentLoaded', updateTotalItems);
-
-
-        
-    </script>
+    </script> {% endcomment %}
     
-      
-    
+
 {% endblock %}
