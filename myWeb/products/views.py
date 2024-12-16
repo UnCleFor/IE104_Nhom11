@@ -475,7 +475,7 @@ def DatHang(request):
 
 def DonHangCuaToi(request):
     customer = request.user
-    order_list = Order.objects.filter(order_customer=customer)
+    order_list = Order.objects.filter(order_customer=customer).order_by('-order_date')
     order_details = []
 
     # Lấy chi tiết từng đơn hàng
