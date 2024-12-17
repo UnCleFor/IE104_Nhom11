@@ -139,34 +139,9 @@
     
     <script>
 
-        // 4. Hiển thị pop up thông báo khi ấn nút Chọn mua
-
-        // Đặt trong TrangChu.html, PList_Lv1.html, PList_Lv2.html, TimKiem.html, ChiTietSanPham.html vì không load được trong trường hợp chưa đăng nhập
-        // 4.1 Xác thực hành động của user
-        document.addEventListener('DOMContentLoaded', () => {
-            const popup = document.getElementById('popup');
-            const popupButtons = document.querySelectorAll('.update-cart');
-            
-            popupButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    if (user === "AnonymousUser") {
-                        // Không làm gì cả nếu chưa đăng nhập hoặc có thể dẫn qua trang đăng nhập
-                        alert('Bạn phải đăng nhập để thêm vào giỏ hàng');
-                    } else {
-                        showPopup();
-                    }
-                });
-            });
-        });
         
-        // 4.2 Hiện pop up 
-            function showPopup() {
-                popup.classList.remove('hidden'); // Hiển thị popup
-        
-                setTimeout(() => {
-                    popup.classList.add('hidden'); // Ẩn popup sau 2 giây
-                }, 2000);
-            }
+       
+    
 
         document.addEventListener('DOMContentLoaded', () => {
             const sortAscBtn = document.getElementById('sort-asc');
