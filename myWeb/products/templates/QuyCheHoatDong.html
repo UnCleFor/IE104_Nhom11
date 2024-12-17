@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/TruyenThong.css' %}">
+<section class="bread-crumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'TrangChu' %}">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Quy chế hoạt động</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>
+            Quy chế hoạt động của Trạm thuốc
+        </h2>
+        <article>
+            <h4>
+                I. Về nguyên tắc
+            </h4>
+            <p>
+                Nguyên tắc hoạt động của Trạm thuốc là tuân thủ các yêu cầu nghiêm ngặt về pháp lý và bảo vệ sức
+                khỏe người tiêu dùng.
+                Các bước cơ bản bao gồm: Khách hàng truy cập website, tìm kiếm hoặc duyệt qua các danh mục thuốc theo
+                nhóm (chẳng hạn thuốc giảm đau, thuốc kháng sinh, vitamin, v.v.).
+                Mỗi sản phẩm sẽ có thông tin chi tiết như mô tả công dụng, thành phần, liều dùng, tác dụng phụ, và cảnh
+                báo cần thiết. Khách hàng có thể tham khảo thêm các đánh giá từ người dùng trước và thêm thuốc vào giỏ
+                hàng.
+                Trong quá trình thanh toán, khách hàng cần cung cấp thông tin chính xác và có thể yêu cầu tư vấn thêm về
+                liều lượng hoặc cách sử dụng. Việc thanh toán có thể thực hiện qua các phương thức trực tuyến, và sau
+                khi thanh toán hoàn tất, đơn hàng sẽ được giao đến địa chỉ khách hàng đã đăng ký. Đặc biệt, website bán
+                thuốc cần có các biện pháp bảo mật thông tin và tuân thủ các quy định của cơ quan chức năng về việc bán
+                thuốc trực tuyến.
+            </p>
+            <h4>
+                II. Quy định
+            </h4>
+            <p>
+                Trạm thuốc phải tuân thủ các quy định pháp lý nghiêm ngặt để đảm bảo an toàn cho người tiêu dùng.
+                Cụ thể, website cần có giấy phép hoạt động từ cơ quan chức năng và chỉ bán các thuốc được cấp phép lưu
+                hành, có nguồn gốc rõ ràng. Thông tin về thuốc, bao gồm tên, thành phần, công dụng, liều lượng, tác dụng
+                phụ và cảnh báo, phải được cung cấp đầy đủ và chính xác. Đối với thuốc kê đơn, website yêu cầu khách
+                hàng cung cấp đơn thuốc hợp lệ từ bác sĩ. Các nhà thuốc trực tuyến phải có dược sĩ hoặc nhân viên y tế
+                có chứng chỉ hành nghề để tư vấn cho khách hàng. Bên cạnh đó, website cần bảo mật thông tin cá nhân và y
+                tế của khách hàng, đồng thời có cơ chế tiếp nhận và xử lý phản hồi về sản phẩm. Việc giao hàng phải đảm
+                bảo thuốc được bảo quản đúng cách và không bị hư hỏng. Ngoài ra, các website bán thuốc cũng phải lưu ý
+                về độ tuổi của khách hàng, chỉ bán thuốc cho người đủ tuổi trưởng thành và tuân thủ các quy định về bảo
+                vệ sức khỏe cộng đồng.
+            </p>
+        </article>
+    </div>
+</section>
+{% endblock %}

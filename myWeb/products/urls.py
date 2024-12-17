@@ -11,7 +11,6 @@ urlpatterns = [
     path('Đăng xuất/', views.DangXuat, name='DangXuat'),
     path('Giỏ hàng/', views.GioHang, name='GioHang'),
     path('Đặt hàng/', views.DatHang, name='DatHang'),
-
     
     path('update_item/', views.updateItem, name='update_item'),
     
@@ -23,6 +22,11 @@ urlpatterns = [
     path('Đơn hàng của tôi/', views.DonHangCuaToi, name='DonHangCuaToi'),
     # path('Chi tiết đơn hàng', views.ChiTietDonHang, name='ChiTietDonHang'),
     
+    path('Giới thiệu/', views.GioiThieu, name='GioiThieu'),
+    path('Quy chế hoạt động/', views.QuyCheHoatDong, name='QuyCheHoatDong'),
+    path('Chính sách nội dung/', views.ChinhSachNoiDung, name='ChinhSachNoiDung'),
+    path('Chính sách đổi trả/', views.ChinhSachDoiTra, name='ChinhSachDoiTra'),
+    path('Chính sách thanh toán/', views.ChinhSachThanhToan, name='ChinhSachThanhToan'),
 
     
     path('<str:cate_lv1_name>/', views.PList_Lv1, name='categories_products'),

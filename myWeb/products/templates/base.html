@@ -180,30 +180,29 @@
                 <div class="col-xl-2">
                     <h4>VỀ CHÚNG TÔI</h4>
                     <ul>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Quy chế hoạt động</a></li>
-                        <li><a href="#">Chính sách nội dung</a></li>
-                        <li><a href="#">Chính sách đổi trả thuốc</a></li>
-                        <li><a href="#">Chính sách giao hàng</a></li>
+                        <li><a href="{% url 'GioiThieu' %}">Giới thiệu</a></li>
+                        <li><a href="{% url 'QuyCheHoatDong' %}">Quy chế hoạt động</a></li>
+                        <li><a href="{% url 'ChinhSachNoiDung' %}">Chính sách nội dung</a></li>
+                        <li><a href="{% url 'ChinhSachDoiTra' %}">Chính sách đổi trả thuốc</a></li>
+                        <li><a href="{% url 'ChinhSachThanhToan'%}">Chính sách thanh toán</a></li>
                     </ul>
                 </div>
                 <div class="col-xl-2">
                     <h4>DANH MỤC</h4>
                     <ul>
-                        <li><a href="#">Thực phẩm chức năng</a></li>
-                        <li><a href="#">Dược mỹ phẩm</a></li>
-                        <li><a href="#">Chăm sóc cá nhân</a></li>
-                        <li><a href="#">Thuốc</a></li>
-                        <li><a href="#">Trang thiết bị y tế</a></li>
+                        {% for data in categories_data %}
+                            <li class="dropdown">
+                                <a href="{% url 'categories_products' data.cate_lv1.cate_1 %}">
+                                    {{ data.cate_lv1.cate_1 }}
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col-xl-2">
                     <h4>TÌM HIỂU THÊM</h4>
                     <ul>
-                        <li><a href="#">Góc sức khỏe</a></li>
-                        <li><a href="#">Tra cứu thuốc</a></li>
-                        <li><a href="#">Bệnh thường gặp</a></li>
-                        <li><a href="#">Tin tức sự kiện</a></li>
+                        <li><a href="{% url 'TruyenThong' %}">Truyền thông</a></li>
                     </ul>
                 </div>
                 <div class="col-xl-3">

@@ -643,3 +643,22 @@ def TimKiem(request):
         }
         return render(request, 'TimKiem.html', context)
 
+def GioiThieu(request):
+    context = {}
+    return render(request,'GioiThieu.html', context)
+
+def QuyCheHoatDong(request):
+    context = {}
+    return render(request,'QuyCheHoatDong.html', context)
+
+def ChinhSachNoiDung(request):
+    context = {}
+    return render(request,'ChinhSachNoiDung.html', context)
+
+def ChinhSachDoiTra(request):
+    context = {}
+    return render(request,'ChinhSachDoiTra.html', context)
+
+def ChinhSachThanhToan(request):
+    context = {}
+    return render(request,'ChinhSachThanhToan.html', context)

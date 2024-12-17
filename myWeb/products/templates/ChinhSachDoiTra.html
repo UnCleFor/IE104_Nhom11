@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/TruyenThong.css' %}">
+<section class="bread-crumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'TrangChu' %}">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Chính sách đổi trả</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>
+            Chính sách đổi trả thuốc của Trạm thuốc
+        </h2>
+        <article>
+            <h4>
+                I. Quy định đổi trả
+            </h4>
+            <p>Các trường hợp đổi/trả dành cho khách hàng có thông tin số điện thoại trên bill để phục vụ tra cứu.</p>
+            <p>Quý khách hàng vui lòng hoàn trả các sản phẩm tặng kèm (nếu có) khi phát sinh đổi/trả hàng hóa, hoặc Long
+                Châu thu lại số tiền tương đương mức giá của sản phẩm tặng kèm đã được công bố.</p>
+            <p>Ngoại trừ thuốc đặc trị ung thư, Long Châu áp dụng đổi/trả một phần và toàn bộ sản phẩm (Ví dụ: Khách
+                hàng mua 1 hộp 3 vỉ thuốc, Long Châu chấp nhận đổi trả 1 vỉ hoặc cả hộp thuốc...), số tiền hoàn lại được
+                tính dựa theo số lượng thực tế trả hàng và các loại phí theo chính sách (nếu có).</p>
+            <h4>
+                II. Hoàn tiền
+            </h4>
+            <p>Hoàn tiền qua chuyển khoản: Sau khi tiếp nhận yêu cầu hoàn tiền qua chuyển khoản của khách, Trạm thuốc sẽ
+                gửi tới khách hàng một đường link điền thông tin nhận số tiền hoàn vào số điện thoại mua hàng trên đơn
+                hàng. Sau khi khách hàng gửi thông tin thành công, Trạm thuốc sẽ hoàn lại tiền trong vòng từ 2-3 ngày
+                (không kể thứ 7, CN, hoặc ngày lễ, Tết).</p>
+        </article>
+    </div>
+</section>
+{% endblock %}

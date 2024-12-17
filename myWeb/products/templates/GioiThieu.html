@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/TruyenThong.css' %}">
+    <section class="bread-crumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'TrangChu' %}">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Giới thiệu</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section>
+            <div class="container">
+                <h2>
+                    Giới thiệu về Trạm thuốc
+                </h2>
+                <article>
+                    <h4>
+                        I. Về chúng tôi
+                    </h4>
+                    <p>
+                        Trạm thuốc được hoàn thiện và phát triển bỏi Nhóm 11, bao gồm 5 thành viên, 
+                        mỗi người đóng góp vào việc thiết kế, phát triển tính năng, 
+                        tối ưu trải nghiệm người dùng và đảm bảo chất lượng nội dung, 
+                        nhằm mang lại một nền tảng bán thuốc trực tuyến tiện lợi, an toàn và hiệu quả cho người dùng.
+                    </p>
+                    <h4>
+                        II. Các chức năng cơ bản
+                    </h4>
+                    <p>
+                        Website Trạm thuốc cung cấp các chức năng chính như sau: Hiển thị danh mục sản phẩm với thông tin chi tiết, hình ảnh, giá cả và các tùy chọn như màu sắc, kích thước; Chức năng tìm kiếm giúp khách hàng dễ dàng tìm sản phẩm mong muốn; Giỏ hàng để người dùng có thể thêm, sửa, xóa sản phẩm trước khi thanh toán; Hệ thống thanh toán trực tuyến hoặc qua các cổng thanh toán điện tử; Tạo tài khoản và đăng nhập cho khách hàng để lưu trữ thông tin cá nhân, lịch sử mua hàng; Quản lý đơn hàng, giúp khách hàng theo dõi trạng thái giao hàng; Chức năng đánh giá và nhận xét sản phẩm từ khách hàng; Cung cấp các hình thức liên hệ như chat trực tuyến hoặc hỗ trợ qua email. Tất cả các chức năng này giúp tạo trải nghiệm mua sắm thuận tiện và dễ dàng cho khách hàng.
+                    </p>
+                </article>
+            </div>
+    </section>
+{% endblock %}

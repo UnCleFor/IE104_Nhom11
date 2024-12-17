@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/TruyenThong.css' %}">
+<section class="bread-crumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'TrangChu' %}">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Chính sách thanh toán</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>
+            Chính sách thanh toán của Trạm thuốc
+        </h2>
+        <article>
+            <p>Thanh toán tại chỗ (Ship COD): Long Châu sẽ gọi lại cho khách hàng để xin địa chỉ giao hàng tận nơi và
+                nhận thanh toán tại chỗ.</p>
+            <p>Thanh toán qua thẻ ngân hàng: Chấp nhận thanh toán nhiều thương hiệu và loại thẻ bao gồm thẻ ATM, thẻ
+                Visa, MasterCard,...</p>
+            <p>Chuyển khoản trước: Khách hàng có thể chọn chuyển khoản trước vào tài khoản của Trạm thuốc</p>
+            <p>Số tài khoản: 9767400659</p>
+            <p>Chủ tài khoản: Công ty Cổ Phần Dược Phẩm Trạm thuốc</p>
+            <p>Ngân Hàng: VCB, Ngân hàng Thương mại Cổ phần Ngoại thương Việt Nam.</p>
+        </article>
+    </div>
+</section>
+{% endblock %}
