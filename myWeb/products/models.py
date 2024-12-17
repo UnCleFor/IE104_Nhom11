@@ -17,15 +17,18 @@ class CreateUserForm(UserCreationForm):
             }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-input',
-                'placeholder': 'Nhập email'
+                'placeholder': 'Nhập email',
+                'required': 'required'
             }),
             'first_name': forms.TextInput(attrs={
                 'class': 'form-input',
-                'placeholder': 'Nhập tên'
+                'placeholder': 'Nhập tên',
+                'required': 'required'
             }),
             'last_name': forms.TextInput(attrs={
                 'class': 'form-input',
-                'placeholder': 'Nhập họ'
+                'placeholder': 'Nhập họ',
+                'required': 'required'
             }),
             # 2 cái dưới này lỗi ko load được
             'password1': forms.PasswordInput(attrs={
